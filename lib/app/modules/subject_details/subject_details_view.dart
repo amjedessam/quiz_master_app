@@ -1,0 +1,213 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import '../../core/theme/app_colors.dart';
+// import '../../core/utils/helpers.dart';
+import 'subject_details_controller.dart';
+import 'widgets/chapter_tile.dart';
+
+class SubjectDetailsView extends GetView<SubjectDetailsController> {
+  const SubjectDetailsView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Obx(() {
+        if (controller.isLoading.value) {
+          return const Center(child: CircularProgressIndicator());
+        }
+
+        final subject = controller.subject.value!;
+
+        return CustomScrollView(
+          slivers: [
+            // App Bar with Subject Info
+            SliverAppBar(
+              expandedHeight: 200,
+              pinned: true,
+              flexibleSpace: FlexibleSpaceBar(
+                background: Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        Color(int.parse(subject.color)),
+                        Color(int.parse(subject.color)).withOpacity(0.7),
+                      ],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                    ),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          subject.icon,
+                          style: const TextStyle(fontSize: 50),
+                        ),
+                        const SizedBox(height: 10),
+                        Text(
+                          subject.name,
+                          style: const TextStyle(
+                            fontSize: 28,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                        const SizedBox(height: 5),
+                        Text(
+                          subject.description,
+                          style: const TextStyle(
+                            fontSize: 14,
+                            color: Colors.white70,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+
+            // Statistics
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: _buildStatBox(
+                        icon: Icons.book,
+                        label: 'الفصول',
+                        value: subject.chaptersCount.toString(),
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: _buildStatBox(
+                        icon: Icons.quiz,
+                        label: 'الاختبارات',
+                        value: subject.totalQuizzes.toString(),
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: _buildStatBox(
+                        icon: Icons.trending_up,
+                        label: 'المعدل',
+                        value: '${subject.averageScore.toStringAsFixed(0)}%',
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ), // Progress Bar
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          'التقدم الإجمالي',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          '${(subject.progress * 100).toStringAsFixed(0)}%',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Color(int.parse(subject.color)),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 8),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: LinearProgressIndicator(
+                        value: subject.progress,
+                        minHeight: 10,
+                        backgroundColor: Colors.grey[200],
+                        valueColor: AlwaysStoppedAnimation(
+                          Color(int.parse(subject.color)),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            // Chapters Title
+            const SliverToBoxAdapter(
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(16, 24, 16, 12),
+                child: Text(
+                  'الفصول والوحدات',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+
+            // Chapters List
+            SliverPadding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              sliver: SliverList(
+                delegate: SliverChildBuilderDelegate((context, index) {
+                  final chapter = controller.chapters[index];
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 12),
+                    child: ChapterTile(
+                      chapter: chapter,
+                      onTap: () => controller.startQuiz(chapter),
+                    ),
+                  );
+                }, childCount: controller.chapters.length),
+              ),
+            ),
+
+            const SliverToBoxAdapter(child: SizedBox(height: 20)),
+          ],
+        );
+      }),
+    );
+  }
+
+  Widget _buildStatBox({
+    required IconData icon,
+    required String label,
+    required String value,
+  }) {
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          children: [
+            Icon(icon, color: AppColors.primary, size: 24),
+            const SizedBox(height: 8),
+            Text(
+              value,
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              label,
+              style: const TextStyle(
+                fontSize: 12,
+                color: AppColors.textSecondary,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
