@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../core/theme/app_colors.dart';
-// import '../../core/utils/helpers.dart';
 import 'subject_details_controller.dart';
 import 'widgets/chapter_tile.dart';
 
@@ -20,7 +19,6 @@ class SubjectDetailsView extends GetView<SubjectDetailsController> {
 
         return CustomScrollView(
           slivers: [
-            // App Bar with Subject Info
             SliverAppBar(
               expandedHeight: 200,
               pinned: true,
@@ -70,7 +68,6 @@ class SubjectDetailsView extends GetView<SubjectDetailsController> {
               ),
             ),
 
-            // Statistics
             SliverToBoxAdapter(
               child: Padding(
                 padding: const EdgeInsets.all(16),
@@ -102,7 +99,7 @@ class SubjectDetailsView extends GetView<SubjectDetailsController> {
                   ],
                 ),
               ),
-            ), // Progress Bar
+            ),
             SliverToBoxAdapter(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -146,7 +143,6 @@ class SubjectDetailsView extends GetView<SubjectDetailsController> {
               ),
             ),
 
-            // Chapters Title
             const SliverToBoxAdapter(
               child: Padding(
                 padding: EdgeInsets.fromLTRB(16, 24, 16, 12),
@@ -157,7 +153,6 @@ class SubjectDetailsView extends GetView<SubjectDetailsController> {
               ),
             ),
 
-            // Chapters List
             SliverPadding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               sliver: SliverList(

@@ -18,7 +18,6 @@ class RegisterView extends GetView<RegisterController> {
             children: [
               const SizedBox(height: 20),
 
-              // Icon
               Center(
                 child: Container(
                   width: 80,
@@ -35,7 +34,6 @@ class RegisterView extends GetView<RegisterController> {
 
               const SizedBox(height: 30),
 
-              // Name Field
               TextField(
                 controller: controller.nameController,
                 decoration: const InputDecoration(
@@ -46,7 +44,6 @@ class RegisterView extends GetView<RegisterController> {
 
               const SizedBox(height: 20),
 
-              // Email Field
               TextField(
                 controller: controller.emailController,
                 keyboardType: TextInputType.emailAddress,
@@ -59,7 +56,6 @@ class RegisterView extends GetView<RegisterController> {
 
               const SizedBox(height: 20),
 
-              // Password Field
               Obx(
                 () => TextField(
                   controller: controller.passwordController,
@@ -82,7 +78,6 @@ class RegisterView extends GetView<RegisterController> {
 
               const SizedBox(height: 20),
 
-              // Confirm Password Field
               Obx(
                 () => TextField(
                   controller: controller.confirmPasswordController,
@@ -105,7 +100,6 @@ class RegisterView extends GetView<RegisterController> {
 
               const SizedBox(height: 30),
 
-              // Register Button
               Obx(
                 () => ElevatedButton(
                   onPressed: controller.isLoading.value
@@ -128,7 +122,6 @@ class RegisterView extends GetView<RegisterController> {
 
               const SizedBox(height: 20),
 
-              // Login Link
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

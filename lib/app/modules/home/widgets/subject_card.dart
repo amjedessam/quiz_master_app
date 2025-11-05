@@ -20,7 +20,6 @@ class SubjectCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Icon and Progress
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -51,7 +50,6 @@ class SubjectCard extends StatelessWidget {
 
               const Spacer(),
 
-              // Subject Name
               Text(
                 subject.name,
                 style: const TextStyle(
@@ -64,7 +62,6 @@ class SubjectCard extends StatelessWidget {
 
               const SizedBox(height: 4),
 
-              // Chapters Count
               Text(
                 '${subject.chaptersCount} فصل',
                 style: const TextStyle(
@@ -75,7 +72,6 @@ class SubjectCard extends StatelessWidget {
 
               const SizedBox(height: 8),
 
-              // Stats Row
               Row(
                 children: [
                   Icon(Icons.quiz, size: 14, color: AppColors.textSecondary),

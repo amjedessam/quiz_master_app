@@ -1,11 +1,12 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:quiz_master_app/app/modules/result/result_controller.dart';
 import 'package:quiz_master_app/app/modules/result/result_view.dart';
+import 'package:quiz_master_app/app/routes/app_routes.dart';
 import '../../data/models/quiz_model.dart';
 import '../../data/models/question_model.dart';
 import '../../data/models/result_model.dart';
-// import '../../routes/app_routes.dart';
 import '../../core/utils/helpers.dart';
 
 class QuizController extends GetxController {
@@ -137,7 +138,6 @@ class QuizController extends GetxController {
 
     await Future.delayed(const Duration(seconds: 1));
 
-    // Calculate results
     int correctAnswers = 0;
     int wrongAnswers = 0;
     final questions = quiz.value!.questions;
@@ -154,7 +154,6 @@ class QuizController extends GetxController {
     final unanswered = questions.length - answers.length;
     final timeTaken = (quiz.value!.timeLimit ?? 600) - timeRemaining.value;
 
-    // Calculate mastery by skill
     final masteryBySkill = <String, double>{};
     final skillQuestions = <String, List<int>>{};
     final skillCorrect = <String, int>{};
@@ -189,11 +188,74 @@ class QuizController extends GetxController {
 
     isSubmitting.value = false;
 
-    Get.off(
-      () => const ResultView(),
+    // الحل: استخدام Get.offNamed مع binding بدلاً من Get.off
+    Get.delete<ResultController>(); // حذف أي نسخة قديمة
+    Get.offNamed(
+      AppRoutes.RESULT,
       arguments: {'result': result, 'quiz': quiz.value, 'answers': answers},
     );
   }
+  // Future<void> submitQuiz() async {
+  //   _timer?.cancel();
+  //   isSubmitting.value = true;
+
+  //   await Future.delayed(const Duration(seconds: 1));
+
+  //   int correctAnswers = 0;
+  //   int wrongAnswers = 0;
+  //   final questions = quiz.value!.questions;
+  //   for (int i = 0; i < questions.length; i++) {
+  //     if (answers.containsKey(i)) {
+  //       if (answers[i] == questions[i].correctAnswer) {
+  //         correctAnswers++;
+  //       } else {
+  //         wrongAnswers++;
+  //       }
+  //     }
+  //   }
+
+  //   final unanswered = questions.length - answers.length;
+  //   final timeTaken = (quiz.value!.timeLimit ?? 600) - timeRemaining.value;
+
+  //   final masteryBySkill = <String, double>{};
+  //   final skillQuestions = <String, List<int>>{};
+  //   final skillCorrect = <String, int>{};
+
+  //   for (int i = 0; i < questions.length; i++) {
+  //     final skill = questions[i].skill;
+  //     skillQuestions[skill] = (skillQuestions[skill] ?? [])..add(i);
+
+  //     if (answers.containsKey(i) && answers[i] == questions[i].correctAnswer) {
+  //       skillCorrect[skill] = (skillCorrect[skill] ?? 0) + 1;
+  //     }
+  //   }
+
+  //   for (final skill in skillQuestions.keys) {
+  //     final total = skillQuestions[skill]!.length;
+  //     final correct = skillCorrect[skill] ?? 0;
+  //     masteryBySkill[skill] = (correct / total) * 100;
+  //   }
+
+  //   final result = ResultModel(
+  //     id: DateTime.now().millisecondsSinceEpoch.toString(),
+  //     quizId: quiz.value!.id,
+  //     score: correctAnswers,
+  //     totalQuestions: questions.length,
+  //     correctAnswers: correctAnswers,
+  //     wrongAnswers: wrongAnswers,
+  //     unanswered: unanswered,
+  //     timeTaken: timeTaken,
+  //     completedAt: DateTime.now(),
+  //     masteryBySkill: masteryBySkill,
+  //   );
+
+  //   isSubmitting.value = false;
+
+  //   Get.off(
+  //     () => const ResultView(),
+  //     arguments: {'result': result, 'quiz': quiz.value, 'answers': answers},
+  //   );
+  // }
 
   @override
   void onClose() {

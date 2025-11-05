@@ -24,7 +24,6 @@ class SummaryDetailController extends GetxController {
   }
 
   void shareContent() {
-    // هنا يمكن إضافة مكتبة المشاركة لاحقاً
     Get.snackbar(
       'المشاركة',
       'ميزة المشاركة ستكون متاحة قريباً',

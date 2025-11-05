@@ -4,7 +4,6 @@ import '../models/chapter_model.dart';
 import '../models/question_model.dart';
 
 class MockDataService {
-  // Mock User
   static UserModel getMockUser() {
     return UserModel(
       id: '1',
@@ -16,7 +15,6 @@ class MockDataService {
     );
   }
 
-  // Mock Subjects
   static List<SubjectModel> getMockSubjects() {
     return [
       SubjectModel(
@@ -66,7 +64,6 @@ class MockDataService {
     ];
   }
 
-  // Mock Chapters
   static List<ChapterModel> getMockChapters(String subjectId) {
     return [
       ChapterModel(
@@ -108,7 +105,6 @@ class MockDataService {
     ];
   }
 
-  // Mock Questions
   static List<QuestionModel> getMockQuestions({int count = 10}) {
     final questions = [
       QuestionModel(
@@ -253,7 +249,6 @@ class MockDataService {
       ),
     ];
 
-    // Return the requested number of questions
     return questions.take(count).toList();
   }
 }

@@ -17,7 +17,6 @@ class QuizView extends GetView<QuizController> {
         appBar: AppBar(
           title: Obx(() => Text(controller.quiz.value?.subjectName ?? '')),
           actions: [
-            // Timer
             Obx(
               () => Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -66,7 +65,6 @@ class QuizView extends GetView<QuizController> {
         ),
         body: Column(
           children: [
-            // Progress Bar
             Obx(
               () => LinearProgressIndicator(
                 value: controller.progress,
@@ -76,7 +74,6 @@ class QuizView extends GetView<QuizController> {
               ),
             ),
 
-            // Question Counter
             Padding(
               padding: const EdgeInsets.all(16),
               child: Obx(
@@ -118,7 +115,6 @@ class QuizView extends GetView<QuizController> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      // Question Card
                       Card(
                         elevation: 3,
                         shape: RoundedRectangleBorder(
@@ -139,7 +135,6 @@ class QuizView extends GetView<QuizController> {
 
                       const SizedBox(height: 24),
 
-                      // Options
                       ...question.options.entries.map((entry) {
                         final isSelected =
                             controller.answers[controller
@@ -163,7 +158,6 @@ class QuizView extends GetView<QuizController> {
               }),
             ),
 
-            // Navigation Buttons
             _buildNavigationButtons(),
           ],
         ),
@@ -187,7 +181,6 @@ class QuizView extends GetView<QuizController> {
       child: SafeArea(
         child: Row(
           children: [
-            // Previous Button
             Obx(
               () => !controller.isFirstQuestion
                   ? Expanded(
@@ -208,7 +201,6 @@ class QuizView extends GetView<QuizController> {
                   : const SizedBox.shrink(),
             ),
 
-            // Next/Submit Button
             Expanded(
               flex: controller.isFirstQuestion ? 1 : 2,
               child: Obx(

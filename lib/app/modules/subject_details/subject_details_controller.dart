@@ -28,7 +28,7 @@ class SubjectDetailsController extends GetxController {
 
   void startQuiz(ChapterModel chapter) {
     Get.toNamed(
-      AppRoutes.MainTabView,
+      AppRoutes.CHAPTER_DETAILS,
       arguments: {'subject': subject.value, 'chapter': chapter},
     );
   }

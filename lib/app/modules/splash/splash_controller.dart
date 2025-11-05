@@ -17,26 +17,27 @@ class SplashController extends GetxController {
   }
 
   Future<void> _navigateToNextScreen() async {
-    print("starting navigation delay...");
+    print('⏳ Starting navigation delay...');
 
-    await Future.delayed(const Duration(seconds: 2));
-    print("3 seconds completed.");
+    await Future.delayed(const Duration(seconds: 3));
+
+    print('⏰ 3 seconds completed');
+
     try {
       final storageService = Get.find<StorageService>();
       final isLoggedIn = storageService.isLoggedIn;
 
-      print(' Is logged in: $isLoggedIn');
+      print('🔐 Is logged in: $isLoggedIn');
 
       if (isLoggedIn) {
-        print(' Navigating to HOME');
-        Get.offAllNamed(AppRoutes.HOME);
+        print('➡️ Navigating to MAIN_NAVIGATION');
+        Get.offAllNamed(AppRoutes.MAIN_NAVIGATION);
       } else {
-        print(' Navigating to LOGIN');
+        print('➡️ Navigating to LOGIN');
         Get.offAllNamed(AppRoutes.LOGIN);
       }
     } catch (e) {
-      print(' Error: $e');
-      // في حالة الخطأ، اذهب للـ Login
+      print('❌ Error: $e');
       Get.offAllNamed(AppRoutes.LOGIN);
     }
   }

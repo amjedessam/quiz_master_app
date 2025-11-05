@@ -8,7 +8,7 @@ class ReviewController extends GetxController {
   final answers = <int, String>{}.obs;
   final result = Rxn<ResultModel>();
   final currentIndex = 0.obs;
-  final filterType = 'all'.obs; // all, correct, wrong, unanswered
+  final filterType = 'all'.obs;
 
   List<QuestionModel> get filteredQuestions {
     final questions = quiz.value!.questions;

@@ -17,7 +17,6 @@ class LoginView extends GetView<LoginController> {
             children: [
               const SizedBox(height: 40),
 
-              // Logo
               Center(
                 child: Container(
                   width: 100,
@@ -41,7 +40,6 @@ class LoginView extends GetView<LoginController> {
 
               const SizedBox(height: 30),
 
-              // Title
               const Text(
                 'المدرس الذكي',
                 style: TextStyle(
@@ -62,7 +60,6 @@ class LoginView extends GetView<LoginController> {
 
               const SizedBox(height: 40),
 
-              // Email Field
               TextField(
                 controller: controller.emailController,
                 keyboardType: TextInputType.emailAddress,
@@ -75,7 +72,6 @@ class LoginView extends GetView<LoginController> {
 
               const SizedBox(height: 20),
 
-              // Password Field
               Obx(
                 () => TextField(
                   controller: controller.passwordController,
@@ -98,7 +94,6 @@ class LoginView extends GetView<LoginController> {
 
               const SizedBox(height: 30),
 
-              // Login Button
               Obx(
                 () => ElevatedButton(
                   onPressed: controller.isLoading.value
@@ -121,7 +116,6 @@ class LoginView extends GetView<LoginController> {
 
               const SizedBox(height: 20),
 
-              // Register Link
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

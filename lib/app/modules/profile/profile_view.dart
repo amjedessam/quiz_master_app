@@ -9,16 +9,12 @@ class ProfileView extends GetView<ProfileController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('الملف الشخصي'), centerTitle: true),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // Profile Header
             _buildProfileHeader(),
 
             const SizedBox(height: 20),
-
-            // Settings Sections
             _buildSettingsSection(
               title: 'الحساب',
               items: [
@@ -71,7 +67,6 @@ class ProfileView extends GetView<ProfileController> {
 
             const SizedBox(height: 20),
 
-            // Logout Button
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: SizedBox(
@@ -88,7 +83,7 @@ class ProfileView extends GetView<ProfileController> {
               ),
             ),
 
-            const SizedBox(height: 40),
+            const SizedBox(height: 100),
           ],
         ),
       ),
@@ -97,7 +92,7 @@ class ProfileView extends GetView<ProfileController> {
 
   Widget _buildProfileHeader() {
     return Container(
-      padding: const EdgeInsets.all(20),
+      width: double.infinity,
       decoration: const BoxDecoration(
         gradient: AppColors.primaryGradient,
         borderRadius: BorderRadius.only(
@@ -105,49 +100,73 @@ class ProfileView extends GetView<ProfileController> {
           bottomRight: Radius.circular(30),
         ),
       ),
-      child: Obx(
-        () => Column(
-          children: [
-            // Avatar
-            CircleAvatar(
-              radius: 50,
-              backgroundImage: NetworkImage(
-                controller.user.value?.avatar ?? '',
-              ),
-            ),
-
-            const SizedBox(height: 16),
-
-            // Name
-            Text(
-              controller.user.value?.name ?? '',
-              style: const TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
-
-            const SizedBox(height: 4), // Email
-            Text(
-              controller.user.value?.email ?? '',
-              style: const TextStyle(fontSize: 14, color: Colors.white70),
-            ),
-
-            const SizedBox(height: 20),
-
-            // Stats
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      child: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Obx(
+            () => Column(
               children: [
-                _buildStatColumn('69', 'الاختبارات'),
-                Container(width: 1, height: 40, color: Colors.white30),
-                _buildStatColumn('78.5%', 'المعدل'),
-                Container(width: 1, height: 40, color: Colors.white30),
-                _buildStatColumn('12', 'أيام متتالية'),
+                const SizedBox(height: 20),
+
+                Container(
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(color: Colors.white, width: 4),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.2),
+                        blurRadius: 20,
+                        offset: const Offset(0, 10),
+                      ),
+                    ],
+                  ),
+                  child: CircleAvatar(
+                    radius: 60,
+                    backgroundImage: NetworkImage(
+                      controller.user.value?.avatar ?? '',
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 20),
+
+                Text(
+                  controller.user.value?.name ?? '',
+                  style: const TextStyle(
+                    fontSize: 26,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+
+                const SizedBox(height: 8),
+                Text(
+                  controller.user.value?.email ?? '',
+                  style: const TextStyle(fontSize: 15, color: Colors.white70),
+                ),
+
+                const SizedBox(height: 24),
+
+                Container(
+                  padding: const EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      _buildStatColumn('69', 'الاختبارات'),
+                      Container(width: 1, height: 40, color: Colors.white30),
+                      _buildStatColumn('78.5%', 'المعدل'),
+                      Container(width: 1, height: 40, color: Colors.white30),
+                      _buildStatColumn('12', 'أيام متتالية'),
+                    ],
+                  ),
+                ),
               ],
             ),
-          ],
+          ),
         ),
       ),
     );
@@ -159,7 +178,7 @@ class ProfileView extends GetView<ProfileController> {
         Text(
           value,
           style: const TextStyle(
-            fontSize: 20,
+            fontSize: 22,
             fontWeight: FontWeight.bold,
             color: Colors.white,
           ),
@@ -195,7 +214,7 @@ class ProfileView extends GetView<ProfileController> {
           margin: const EdgeInsets.symmetric(horizontal: 16),
           elevation: 2,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(16),
           ),
           child: Column(children: items),
         ),
@@ -209,7 +228,14 @@ class ProfileView extends GetView<ProfileController> {
     required VoidCallback onTap,
   }) {
     return ListTile(
-      leading: Icon(icon, color: AppColors.primary),
+      leading: Container(
+        padding: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          color: AppColors.primary.withOpacity(0.1),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Icon(icon, color: AppColors.primary, size: 22),
+      ),
       title: Text(title),
       trailing: const Icon(Icons.arrow_forward_ios, size: 16),
       onTap: onTap,
@@ -224,7 +250,14 @@ class ProfileView extends GetView<ProfileController> {
   }) {
     return Obx(
       () => SwitchListTile(
-        secondary: Icon(icon, color: AppColors.primary),
+        secondary: Container(
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            color: AppColors.primary.withOpacity(0.1),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Icon(icon, color: AppColors.primary, size: 22),
+        ),
         title: Text(title),
         value: value.value,
         onChanged: onChanged,

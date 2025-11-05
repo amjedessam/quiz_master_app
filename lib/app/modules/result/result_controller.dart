@@ -1,50 +1,3 @@
-// import 'package:get/get.dart';
-// import '../../data/models/result_model.dart';
-// import '../../data/models/quiz_model.dart';
-// import '../../routes/app_routes.dart';
-
-// class ResultController extends GetxController {
-//   final result = Rxn<ResultModel>();
-//   final quiz = Rxn<QuizModel>();
-//   final answers = <int, String>{}.obs;
-//   final showAnimation = true.obs;
-
-//   @override
-//   void onInit() {
-//     super.onInit();
-//     final args = Get.arguments as Map<String, dynamic>;
-//     result.value = args['result'];
-//     quiz.value = args['quiz'];
-//     answers.value = RxMap<int, String>.from(args['answers']);
-
-//     _animateScore();
-//   }
-
-//   void _animateScore() async {
-//     await Future.delayed(const Duration(milliseconds: 500));
-//     showAnimation.value = false;
-//   }
-
-//   void reviewAnswers() {
-//     Get.toNamed(
-//       AppRoutes.REVIEW,
-//       arguments: {
-//         'quiz': quiz.value,
-//         'answers': answers,
-//         'result': result.value,
-//       },
-//     );
-//   }
-
-//   void retakeQuiz() {
-//     Get.back();
-//     Get.back();
-//   }
-
-//   void goHome() {
-//     Get.offAllNamed(AppRoutes.HOME);
-//   }
-// }
 import 'package:get/get.dart';
 import '../../data/models/result_model.dart';
 import '../../data/models/quiz_model.dart';
@@ -75,7 +28,6 @@ class ResultController extends GetxController {
   }
 
   void _checkIfNeedsExplanation() {
-    // إذا كانت النتيجة أقل من 60%، اعرض اقتراح الشرح
     if (result.value!.percentage < 60) {
       showExplanationSuggestion.value = true;
     }
@@ -102,7 +54,6 @@ class ResultController extends GetxController {
   }
 
   void requestExplanation() {
-    // جمع الأسئلة الخاطئة
     final wrongQuestions = <Map<String, dynamic>>[];
     final weakTopics = <String>{};
 
@@ -110,7 +61,6 @@ class ResultController extends GetxController {
       final question = quiz.value!.questions[i];
       final userAnswer = answers[i];
 
-      // إذا كانت الإجابة خاطئة أو فارغة
       if (userAnswer == null || userAnswer != question.correctAnswer) {
         wrongQuestions.add({
           'content': question.content,
@@ -122,14 +72,12 @@ class ResultController extends GetxController {
           'referencePage': question.referencePage,
         });
 
-        // إضافة الموضوع للمواضيع الضعيفة
         weakTopics.add(
           '${quiz.value!.chapterName} - ${_getSkillLabel(question.skill)}',
         );
       }
     }
 
-    // الانتقال لصفحة الشرح
     Get.toNamed(
       AppRoutes.EXPLANATION,
       arguments: {

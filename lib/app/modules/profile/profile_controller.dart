@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
-import 'package:quiz_master_app/app/core/theme/app_colors.dart';
 import '../../data/models/user_model.dart';
 import '../../data/services/storage_service.dart';
 import '../../routes/app_routes.dart';
 import '../../core/utils/helpers.dart';
+import '../../core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class ProfileController extends GetxController {
@@ -68,7 +68,6 @@ class ProfileController extends GetxController {
   }
 
   void contactSupport() {
-    // Helpers.showSuccessSnackbar('سيتم فتح نموذج الدعم قريباً');
     Get.dialog(
       AlertDialog(
         title: const Text('مركز المساعدة'),

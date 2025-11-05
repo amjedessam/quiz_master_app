@@ -30,7 +30,6 @@ class ExplanationView extends GetView<ExplanationController> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // رسالة ترحيبية
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
@@ -57,7 +56,6 @@ class ExplanationView extends GetView<ExplanationController> {
 
           const SizedBox(height: 24),
 
-          // اختيار المادة
           const Text(
             'اختر المادة',
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -91,7 +89,6 @@ class ExplanationView extends GetView<ExplanationController> {
 
           const SizedBox(height: 24),
 
-          // اختيار الفصل (اختياري)
           Obx(() {
             if (controller.selectedSubject.value == null) {
               return const SizedBox.shrink();
@@ -134,7 +131,6 @@ class ExplanationView extends GetView<ExplanationController> {
 
           const SizedBox(height: 24),
 
-          // إدخال الموضوع
           const Text(
             'ما الموضوع الذي تريد شرحه؟',
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -154,7 +150,6 @@ class ExplanationView extends GetView<ExplanationController> {
 
           const SizedBox(height: 40),
 
-          // زر طلب الشرح
           Obx(
             () => SizedBox(
               width: double.infinity,
@@ -214,7 +209,6 @@ class ExplanationView extends GetView<ExplanationController> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // رأس الصفحة
                 Container(
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
@@ -248,7 +242,6 @@ class ExplanationView extends GetView<ExplanationController> {
 
                 const SizedBox(height: 24),
 
-                // محتوى الشرح
                 Obx(
                   () => Text(
                     controller.explanation.value,
@@ -260,7 +253,6 @@ class ExplanationView extends GetView<ExplanationController> {
           ),
         ),
 
-        // أزرار الإجراءات
         Container(
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(

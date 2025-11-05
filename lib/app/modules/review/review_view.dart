@@ -16,10 +16,8 @@ class ReviewView extends GetView<ReviewController> {
 
         return Column(
           children: [
-            // Filter Chips
             _buildFilterChips(),
 
-            // Questions List
             Expanded(
               child: ListView.builder(
                 padding: const EdgeInsets.all(16),
@@ -38,7 +36,6 @@ class ReviewView extends GetView<ReviewController> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          // Question Header
                           Row(
                             children: [
                               Container(
@@ -102,7 +99,6 @@ class ReviewView extends GetView<ReviewController> {
 
                           const SizedBox(height: 12),
 
-                          // Question Content
                           Text(
                             question.content,
                             style: const TextStyle(
@@ -114,7 +110,6 @@ class ReviewView extends GetView<ReviewController> {
 
                           const SizedBox(height: 16),
 
-                          // Options
                           ...question.options.entries.map((entry) {
                             final isUserAnswer = userAnswer == entry.key;
                             final isCorrectAnswer =
@@ -136,7 +131,6 @@ class ReviewView extends GetView<ReviewController> {
 
                           const SizedBox(height: 12),
 
-                          // Explanation
                           Container(
                             padding: const EdgeInsets.all(12),
                             decoration: BoxDecoration(

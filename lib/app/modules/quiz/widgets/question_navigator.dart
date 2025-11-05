@@ -15,7 +15,6 @@ class QuestionNavigator extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // Handle
           Container(
             width: 40,
             height: 4,
@@ -27,7 +26,6 @@ class QuestionNavigator extends StatelessWidget {
 
           const SizedBox(height: 20),
 
-          // Title
           const Text(
             'التنقل بين الأسئلة',
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -35,7 +33,6 @@ class QuestionNavigator extends StatelessWidget {
 
           const SizedBox(height: 20),
 
-          // Grid of Questions
           Obx(
             () => GridView.builder(
               shrinkWrap: true,
@@ -95,7 +92,6 @@ class QuestionNavigator extends StatelessWidget {
 
           const SizedBox(height: 20),
 
-          // Legend
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [

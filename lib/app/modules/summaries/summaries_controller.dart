@@ -2,13 +2,11 @@ import 'package:get/get.dart';
 import 'package:quiz_master_app/app/routes/app_routes.dart';
 
 class SummariesController extends GetxController {
-  final selectedTab = 0.obs; // 0 = إنشاء جديد، 1 = السجل
-
-  // قائمة الملخصات والشروحات السابقة
+  final selectedTab = 0.obs;
   final summariesHistory = <Map<String, dynamic>>[
     {
       'id': '1',
-      'type': 'summary', // summary أو explanation
+      'type': 'summary',
       'title': 'ملخص: الفصل الثالث - التطبيقات',
       'subject': 'الرياضيات',
       'chapter': 'الفصل الثالث',
@@ -35,12 +33,7 @@ class SummariesController extends GetxController {
   }
 
   void requestExplanation() {
-    Get.toNamed(
-      AppRoutes.EXPLANATION,
-      arguments: {
-        'mode': 'manual', // manual = طلب يدوي
-      },
-    );
+    Get.toNamed(AppRoutes.EXPLANATION, arguments: {'mode': 'manual'});
   }
 
   void viewSummaryDetail(Map<String, dynamic> summary) {

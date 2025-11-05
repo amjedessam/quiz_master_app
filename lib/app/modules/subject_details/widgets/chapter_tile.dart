@@ -22,7 +22,6 @@ class ChapterTile extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  // Chapter Number
                   Container(
                     width: 40,
                     height: 40,
@@ -52,7 +51,6 @@ class ChapterTile extends StatelessWidget {
 
                   const SizedBox(width: 12),
 
-                  // Chapter Info
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -78,7 +76,6 @@ class ChapterTile extends StatelessWidget {
                     ),
                   ),
 
-                  // Arrow Icon
                   const Icon(
                     Icons.arrow_forward_ios,
                     size: 16,
@@ -89,7 +86,6 @@ class ChapterTile extends StatelessWidget {
 
               const SizedBox(height: 12),
 
-              // Progress Bar
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

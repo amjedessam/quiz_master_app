@@ -53,7 +53,6 @@ class CreateSummaryController extends GetxController {
 
     await Future.delayed(const Duration(seconds: 3));
 
-    // هنا سيتم الربط مع AI لاحقاً
     final summaryData = {
       'id': DateTime.now().millisecondsSinceEpoch.toString(),
       'type': 'summary',

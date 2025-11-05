@@ -54,7 +54,6 @@ class QuizOptionCard extends StatelessWidget {
         ),
         child: Row(
           children: [
-            // Option Letter
             AnimatedContainer(
               duration: const Duration(milliseconds: 200),
               width: 40,
@@ -77,7 +76,6 @@ class QuizOptionCard extends StatelessWidget {
 
             const SizedBox(width: 16),
 
-            // Option Text
             Expanded(
               child: Text(
                 text,
@@ -90,7 +88,6 @@ class QuizOptionCard extends StatelessWidget {
               ),
             ),
 
-            // Check/Cross Icon (in review mode)
             if (isCorrect != null) ...[
               const SizedBox(width: 8),
               Icon(

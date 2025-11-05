@@ -1,69 +1,3 @@
-// import 'package:get/get.dart';
-
-// class AnalyticsController extends GetxController {
-//   final isLoading = false.obs;
-
-//   // Overall Stats
-//   final totalQuizzes = 69.obs;
-//   final averageScore = 78.5.obs;
-//   final streakDays = 12.obs;
-//   final totalTimeSpent = 2340.obs; // minutes
-
-//   // Performance by Subject (Mock Data)
-//   final subjectPerformance = [
-//     {'name': 'الرياضيات', 'score': 85.0, 'quizzes': 24, 'color': '0xFF6C63FF'},
-//     {'name': 'الفيزياء', 'score': 78.0, 'quizzes': 18, 'color': '0xFF00D9FF'},
-//     {'name': 'الكيمياء', 'score': 72.5, 'quizzes': 15, 'color': '0xFF4CAF50'},
-//     {'name': 'الأحياء', 'score': 68.0, 'quizzes': 12, 'color': '0xFFFF9800'},
-//   ].obs;
-
-//   // Mastery Levels
-//   final masteryLevels = [
-//     {'skill': 'التذكر', 'percentage': 85.0},
-//     {'skill': 'الفهم', 'percentage': 78.0},
-//     {'skill': 'التطبيق', 'percentage': 72.0},
-//     {'skill': 'التحليل', 'percentage': 65.0},
-//   ].obs;
-
-//   // Weak Topics
-//   final weakTopics = [
-//     {'name': 'المتجهات في الفضاء', 'rate': 45.0, 'subject': 'الرياضيات'},
-//     {'name': 'الحركة الدائرية', 'rate': 52.0, 'subject': 'الفيزياء'},
-//     {'name': 'التفاعلات الكيميائية', 'rate': 48.0, 'subject': 'الكيمياء'},
-//   ].obs;
-
-//   // Performance History (Last 7 days)
-//   final performanceHistory = [
-//     {'day': 'السبت', 'score': 75.0},
-//     {'day': 'الأحد', 'score': 82.0},
-//     {'day': 'الاثنين', 'score': 78.0},
-//     {'day': 'الثلاثاء', 'score': 85.0},
-//     {'day': 'الأربعاء', 'score': 80.0},
-//     {'day': 'الخميس', 'score': 88.0},
-//     {'day': 'الجمعة', 'score': 90.0},
-//   ].obs;
-
-//   // Recommendations
-//   final recommendations = [
-//     'ركز على مراجعة موضوع "المتجهات في الفضاء" في الرياضيات',
-//     'قم بحل المزيد من التمارين في "الحركة الدائرية" بالفيزياء',
-//     'راجع الأمثلة العملية في "التفاعلات الكيميائية"',
-//     'واصل التقدم الممتاز في مهارة "التذكر"',
-//   ].obs;
-
-//   @override
-//   void onInit() {
-//     super.onInit();
-//     fetchAnalytics();
-//   }
-
-//   Future<void> fetchAnalytics() async {
-//     isLoading.value = true;
-//     await Future.delayed(const Duration(milliseconds: 500));
-//     isLoading.value = false;
-//   }
-// }
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../routes/app_routes.dart';
@@ -74,13 +8,11 @@ class AnalyticsController extends GetxController
 
   final isLoading = false.obs;
 
-  // Overall Stats
   final totalQuizzes = 69.obs;
   final averageScore = 78.5.obs;
   final streakDays = 12.obs;
   final totalTimeSpent = 2340.obs;
 
-  // Performance by Subject
   final subjectPerformance = [
     {'name': 'الرياضيات', 'score': 85.0, 'quizzes': 24, 'color': '0xFF6C63FF'},
     {'name': 'الفيزياء', 'score': 78.0, 'quizzes': 18, 'color': '0xFF00D9FF'},
@@ -88,7 +20,6 @@ class AnalyticsController extends GetxController
     {'name': 'الأحياء', 'score': 68.0, 'quizzes': 12, 'color': '0xFFFF9800'},
   ].obs;
 
-  // Mastery Levels
   final masteryLevels = [
     {'skill': 'التذكر', 'percentage': 85.0},
     {'skill': 'الفهم', 'percentage': 78.0},
@@ -96,7 +27,6 @@ class AnalyticsController extends GetxController
     {'skill': 'التحليل', 'percentage': 65.0},
   ].obs;
 
-  // Weak Topics مع بيانات أكثر تفصيلاً
   final weakTopics = [
     {
       'name': 'المتجهات في الفضاء',
@@ -157,7 +87,6 @@ class AnalyticsController extends GetxController
     },
   ].obs;
 
-  // Performance History
   final performanceHistory = [
     {'day': 'السبت', 'score': 75.0},
     {'day': 'الأحد', 'score': 82.0},
@@ -168,7 +97,6 @@ class AnalyticsController extends GetxController
     {'day': 'الجمعة', 'score': 90.0},
   ].obs;
 
-  // Recommendations
   final recommendations = [
     'ركز على مراجعة موضوع "المتجهات في الفضاء" في الرياضيات',
     'قم بحل المزيد من التمارين في "الحركة الدائرية" بالفيزياء',
@@ -195,7 +123,6 @@ class AnalyticsController extends GetxController
     isLoading.value = false;
   }
 
-  // الانتقال لصفحة الشرح بناءً على الموضوع الضعيف
   void explainWeakTopic(Map<String, dynamic> topic) {
     final wrongQuestions =
         topic['wrongQuestions'] as List<Map<String, dynamic>>;

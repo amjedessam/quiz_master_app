@@ -16,7 +16,6 @@ class CreateSummaryView extends GetView<CreateSummaryController> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // رسالة توضيحية
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
@@ -40,7 +39,6 @@ class CreateSummaryView extends GetView<CreateSummaryController> {
 
             const SizedBox(height: 24),
 
-            // اختيار المادة
             const Text(
               'اختر المادة',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -82,7 +80,6 @@ class CreateSummaryView extends GetView<CreateSummaryController> {
 
             const SizedBox(height: 24),
 
-            // اختيار الفصل
             Obx(() {
               if (controller.selectedSubject.value == null) {
                 return const SizedBox.shrink();
@@ -138,7 +135,6 @@ class CreateSummaryView extends GetView<CreateSummaryController> {
 
             const SizedBox(height: 40),
 
-            // زر إنشاء الملخص
             Obx(
               () => SizedBox(
                 width: double.infinity,

@@ -1,10 +1,9 @@
 import 'package:get/get.dart';
-// import '../../data/models/result_model.dart';
 
 class HistoryController extends GetxController {
   final isLoading = false.obs;
   final quizHistory = <Map<String, dynamic>>[].obs;
-  final selectedFilter = 'all'.obs; // all, today, week, month
+  final selectedFilter = 'all'.obs;
 
   @override
   void onInit() {
@@ -16,7 +15,6 @@ class HistoryController extends GetxController {
     isLoading.value = true;
     await Future.delayed(const Duration(milliseconds: 500));
 
-    // Mock Quiz History
     quizHistory.value = [
       {
         'id': '1',
@@ -115,9 +113,7 @@ class HistoryController extends GetxController {
     }
   }
 
-  void viewQuizDetails(Map<String, dynamic> quiz) {
-    // Navigate to quiz details
-  }
+  void viewQuizDetails(Map<String, dynamic> quiz) {}
 
   Future<void> refreshHistory() async {
     await fetchHistory();

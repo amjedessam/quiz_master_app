@@ -38,7 +38,6 @@ class SummaryDetailView extends GetView<SummaryDetailController> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // العنوان
               Text(
                 title,
                 style: const TextStyle(
@@ -49,7 +48,6 @@ class SummaryDetailView extends GetView<SummaryDetailController> {
 
               const SizedBox(height: 12),
 
-              // المعلومات
               Row(
                 children: [
                   Container(
@@ -108,7 +106,6 @@ class SummaryDetailView extends GetView<SummaryDetailController> {
 
               const Divider(height: 32),
 
-              // المحتوى
               Text(content, style: const TextStyle(fontSize: 16, height: 1.8)),
             ],
           ),

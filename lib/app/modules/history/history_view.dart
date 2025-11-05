@@ -11,7 +11,6 @@ class HistoryView extends GetView<HistoryController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(title: const Text('سجل الاختبارات'), centerTitle: true),
       body: Obx(() {
         if (controller.isLoading.value) {
           return const Center(child: CircularProgressIndicator());
@@ -31,7 +30,6 @@ class HistoryView extends GetView<HistoryController> {
               ),
               child: const Row(
                 children: [
-                  // Icon(Icons.quiz, color: Colors.white, size: 30),
                   SizedBox(width: 100),
                   Expanded(
                     child: Text(
@@ -46,10 +44,8 @@ class HistoryView extends GetView<HistoryController> {
                 ],
               ),
             ),
-            // Filter Chips
             _buildFilterChips(),
 
-            // Quiz History List
             Expanded(
               child: controller.filteredHistory.isEmpty
                   ? _buildEmptyState()
@@ -146,7 +142,6 @@ class HistoryView extends GetView<HistoryController> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Header
               Row(
                 children: [
                   Expanded(
@@ -171,7 +166,6 @@ class HistoryView extends GetView<HistoryController> {
                       ],
                     ),
                   ),
-                  // Score Badge
                   Container(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 16,
@@ -195,7 +189,6 @@ class HistoryView extends GetView<HistoryController> {
 
               const SizedBox(height: 12),
 
-              // Progress Bar
               ClipRRect(
                 borderRadius: BorderRadius.circular(8),
                 child: LinearProgressIndicator(
@@ -210,7 +203,6 @@ class HistoryView extends GetView<HistoryController> {
 
               const SizedBox(height: 12),
 
-              // Stats Row
               Row(
                 children: [
                   Icon(Icons.check_circle, size: 16, color: AppColors.success),

@@ -6,7 +6,7 @@ import '../../data/services/mock_data_service.dart';
 import '../../core/utils/helpers.dart';
 
 class ExplanationController extends GetxController {
-  final mode = ''.obs; // 'manual' أو 'auto'
+  final mode = ''.obs;
   final subjects = <SubjectModel>[].obs;
   final chapters = <ChapterModel>[].obs;
 
@@ -18,7 +18,6 @@ class ExplanationController extends GetxController {
   final explanation = ''.obs;
   final showExplanation = false.obs;
 
-  // بيانات الشرح التلقائي (من النتيجة السيئة)
   final weakTopics = <String>[].obs;
   final wrongQuestions = <Map<String, dynamic>>[].obs;
 
@@ -31,17 +30,16 @@ class ExplanationController extends GetxController {
     if (args != null) {
       mode.value = args['mode'] ?? 'manual';
 
-      if (mode.value == 'auto') {
-        // شرح تلقائي بناءً على النتيجة
+      if (mode.value == 'direct') {
+        explanation.value = args['content'] as String;
+        showExplanation.value = true;
+      } else if (mode.value == 'auto') {
         weakTopics.value = List<String>.from(args['weakTopics'] ?? []);
         wrongQuestions.value = List<Map<String, dynamic>>.from(
           args['wrongQuestions'] ?? [],
         );
-
-        // توليد الشرح مباشرة
         _generateAutoExplanation();
       } else {
-        // شرح يدوي
         _loadSubjects();
       }
     } else {
@@ -90,7 +88,6 @@ class ExplanationController extends GetxController {
 
     await Future.delayed(const Duration(seconds: 3));
 
-    // هنا سيتم الربط مع AI
     explanation.value =
         '''
 # شرح: $topic
@@ -143,7 +140,6 @@ $topic هو مفهوم مهم يتطلب الفهم الجيد...
 
     await Future.delayed(const Duration(seconds: 2));
 
-    // توليد شرح بناءً على الأسئلة الخاطئة
     final topics = weakTopics.join('، ');
 
     explanation.value =
