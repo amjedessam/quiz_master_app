@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../core/utils/helpers.dart';
-import '../../../data/services/storage_service.dart';
-import '../../../data/models/user_model.dart';
+import '../../../data/services/supabase_service.dart';
 import '../../../routes/app_routes.dart';
 
 class RegisterController extends GetxController {
-  final StorageService _storageService = Get.find<StorageService>();
+  final SupabaseService _supabaseService = Get.find<SupabaseService>();
 
   final nameController = TextEditingController();
   final emailController = TextEditingController();
@@ -39,25 +38,28 @@ class RegisterController extends GetxController {
 
     isLoading.value = true;
 
-    await Future.delayed(const Duration(seconds: 2));
+    try {
+      await _supabaseService.client.auth.signUp(
+        email: emailController.text.trim(),
+        password: passwordController.text,
+        data: {'full_name': nameController.text.trim()},
+      );
 
-    final newUser = UserModel(
-      id: DateTime.now().millisecondsSinceEpoch.toString(),
-      name: nameController.text.trim(),
-      email: emailController.text.trim(),
-      avatar:
-          'https://ui-avatars.com/api/?name=${Uri.encodeComponent(nameController.text.trim())}&background=6C63FF&color=fff&size=200',
-      createdAt: DateTime.now(),
-    );
-
-    await _storageService.saveUser(newUser);
-    await _storageService.saveToken('token_${newUser.id}');
-    await _storageService.setLoggedIn(true);
-
-    isLoading.value = false;
-
-    Helpers.showSuccessSnackbar('تم إنشاء الحساب بنجاح');
-    Get.offAllNamed(AppRoutes.MAIN_NAVIGATION);
+      Helpers.showSuccessSnackbar(
+        'تم التسجيل. يرجى تأكيد البريد الإلكتروني ثم تسجيل الدخول. '
+        'إذا كنت طالباً، قد تحتاج لتفعيل حسابك من الإدارة.',
+      );
+      Get.offAllNamed(AppRoutes.LOGIN);
+    } catch (e) {
+      final message = e.toString();
+      if (message.contains('already registered')) {
+        Helpers.showErrorSnackbar('هذا البريد مسجل مسبقاً');
+      } else {
+        Helpers.showErrorSnackbar('حدث خطأ أثناء التسجيل. حاول مرة أخرى.');
+      }
+    } finally {
+      isLoading.value = false;
+    }
   }
 
   bool _validateForm() {

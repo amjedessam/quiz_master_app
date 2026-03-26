@@ -15,11 +15,24 @@ class UserModel {
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
-      id: json['id'],
-      name: json['name'],
-      email: json['email'],
-      avatar: json['avatar'],
-      createdAt: DateTime.parse(json['created_at']),
+      id: json['id']?.toString() ?? '',
+      name: json['name'] ?? json['full_name'] ?? '',
+      email: json['email'] ?? '',
+      avatar: json['avatar'] ?? json['profile_image_url'],
+      createdAt: json['created_at'] != null
+          ? DateTime.parse(json['created_at'])
+          : DateTime.now(),
+    );
+  }
+
+  /// Create from Supabase student profile (get_student_profile RPC)
+  factory UserModel.fromStudentProfile(Map<String, dynamic> json) {
+    return UserModel(
+      id: json['id']?.toString() ?? '',
+      name: json['full_name'] ?? '',
+      email: json['email'] ?? '',
+      avatar: json['profile_image_url'],
+      createdAt: DateTime.now(),
     );
   }
 

@@ -15,21 +15,6 @@ class ProfileView extends GetView<ProfileController> {
             _buildProfileHeader(),
 
             const SizedBox(height: 20),
-            _buildSettingsSection(
-              title: 'الحساب',
-              items: [
-                _buildSettingItem(
-                  icon: Icons.edit,
-                  title: 'تعديل الملف الشخصي',
-                  onTap: controller.editProfile,
-                ),
-                _buildSettingItem(
-                  icon: Icons.lock,
-                  title: 'تغيير كلمة المرور',
-                  onTap: controller.changePassword,
-                ),
-              ],
-            ),
 
             _buildSettingsSection(
               title: 'الإعدادات',
@@ -108,22 +93,87 @@ class ProfileView extends GetView<ProfileController> {
               children: [
                 const SizedBox(height: 20),
 
-                Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(color: Colors.white, width: 4),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.2),
-                        blurRadius: 20,
-                        offset: const Offset(0, 10),
-                      ),
-                    ],
-                  ),
-                  child: CircleAvatar(
-                    radius: 60,
-                    backgroundImage: NetworkImage(
-                      controller.user.value?.avatar ?? '',
+                // ← صورة المستخدم مع إمكانية التعديل
+                GestureDetector(
+                  onTap: controller.pickAndUploadAvatar,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(color: Colors.white, width: 4),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.2),
+                          blurRadius: 20,
+                          offset: const Offset(0, 10),
+                        ),
+                      ],
+                    ),
+                    child: Stack(
+                      children: [
+                        // الصورة
+                        Obx(() {
+                          final avatar = controller.user.value?.avatar ?? '';
+                          return CircleAvatar(
+                            radius: 75,
+                            backgroundColor: Colors.white24,
+                            backgroundImage: avatar.isNotEmpty
+                                ? NetworkImage(avatar)
+                                : null,
+                            child: avatar.isEmpty
+                                ? const Icon(
+                                    Icons.person,
+                                    size: 60,
+                                    color: Colors.white,
+                                  )
+                                : null,
+                          );
+                        }),
+
+                        // مؤشر التحميل عند الرفع
+                        Obx(() {
+                          if (!controller.isUploadingAvatar.value) {
+                            return const SizedBox();
+                          }
+                          return Positioned.fill(
+                            child: Container(
+                              decoration: const BoxDecoration(
+                                color: Colors.black45,
+                                shape: BoxShape.circle,
+                              ),
+                              child: const Center(
+                                child: CircularProgressIndicator(
+                                  color: Colors.white,
+                                  strokeWidth: 3,
+                                ),
+                              ),
+                            ),
+                          );
+                        }),
+
+                        // أيقونة الكاميرا
+                        Positioned(
+                          bottom: 0,
+                          right: 0,
+                          child: Container(
+                            padding: const EdgeInsets.all(6),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              shape: BoxShape.circle,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.15),
+                                  blurRadius: 6,
+                                ),
+                              ],
+                            ),
+                            child: const Icon(
+                              Icons.camera_alt,
+                              size: 20,
+                              color: AppColors.primary,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -140,6 +190,7 @@ class ProfileView extends GetView<ProfileController> {
                 ),
 
                 const SizedBox(height: 8),
+
                 Text(
                   controller.user.value?.email ?? '',
                   style: const TextStyle(fontSize: 15, color: Colors.white70),
@@ -156,11 +207,26 @@ class ProfileView extends GetView<ProfileController> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      _buildStatColumn('69', 'الاختبارات'),
+                      Obx(
+                        () => _buildStatColumn(
+                          controller.totalQuizzes.value.toString(),
+                          'الاختبارات',
+                        ),
+                      ),
                       Container(width: 1, height: 40, color: Colors.white30),
-                      _buildStatColumn('78.5%', 'المعدل'),
+                      Obx(
+                        () => _buildStatColumn(
+                          '${controller.averageScore.value.toStringAsFixed(1)}%',
+                          'المعدل',
+                        ),
+                      ),
                       Container(width: 1, height: 40, color: Colors.white30),
-                      _buildStatColumn('12', 'أيام متتالية'),
+                      Obx(
+                        () => _buildStatColumn(
+                          controller.streakDays.value.toString(),
+                          'أيام متتالية',
+                        ),
+                      ),
                     ],
                   ),
                 ),

@@ -10,6 +10,10 @@ class QuizModel {
   final DateTime createdAt;
   final int? timeLimit;
 
+  // ✅ حقول جديدة للاختبارات الرسمية
+  final bool isAssignedExam;
+  final int? assignmentId;
+
   QuizModel({
     required this.id,
     required this.subjectId,
@@ -19,5 +23,7 @@ class QuizModel {
     required this.questions,
     required this.createdAt,
     this.timeLimit,
+    this.isAssignedExam = false, // افتراضي: تدريب ذاتي
+    this.assignmentId,
   });
 }

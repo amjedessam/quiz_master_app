@@ -1,8 +1,12 @@
 import 'package:get/get.dart';
 import 'package:quiz_master_app/app/modules/amjed/maintabview.dart';
+import 'package:quiz_master_app/app/modules/assigned_exams/assigned_exams_binding.dart';
+import 'package:quiz_master_app/app/modules/assigned_exams/assigned_exams_controller.dart';
+import 'package:quiz_master_app/app/modules/assigned_exams/assigned_exams_view.dart';
+import 'package:quiz_master_app/app/modules/subject_pdf.dart/Subject_Pdf_Binding.dart';
+import 'package:quiz_master_app/app/modules/subject_pdf.dart/subject_pdf_view.dart';
 import '../modules/chapter_details/chapter_details_binding.dart';
 import '../modules/chapter_details/chapter_details_view.dart';
-
 import '../modules/splash/splash_binding.dart';
 import '../modules/splash/splash_view.dart';
 import '../modules/auth/login/login_binding.dart';
@@ -36,8 +40,10 @@ import '../modules/summary_detail/summary_detail_view.dart';
 import '../modules/explanation/explanation_binding.dart';
 import '../modules/explanation/explanation_view.dart';
 import '../modules/main_navigation/main_navigation_binding.dart';
-
 import '../modules/main_navigation/main_navigation_view.dart';
+// ✅ إضافة import للإشعارات
+import '../modules/notifications/notifications_binding.dart';
+import '../modules/notifications/notifications_view.dart';
 
 import 'app_routes.dart';
 
@@ -123,7 +129,6 @@ class AppPages {
       transition: Transition.rightToLeft,
     ),
 
-    // الصفحات الجديدة
     GetPage(
       name: AppRoutes.SUMMARIES,
       page: () => const SummariesView(),
@@ -151,7 +156,6 @@ class AppPages {
     GetPage(
       name: AppRoutes.MainTabView,
       page: () => const MainTabView(),
-
       transition: Transition.rightToLeft,
     ),
 
@@ -160,6 +164,26 @@ class AppPages {
       page: () => const MainNavigationView(),
       binding: MainNavigationBinding(),
       transition: Transition.fadeIn,
+    ),
+
+    GetPage(
+      name: AppRoutes.SUBJECT_PDF,
+      page: () => const SubjectPdfView(),
+      binding: SubjectPdfBinding(),
+      transition: Transition.fadeIn,
+    ),
+
+    // ✅ إضافة صفحة الإشعارات
+    GetPage(
+      name: AppRoutes.NOTIFICATIONS,
+      page: () => const NotificationsView(),
+      binding: NotificationsBinding(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: AppRoutes.ASSIGNED_EXAMS,
+      page: () => const AssignedExamsView(),
+      binding: AssignedExamsBinding(),
     ),
   ];
 }

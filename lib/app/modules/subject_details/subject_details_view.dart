@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:quiz_master_app/app/routes/app_routes.dart';
 import '../../core/theme/app_colors.dart';
 import 'subject_details_controller.dart';
 import 'widgets/chapter_tile.dart';
@@ -99,6 +100,65 @@ class SubjectDetailsView extends GetView<SubjectDetailsController> {
                   ],
                 ),
               ),
+            ),
+
+            SliverToBoxAdapter(
+              child: Obx(() {
+                final pdfUrl = controller.subject.value?.pdfUrl ?? '';
+                if (pdfUrl.isEmpty) return const SizedBox();
+
+                return Padding(
+                  // زيادة المسافة العلوية والسفلية ليعطي الزر مساحة للتنفس
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 16,
+                  ),
+                  child: SizedBox(
+                    width: double.infinity,
+                    // تعديل الارتفاع ليكون 55 (مثالي لمعظم الشاشات)
+                    height: 55,
+                    child: ElevatedButton(
+                      onPressed: () => Get.toNamed(
+                        AppRoutes.SUBJECT_PDF,
+                        arguments: {
+                          'pdf_url': pdfUrl,
+                          'subject_name': controller.subject.value?.name ?? '',
+                        },
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.primary,
+                        elevation: 2, // إضافة ظل خفيف ليعطي عمق للزر
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(
+                            12,
+                          ), // حواف دائرية ناعمة
+                        ),
+                      ),
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.picture_as_pdf,
+                            color: Colors.white,
+                            size: 22,
+                          ),
+                          SizedBox(width: 12), // مسافة ثابتة بين الأيقونة والنص
+                          Text(
+                            'عرض ملف المادة',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              fontFamily:
+                                  'Tajawal', // تأكد من استخدام خطك المفضل هنا
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+              }),
             ),
             SliverToBoxAdapter(
               child: Padding(

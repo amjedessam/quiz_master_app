@@ -17,6 +17,7 @@ class LoginView extends GetView<LoginController> {
             children: [
               const SizedBox(height: 40),
 
+              // ── اللوقو ───────────────────────────────────────
               Center(
                 child: Container(
                   width: 100,
@@ -50,35 +51,38 @@ class LoginView extends GetView<LoginController> {
                 textAlign: TextAlign.center,
               ),
 
-              const SizedBox(height: 10),
+              const SizedBox(height: 8),
 
               const Text(
-                'مرحباً بك!',
+                'سجّل دخولك للمتابعة',
                 style: TextStyle(fontSize: 16, color: AppColors.textSecondary),
                 textAlign: TextAlign.center,
               ),
 
               const SizedBox(height: 40),
 
+              // ── البريد الإلكتروني ─────────────────────────────
               TextField(
                 controller: controller.emailController,
                 keyboardType: TextInputType.emailAddress,
                 decoration: const InputDecoration(
                   labelText: 'البريد الإلكتروني',
-                  hintText: 'example@email.com',
+                  hintText: 'example@school.com',
                   prefixIcon: Icon(Icons.email_outlined),
                 ),
               ),
 
               const SizedBox(height: 20),
 
+              // ── الرمز (كلمة السر) ─────────────────────────────
               Obx(
                 () => TextField(
                   controller: controller.passwordController,
                   obscureText: controller.obscurePassword.value,
+                  keyboardType: TextInputType.number, // ✅ لوحة أرقام
                   decoration: InputDecoration(
-                    labelText: 'كلمة المرور',
-                    hintText: 'لاتقل عن 6 أحرف',
+                    labelText: 'الرمز',
+                    hintText: 'أدخل رمزك المكون من 4 أرقام',
                     prefixIcon: const Icon(Icons.lock_outline),
                     suffixIcon: IconButton(
                       icon: Icon(
@@ -94,6 +98,7 @@ class LoginView extends GetView<LoginController> {
 
               const SizedBox(height: 30),
 
+              // ── زر تسجيل الدخول ───────────────────────────────
               Obx(
                 () => ElevatedButton(
                   onPressed: controller.isLoading.value
@@ -114,21 +119,7 @@ class LoginView extends GetView<LoginController> {
                 ),
               ),
 
-              const SizedBox(height: 20),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    'ليس لديك حساب؟',
-                    style: TextStyle(color: AppColors.textSecondary),
-                  ),
-                  TextButton(
-                    onPressed: controller.goToRegister,
-                    child: const Text('سجل الآن'),
-                  ),
-                ],
-              ),
+              // ✅ تم حذف زر "سجل الآن" — الطالب لا يسجل نفسه
             ],
           ),
         ),

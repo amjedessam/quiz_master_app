@@ -1,10 +1,13 @@
 import 'package:get/get.dart';
-import '../../data/models/subject_model.dart';
+
 import '../../data/models/chapter_model.dart';
-import '../../data/services/mock_data_service.dart';
+import '../../data/models/subject_model.dart';
+import '../../data/repositories/subject_repository.dart';
 import '../../routes/app_routes.dart';
 
 class SubjectDetailsController extends GetxController {
+  final SubjectRepository _subjectRepo = Get.find<SubjectRepository>();
+
   final subject = Rxn<SubjectModel>();
   final chapters = <ChapterModel>[].obs;
   final isLoading = false.obs;
@@ -19,11 +22,17 @@ class SubjectDetailsController extends GetxController {
   Future<void> _loadChapters() async {
     isLoading.value = true;
 
-    await Future.delayed(const Duration(milliseconds: 500));
-
-    chapters.value = MockDataService.getMockChapters(subject.value!.id);
-
-    isLoading.value = false;
+    try {
+      final subjectId = int.tryParse(subject.value!.id);
+      if (subjectId != null) {
+        chapters.value =
+            await _subjectRepo.getChaptersWithProgress(subjectId);
+      }
+    } catch (e) {
+      chapters.value = [];
+    } finally {
+      isLoading.value = false;
+    }
   }
 
   void startQuiz(ChapterModel chapter) {

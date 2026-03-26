@@ -1,6 +1,10 @@
 import 'package:get/get.dart';
 
+import '../../data/repositories/practice_quiz_repository.dart';
+
 class HistoryController extends GetxController {
+  final PracticeQuizRepository _practiceRepo = Get.find<PracticeQuizRepository>();
+
   final isLoading = false.obs;
   final quizHistory = <Map<String, dynamic>>[].obs;
   final selectedFilter = 'all'.obs;
@@ -13,72 +17,33 @@ class HistoryController extends GetxController {
 
   Future<void> fetchHistory() async {
     isLoading.value = true;
-    await Future.delayed(const Duration(milliseconds: 500));
 
-    quizHistory.value = [
-      {
-        'id': '1',
-        'subject': 'الرياضيات',
-        'chapter': 'الفصل الثالث: التطبيقات',
-        'score': 18,
-        'total': 20,
-        'percentage': 90.0,
-        'date': DateTime.now().subtract(const Duration(hours: 2)),
-        'duration': 780, // seconds
-      },
-      {
-        'id': '2',
-        'subject': 'الفيزياء',
-        'chapter': 'الفصل الثاني: المفاهيم الأساسية',
-        'score': 14,
-        'total': 20,
-        'percentage': 70.0,
-        'date': DateTime.now().subtract(const Duration(days: 1)),
-        'duration': 900,
-      },
-      {
-        'id': '3',
-        'subject': 'الكيمياء',
-        'chapter': 'الفصل الأول: المقدمة',
-        'score': 16,
-        'total': 20,
-        'percentage': 80.0,
-        'date': DateTime.now().subtract(const Duration(days: 2)),
-        'duration': 720,
-      },
-      {
-        'id': '4',
-        'subject': 'الرياضيات',
-        'chapter': 'الفصل الثاني: المفاهيم الأساسية',
-        'score': 17,
-        'total': 20,
-        'percentage': 85.0,
-        'date': DateTime.now().subtract(const Duration(days: 3)),
-        'duration': 840,
-      },
-      {
-        'id': '5',
-        'subject': 'الأحياء',
-        'chapter': 'الفصل الأول: المقدمة',
-        'score': 12,
-        'total': 20,
-        'percentage': 60.0,
-        'date': DateTime.now().subtract(const Duration(days: 5)),
-        'duration': 960,
-      },
-      {
-        'id': '6',
-        'subject': 'الفيزياء',
-        'chapter': 'الفصل الثالث: التطبيقات',
-        'score': 15,
-        'total': 20,
-        'percentage': 75.0,
-        'date': DateTime.now().subtract(const Duration(days: 7)),
-        'duration': 810,
-      },
-    ];
-
-    isLoading.value = false;
+    try {
+      final list = await _practiceRepo.getHistory(limit: 50);
+      quizHistory.value = list.map((e) {
+        DateTime? date;
+        if (e['completed_at'] != null) {
+          date = DateTime.tryParse(e['completed_at'].toString()) ??
+              DateTime.now();
+        } else {
+          date = DateTime.now();
+        }
+        return {
+          'id': e['id']?.toString(),
+          'subject': e['subject_name'],
+          'chapter': e['chapter_name'],
+          'score': (e['score'] as num?)?.toInt(),
+          'total': (e['total_questions'] as num?)?.toInt(),
+          'percentage': (e['percentage'] as num?)?.toDouble(),
+          'date': date,
+          'duration': (e['time_taken_seconds'] as num?)?.toInt() ?? 0,
+        };
+      }).toList();
+    } catch (e) {
+      quizHistory.value = [];
+    } finally {
+      isLoading.value = false;
+    }
   }
 
   void changeFilter(String filter) {

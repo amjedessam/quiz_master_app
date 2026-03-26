@@ -1,9 +1,14 @@
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import '../models/user_model.dart';
 
+import '../models/user_model.dart';
+import 'supabase_service.dart';
+
+/// Handles auth state and user profile.
+/// Uses Supabase for session; caches user profile in GetStorage for offline access.
 class StorageService extends GetxService {
   late final GetStorage _storage;
+  static const String _userKey = 'user_data';
 
   @override
   void onInit() {
@@ -11,14 +16,12 @@ class StorageService extends GetxService {
     _storage = GetStorage();
   }
 
-  static const String _tokenKey = 'auth_token';
-  static const String _userKey = 'user_data';
-  static const String _isLoggedInKey = 'is_logged_in';
+  SupabaseService get _supabase => Get.find<SupabaseService>();
 
-  String? get token => _storage.read<String>(_tokenKey);
-  Future<void> saveToken(String token) => _storage.write(_tokenKey, token);
-  Future<void> removeToken() => _storage.remove(_tokenKey);
+  /// Whether user is logged in (Supabase session exists)
+  bool get isLoggedIn => _supabase.isAuthenticated;
 
+  /// Cached user profile (from students table via get_student_profile)
   UserModel? get user {
     try {
       final userData = _storage.read<Map<String, dynamic>>(_userKey);
@@ -33,10 +36,12 @@ class StorageService extends GetxService {
 
   Future<void> saveUser(UserModel user) =>
       _storage.write(_userKey, user.toJson());
+
   Future<void> removeUser() => _storage.remove(_userKey);
 
-  bool get isLoggedIn => _storage.read<bool>(_isLoggedInKey) ?? false;
-  Future<void> setLoggedIn(bool value) => _storage.write(_isLoggedInKey, value);
-
-  Future<void> clearAll() => _storage.erase();
+  /// Clear all local data and sign out from Supabase
+  Future<void> clearAll() async {
+    await _storage.erase();
+    await _supabase.signOut();
+  }
 }

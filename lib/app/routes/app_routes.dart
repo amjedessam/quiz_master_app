@@ -18,4 +18,7 @@ abstract class AppRoutes {
   static const SUMMARY_DETAIL = '/summary-detail';
   static const EXPLANATION = '/explanation';
   static const MainTabView = '/maintabview';
+  static const SUBJECT_PDF = '/subject-pdf';
+  static const NOTIFICATIONS = '/notifications'; // ✅ جديد
+  static const ASSIGNED_EXAMS = '/assigned-exams';
 }

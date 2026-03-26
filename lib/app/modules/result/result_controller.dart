@@ -50,7 +50,7 @@ class ResultController extends GetxController {
   }
 
   void goHome() {
-    Get.offAllNamed(AppRoutes.HOME);
+    Get.offAllNamed(AppRoutes.MAIN_NAVIGATION);
   }
 
   void requestExplanation() {

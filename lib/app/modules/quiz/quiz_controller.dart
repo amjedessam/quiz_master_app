@@ -1,15 +1,21 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quiz_master_app/app/modules/result/result_controller.dart';
-import 'package:quiz_master_app/app/modules/result/result_view.dart';
 import 'package:quiz_master_app/app/routes/app_routes.dart';
-import '../../data/models/quiz_model.dart';
-import '../../data/models/question_model.dart';
-import '../../data/models/result_model.dart';
+
 import '../../core/utils/helpers.dart';
+import '../../data/models/question_model.dart';
+import '../../data/models/quiz_model.dart';
+import '../../data/models/result_model.dart';
+import '../../data/repositories/assigned_exam_repository.dart';
+import '../../data/repositories/practice_quiz_repository.dart';
 
 class QuizController extends GetxController {
+  final PracticeQuizRepository _practiceRepo =
+      Get.find<PracticeQuizRepository>();
+
   final quiz = Rxn<QuizModel>();
   final currentQuestionIndex = 0.obs;
   final answers = <int, String>{}.obs;
@@ -136,30 +142,138 @@ class QuizController extends GetxController {
     _timer?.cancel();
     isSubmitting.value = true;
 
-    await Future.delayed(const Duration(seconds: 1));
-
+    final questions = quiz.value!.questions;
     int correctAnswers = 0;
     int wrongAnswers = 0;
-    final questions = quiz.value!.questions;
+    final answersList = <Map<String, dynamic>>[];
+
+    // ── تشخيص: طباعة أول سؤال لمعرفة شكل البيانات ───────────────────────
+    if (questions.isNotEmpty) {
+      debugPrint(
+        '🔍 First Q id="${questions.first.id}" (${questions.first.id.runtimeType})',
+      );
+      debugPrint('🔍 First Q correctAnswer="${questions.first.correctAnswer}"');
+      debugPrint('🔍 First Q skill="${questions.first.skill}"');
+    }
+
     for (int i = 0; i < questions.length; i++) {
-      if (answers.containsKey(i)) {
-        if (answers[i] == questions[i].correctAnswer) {
+      final q = questions[i];
+      final selected = answers[i];
+
+      // ✅ إصلاح 1: تحويل id بأمان مع fallback لاستخراج الأرقام فقط
+      int? qId = int.tryParse(q.id);
+      if (qId == null) {
+        final numericOnly = q.id.replaceAll(RegExp(r'[^0-9]'), '');
+        qId = int.tryParse(numericOnly);
+        if (qId != null) {
+          debugPrint('⚠️ Q[$i] id converted from "${q.id}" → $qId');
+        }
+      }
+
+      // ✅ إصلاح 2: حساب isCorrect
+      final isCorrect = selected != null && selected == q.correctAnswer;
+
+      if (selected != null) {
+        if (isCorrect) {
           correctAnswers++;
         } else {
           wrongAnswers++;
         }
       }
+
+      // ✅ إصلاح 3: تسجيل كل سؤال للتشخيص
+      debugPrint(
+        'Q[$i] qId=$qId | selected="$selected" | correct="${q.correctAnswer}" | isCorrect=$isCorrect | skill="${q.skill}"',
+      );
+
+      // ✅ إصلاح 4: أضف فقط الأسئلة التي نعرف id-ها
+      if (qId != null) {
+        answersList.add({
+          'question_id': qId,
+          'selected_answer': selected,
+          'is_correct': isCorrect,
+        });
+      } else {
+        debugPrint('❌ Q[$i] تجاهل — id غير صالح: "${q.id}"');
+      }
     }
+
+    debugPrint(
+      '📊 answersList: ${answersList.length}/${questions.length} سؤال',
+    );
 
     final unanswered = questions.length - answers.length;
     final timeTaken = (quiz.value!.timeLimit ?? 600) - timeRemaining.value;
 
+    // ── حفظ حسب نوع الاختبار ─────────────────────────────────────────────
+    if (quiz.value!.isAssignedExam) {
+      // اختبار رسمي من المعلم → exam_results
+      if (quiz.value!.assignmentId != null) {
+        try {
+          final repo = Get.find<AssignedExamRepository>();
+          await repo.saveExamResult(
+            assignmentId: quiz.value!.assignmentId!,
+            examId: int.parse(quiz.value!.id),
+            score: correctAnswers,
+            totalQuestions: questions.length,
+            correctAnswers: correctAnswers,
+            wrongAnswers: wrongAnswers,
+            timeTakenSeconds: timeTaken,
+            answers: answersList,
+          );
+          debugPrint('✅ exam_result saved');
+        } catch (e) {
+          debugPrint('❌ saveExamResult error: $e');
+        }
+      }
+    } else {
+      // ✅ إصلاح 5: تدريب ذاتي → practice_quiz_attempts مع تحقق مفصّل
+      final subjectId = int.tryParse(quiz.value!.subjectId);
+      final chapterId = int.tryParse(quiz.value!.chapterId);
+
+      debugPrint(
+        '📦 subjectId=$subjectId | chapterId=$chapterId | answers=${answersList.length}',
+      );
+
+      if (subjectId == null) {
+        debugPrint('❌ subjectId غير صالح: "${quiz.value!.subjectId}"');
+      } else if (chapterId == null || chapterId == 0) {
+        debugPrint('❌ chapterId غير صالح: "${quiz.value!.chapterId}"');
+      } else if (answersList.isEmpty) {
+        debugPrint('❌ answersList فارغة — لن تُحفظ المهارات في قاعدة البيانات');
+      } else {
+        try {
+          await _practiceRepo.saveAttempt(
+            subjectId: subjectId,
+            chapterId: chapterId,
+            score: correctAnswers,
+            totalQuestions: questions.length,
+            correctAnswers: correctAnswers,
+            wrongAnswers: wrongAnswers,
+            unanswered: unanswered,
+            timeTakenSeconds: timeTaken,
+            quizOptions: {'difficulty': 'mixed'},
+            answers: answersList, // ✅ الإجابات مع question_id الصحيح
+          );
+          debugPrint(
+            '✅ practice_attempt saved — ${answersList.length} answers',
+          );
+        } catch (e) {
+          debugPrint('❌ saveAttempt error: $e');
+        }
+      }
+    }
+
+    // ── حساب masteryBySkill للـ ResultScreen ─────────────────────────────
     final masteryBySkill = <String, double>{};
     final skillQuestions = <String, List<int>>{};
     final skillCorrect = <String, int>{};
 
     for (int i = 0; i < questions.length; i++) {
       final skill = questions[i].skill;
+      // ✅ إصلاح 6: تجاهل المهارات الفارغة أو unknown
+      if (skill.isEmpty || skill == 'unknown') continue;
+
       skillQuestions[skill] = (skillQuestions[skill] ?? [])..add(i);
 
       if (answers.containsKey(i) && answers[i] == questions[i].correctAnswer) {
@@ -172,6 +286,8 @@ class QuizController extends GetxController {
       final correct = skillCorrect[skill] ?? 0;
       masteryBySkill[skill] = (correct / total) * 100;
     }
+
+    debugPrint('🧠 masteryBySkill: $masteryBySkill');
 
     final result = ResultModel(
       id: DateTime.now().millisecondsSinceEpoch.toString(),
@@ -188,74 +304,12 @@ class QuizController extends GetxController {
 
     isSubmitting.value = false;
 
-    // الحل: استخدام Get.offNamed مع binding بدلاً من Get.off
-    Get.delete<ResultController>(); // حذف أي نسخة قديمة
+    Get.delete<ResultController>();
     Get.offNamed(
       AppRoutes.RESULT,
       arguments: {'result': result, 'quiz': quiz.value, 'answers': answers},
     );
   }
-  // Future<void> submitQuiz() async {
-  //   _timer?.cancel();
-  //   isSubmitting.value = true;
-
-  //   await Future.delayed(const Duration(seconds: 1));
-
-  //   int correctAnswers = 0;
-  //   int wrongAnswers = 0;
-  //   final questions = quiz.value!.questions;
-  //   for (int i = 0; i < questions.length; i++) {
-  //     if (answers.containsKey(i)) {
-  //       if (answers[i] == questions[i].correctAnswer) {
-  //         correctAnswers++;
-  //       } else {
-  //         wrongAnswers++;
-  //       }
-  //     }
-  //   }
-
-  //   final unanswered = questions.length - answers.length;
-  //   final timeTaken = (quiz.value!.timeLimit ?? 600) - timeRemaining.value;
-
-  //   final masteryBySkill = <String, double>{};
-  //   final skillQuestions = <String, List<int>>{};
-  //   final skillCorrect = <String, int>{};
-
-  //   for (int i = 0; i < questions.length; i++) {
-  //     final skill = questions[i].skill;
-  //     skillQuestions[skill] = (skillQuestions[skill] ?? [])..add(i);
-
-  //     if (answers.containsKey(i) && answers[i] == questions[i].correctAnswer) {
-  //       skillCorrect[skill] = (skillCorrect[skill] ?? 0) + 1;
-  //     }
-  //   }
-
-  //   for (final skill in skillQuestions.keys) {
-  //     final total = skillQuestions[skill]!.length;
-  //     final correct = skillCorrect[skill] ?? 0;
-  //     masteryBySkill[skill] = (correct / total) * 100;
-  //   }
-
-  //   final result = ResultModel(
-  //     id: DateTime.now().millisecondsSinceEpoch.toString(),
-  //     quizId: quiz.value!.id,
-  //     score: correctAnswers,
-  //     totalQuestions: questions.length,
-  //     correctAnswers: correctAnswers,
-  //     wrongAnswers: wrongAnswers,
-  //     unanswered: unanswered,
-  //     timeTaken: timeTaken,
-  //     completedAt: DateTime.now(),
-  //     masteryBySkill: masteryBySkill,
-  //   );
-
-  //   isSubmitting.value = false;
-
-  //   Get.off(
-  //     () => const ResultView(),
-  //     arguments: {'result': result, 'quiz': quiz.value, 'answers': answers},
-  //   );
-  // }
 
   @override
   void onClose() {
