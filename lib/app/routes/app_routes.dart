@@ -1,8 +1,10 @@
 abstract class AppRoutes {
   static const SPLASH = '/splash';
+  static const ONBOARDING = '/onboarding'; // ✅ أضفنا هذا
+
   static const LOGIN = '/login';
   static const REGISTER = '/register';
-  static const MAIN_NAVIGATION = '/main-navigation'; // ✅ جديد
+  static const MAIN_NAVIGATION = '/main-navigation';
   static const HOME = '/home';
   static const SUBJECT_DETAILS = '/subject-details';
   static const CHAPTER_DETAILS = '/chapter-details';
@@ -19,6 +21,6 @@ abstract class AppRoutes {
   static const EXPLANATION = '/explanation';
   static const MainTabView = '/maintabview';
   static const SUBJECT_PDF = '/subject-pdf';
-  static const NOTIFICATIONS = '/notifications'; // ✅ جديد
+  static const NOTIFICATIONS = '/notifications';
   static const ASSIGNED_EXAMS = '/assigned-exams';
 }

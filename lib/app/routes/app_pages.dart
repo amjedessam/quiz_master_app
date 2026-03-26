@@ -1,8 +1,10 @@
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart'; // ✅ أضفنا هذا
 import 'package:quiz_master_app/app/modules/amjed/maintabview.dart';
 import 'package:quiz_master_app/app/modules/assigned_exams/assigned_exams_binding.dart';
 import 'package:quiz_master_app/app/modules/assigned_exams/assigned_exams_controller.dart';
 import 'package:quiz_master_app/app/modules/assigned_exams/assigned_exams_view.dart';
+import 'package:quiz_master_app/app/modules/onboarding/onboarding_screen.dart';
 import 'package:quiz_master_app/app/modules/subject_pdf.dart/Subject_Pdf_Binding.dart';
 import 'package:quiz_master_app/app/modules/subject_pdf.dart/subject_pdf_view.dart';
 import '../modules/chapter_details/chapter_details_binding.dart';
@@ -41,10 +43,8 @@ import '../modules/explanation/explanation_binding.dart';
 import '../modules/explanation/explanation_view.dart';
 import '../modules/main_navigation/main_navigation_binding.dart';
 import '../modules/main_navigation/main_navigation_view.dart';
-// ✅ إضافة import للإشعارات
 import '../modules/notifications/notifications_binding.dart';
 import '../modules/notifications/notifications_view.dart';
-
 import 'app_routes.dart';
 
 class AppPages {
@@ -55,13 +55,19 @@ class AppPages {
       binding: ChapterDetailsBinding(),
       transition: Transition.rightToLeft,
     ),
-
     GetPage(
       name: AppRoutes.SPLASH,
       page: () => const SplashView(),
       binding: SplashBinding(),
       transition: Transition.fadeIn,
     ),
+    GetPage(
+      name: AppRoutes.ONBOARDING,
+      page: () => const OnboardingScreen(),
+      transition: Transition.fadeIn,
+      transitionDuration: const Duration(milliseconds: 500),
+    ),
+
     GetPage(
       name: AppRoutes.LOGIN,
       page: () => const LoginView(),
@@ -128,7 +134,6 @@ class AppPages {
       binding: ProfileBinding(),
       transition: Transition.rightToLeft,
     ),
-
     GetPage(
       name: AppRoutes.SUMMARIES,
       page: () => const SummariesView(),
@@ -158,22 +163,18 @@ class AppPages {
       page: () => const MainTabView(),
       transition: Transition.rightToLeft,
     ),
-
     GetPage(
       name: AppRoutes.MAIN_NAVIGATION,
       page: () => const MainNavigationView(),
       binding: MainNavigationBinding(),
       transition: Transition.fadeIn,
     ),
-
     GetPage(
       name: AppRoutes.SUBJECT_PDF,
       page: () => const SubjectPdfView(),
       binding: SubjectPdfBinding(),
       transition: Transition.fadeIn,
     ),
-
-    // ✅ إضافة صفحة الإشعارات
     GetPage(
       name: AppRoutes.NOTIFICATIONS,
       page: () => const NotificationsView(),
