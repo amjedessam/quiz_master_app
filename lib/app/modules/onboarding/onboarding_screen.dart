@@ -2,6 +2,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:quiz_master_app/app/routes/app_routes.dart';
 
 // ══════════════════════════════════════════════════════════════════
@@ -229,6 +230,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
   }
 
   void _navigateToLogin() {
+    GetStorage().write('onboarding_done', true);
     Get.offAllNamed(AppRoutes.LOGIN);
   }
 

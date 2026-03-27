@@ -143,6 +143,7 @@ class QuizSetupController extends GetxController {
         chapterId: chapterId,
         count: questionCount.value,
         difficulty: difficulty,
+        types: selectedTypes.isNotEmpty ? selectedTypes.toList() : null,
       );
 
       if (questions.isEmpty) {

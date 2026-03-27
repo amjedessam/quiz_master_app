@@ -14,6 +14,7 @@ class QuestionRepository {
     required int chapterId,
     int count = 10,
     String? difficulty,
+    List<String>? types,
   }) async {
     final response = await _supabase.client.rpc(
       'get_questions_for_quiz',
@@ -21,6 +22,8 @@ class QuestionRepository {
         'p_chapter_id': chapterId,
         'p_count': count,
         'p_difficulty': difficulty,
+        // 'p_types': types,
+        'p_types': types != null ? '{${types.join(',')}}' : null,
       },
     );
     if (response == null) return [];

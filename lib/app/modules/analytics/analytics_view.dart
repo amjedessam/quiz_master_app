@@ -152,9 +152,9 @@ class _AnalyticsViewBodyState extends State<_AnalyticsViewBody>
             const SizedBox(height: 14),
             _buildWeakTopics(),
             const SizedBox(height: 28),
-            _buildSectionTitle('توصيات للمراجعة', Icons.lightbulb_rounded),
-            const SizedBox(height: 14),
-            _buildRecommendations(),
+            // _buildSectionTitle('توصيات للمراجعة', Icons.lightbulb_rounded),
+            // const SizedBox(height: 14),
+            // _buildRecommendations(),
           ],
         ),
       ),
@@ -895,71 +895,71 @@ class _AnalyticsViewBodyState extends State<_AnalyticsViewBody>
   // ─────────────────────────────────────────
   // Recommendations
   // ─────────────────────────────────────────
-  Widget _buildRecommendations() {
-    if (controller.recommendations.isEmpty) {
-      return _buildEmptyCard('لا توجد توصيات حالياً');
-    }
+  // Widget _buildRecommendations() {
+  //   if (controller.recommendations.isEmpty) {
+  //     return _buildEmptyCard('لا توجد توصيات حالياً');
+  //   }
 
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(22),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.05),
-            blurRadius: 16,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
-      padding: const EdgeInsets.all(20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: controller.recommendations.asMap().entries.map((entry) {
-          final index = entry.key;
-          final rec = entry.value;
+  //   return Container(
+  //     decoration: BoxDecoration(
+  //       color: Colors.white,
+  //       borderRadius: BorderRadius.circular(22),
+  //       boxShadow: [
+  //         BoxShadow(
+  //           color: Colors.black.withOpacity(0.05),
+  //           blurRadius: 16,
+  //           offset: const Offset(0, 4),
+  //         ),
+  //       ],
+  //     ),
+  //     padding: const EdgeInsets.all(20),
+  //     child: Column(
+  //       crossAxisAlignment: CrossAxisAlignment.start,
+  //       children: controller.recommendations.asMap().entries.map((entry) {
+  //         final index = entry.key;
+  //         final rec = entry.value;
 
-          return Padding(
-            padding: const EdgeInsets.only(bottom: 14),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  width: 28,
-                  height: 28,
-                  decoration: BoxDecoration(
-                    color: const Color(0xFFEEEEFF),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Center(
-                    child: Text(
-                      '${index + 1}',
-                      style: const TextStyle(
-                        color: AppColors.primary,
-                        fontSize: 13,
-                        fontWeight: FontWeight.w800,
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: Text(
-                    rec,
-                    style: const TextStyle(
-                      fontSize: 14,
-                      height: 1.6,
-                      color: Color(0xFF4A4A6A),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          );
-        }).toList(),
-      ),
-    );
-  }
+  //         return Padding(
+  //           padding: const EdgeInsets.only(bottom: 14),
+  //           child: Row(
+  //             crossAxisAlignment: CrossAxisAlignment.start,
+  //             children: [
+  //               Container(
+  //                 width: 28,
+  //                 height: 28,
+  //                 decoration: BoxDecoration(
+  //                   color: const Color(0xFFEEEEFF),
+  //                   borderRadius: BorderRadius.circular(8),
+  //                 ),
+  //                 child: Center(
+  //                   child: Text(
+  //                     '${index + 1}',
+  //                     style: const TextStyle(
+  //                       color: AppColors.primary,
+  //                       fontSize: 13,
+  //                       fontWeight: FontWeight.w800,
+  //                     ),
+  //                   ),
+  //                 ),
+  //               ),
+  //               const SizedBox(width: 12),
+  //               Expanded(
+  //                 child: Text(
+  //                   rec,
+  //                   style: const TextStyle(
+  //                     fontSize: 14,
+  //                     height: 1.6,
+  //                     color: Color(0xFF4A4A6A),
+  //                   ),
+  //                 ),
+  //               ),
+  //             ],
+  //           ),
+  //         );
+  //       }).toList(),
+  //     ),
+  //   );
+  // }
 
   // ─────────────────────────────────────────
   // Empty Card helper
