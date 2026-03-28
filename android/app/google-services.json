@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1605961131",
+    "project_id": "my-app-notifications-a0d02",
+    "storage_bucket": "my-app-notifications-a0d02.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1605961131:android:816e52ee3f56ebcecd7eee",
+        "android_client_info": {
+          "package_name": "com.example.parent"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmrpC_T4Xp05dotPQd5xiQZpuMHSBbFdE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1605961131:android:13a23fc2d63454c5cd7eee",
+        "android_client_info": {
+          "package_name": "com.example.quiz_master_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmrpC_T4Xp05dotPQd5xiQZpuMHSBbFdE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
