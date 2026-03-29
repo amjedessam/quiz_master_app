@@ -70,10 +70,10 @@ class QuizSetupView extends GetView<QuizSetupController> {
               padding: const EdgeInsets.fromLTRB(20, 12, 20, 0),
               child: Row(
                 children: [
-                  _HeaderIconButton(
-                    icon: Icons.arrow_forward_ios_rounded,
-                    onTap: () => Get.back(),
-                  ),
+                  // _HeaderIconButton(
+                  //   icon: Icons.arrow_forward_ios_rounded,
+                  //   onTap: () => Get.back(),
+                  // ),
                   const Expanded(
                     child: Text(
                       'إعداد الاختبار',

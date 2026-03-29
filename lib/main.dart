@@ -11,7 +11,10 @@ import 'package:get_storage/get_storage.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'app/core/config/supabase_config.dart';
+import 'app/core/services/student_push_notifications_service.dart';
 import 'app/core/theme/app_theme.dart';
+import 'app/data/services/storage_service.dart';
+import 'app/data/services/supabase_service.dart';
 import 'app/routes/app_pages.dart';
 import 'app/routes/app_routes.dart';
 
@@ -36,6 +39,14 @@ void main() async {
   }
 
   await GetStorage.init();
+
+  Get.put<SupabaseService>(SupabaseService(), permanent: true);
+  Get.put<StorageService>(StorageService(), permanent: true);
+  Get.put<StudentPushNotificationsService>(
+    StudentPushNotificationsService(),
+    permanent: true,
+  );
+  await Get.find<StudentPushNotificationsService>().init();
 
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,

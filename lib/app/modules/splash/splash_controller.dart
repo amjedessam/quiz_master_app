@@ -34,8 +34,10 @@
 //     }
 //   }
 // }
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart'; // ✅ أضفنا هذا
+import '../../core/services/student_push_notifications_service.dart';
 import '../../data/services/storage_service.dart';
 import '../../routes/app_routes.dart';
 
@@ -71,7 +73,11 @@ class SplashController extends GetxController {
       final isLoggedIn = storageService.isLoggedIn;
 
       if (isLoggedIn) {
+        await Get.find<StudentPushNotificationsService>().registerCurrentDeviceToken();
         Get.offAllNamed(AppRoutes.MAIN_NAVIGATION);
+        WidgetsBinding.instance.addPostFrameCallback((_) async {
+          await Get.find<StudentPushNotificationsService>().handleInitialMessageIfAny();
+        });
       } else {
         Get.offAllNamed(AppRoutes.LOGIN);
       }

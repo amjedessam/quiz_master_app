@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../core/services/student_push_notifications_service.dart';
 import '../../../core/utils/helpers.dart';
 import '../../../data/services/storage_service.dart';
 import '../../../data/services/supabase_service.dart';
@@ -64,6 +65,9 @@ class LoginController extends GetxController {
       }
 
       await _storageService.saveUser(user);
+      if (Get.isRegistered<StudentPushNotificationsService>()) {
+        await Get.find<StudentPushNotificationsService>().registerCurrentDeviceToken();
+      }
 
       Helpers.showSuccessSnackbar('تم تسجيل الدخول بنجاح');
       Get.offAllNamed(AppRoutes.MAIN_NAVIGATION);
