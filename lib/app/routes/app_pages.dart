@@ -1,5 +1,9 @@
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart'; // ✅ أضفنا هذا
+import 'package:quiz_master_app/ai_services/ai_services.dart';
+import 'package:quiz_master_app/ai_services/screens/ai_quiz/ai_quiz_binding.dart';
+import 'package:quiz_master_app/ai_services/screens/ai_quiz_setup/ai_quiz_setup_binding.dart';
+import 'package:quiz_master_app/ai_services/screens/quiz_result_screen.dart';
 import 'package:quiz_master_app/app/modules/amjed/maintabview.dart';
 import 'package:quiz_master_app/app/modules/assigned_exams/assigned_exams_binding.dart';
 import 'package:quiz_master_app/app/modules/assigned_exams/assigned_exams_controller.dart';
@@ -94,10 +98,22 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.QUIZ_SETUP,
-      page: () => const QuizSetupView(),
-      binding: QuizSetupBinding(),
+      page: () => AiQuizSetupScreen(
+        curriculumManager: CurriculumManager(),
+        questionGenerator: EnhancedQuestionGenerator(),
+      ),
+      binding: AiQuizSetupBinding(),
       transition: Transition.rightToLeft,
     ),
+    
+
+    // GetPage(
+    //   name: AppRoutes.QUIZ_SETUP,
+    //   page: () => const QuizSetupView(),
+    //   binding: QuizSetupBinding(),
+    //   transition: Transition.rightToLeft,
+    // ),
+    
     GetPage(
       name: AppRoutes.QUIZ,
       page: () => const QuizView(),
@@ -186,5 +202,27 @@ class AppPages {
       page: () => const AssignedExamsView(),
       binding: AssignedExamsBinding(),
     ),
+    // ✅ أضفنا هذه الصفحات الجديدة
+    // GetPage(
+    //   name: AppRoutes.CURRICULUM_SELECTION,
+    //   page: () =>  CurriculumSelectionView(),
+    //   transition: Transition.rightToLeft,
+    // ),
+    // GetPage(
+    //   name: AppRoutes.QUIZ_SCREEN,
+    //   page: () => const QuizScreen(),
+    //   transition: Transition.downToUp,
+    // ),
+    // GetPage(
+    //   name: AppRoutes.QUIZ_RESULT_SCREEN,
+    //   page: () => const QuizResultScreen(),
+    //   transition: Transition.zoom,
+    // ),
+    // GetPage(
+    //   name: AppRoutes.QUESTION_WIDGET,
+    //   page: () => const QuestionWidget(),
+    //   transition: Transition.fadeIn,
+    // ),
+
   ];
 }

@@ -151,6 +151,7 @@ flutter:
     - .env
     - assets/images/
     - assets/icon/
+    - lib/ai_services/sample_curriculum.json
   fonts:
     - family: Tajawal
       fonts:

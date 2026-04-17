@@ -23,4 +23,10 @@ class SupabaseConfig {
     }
     return value;
   }
+
+  static bool get enableLogging {
+    final value = dotenv.env['ENABLE_LOGGING'] ?? 'false';
+    return value.toLowerCase() == 'true';
+  }
+  
 }
