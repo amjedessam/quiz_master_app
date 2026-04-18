@@ -4,21 +4,48 @@
 class Stage {
   final String id;
   final String name; // e.g., "المرحلة الابتدائية"
-  final List<Subject> subjects;
+  final List<Semester> semesters;
 
   Stage({
     required this.id,
     required this.name,
-    required this.subjects,
+    required this.semesters,
   });
 
   factory Stage.fromJson(Map<String, dynamic> json) {
     return Stage(
       id: json['id'],
       name: json['name'],
-      subjects: (json['subjects'] as List)
-          .map((s) => Subject.fromJson(s))
+      semesters: (json['semesters'] as List)
+          .map((s) => Semester.fromJson(s))
           .toList(),
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'semesters': semesters.map((s) => s.toJson()).toList(),
+    };
+  }
+}
+class Semester {
+  final String id;
+  final String name; // e.g., "الفصل الدراسي الأول"
+  final List<Subject> subjects;
+
+  Semester({
+    required this.id,
+    required this.name,
+    required this.subjects,
+  });
+
+  factory Semester.fromJson(Map<String, dynamic> json) {
+    return Semester(
+      id: json['id'],
+      name: json['name'],
+      subjects: (json['subjects'] as List).map((s) => Subject.fromJson(s)).toList(),
     );
   }
 
@@ -36,14 +63,14 @@ class Subject {
   final String name; // e.g., "الرياضيات"
   final String icon;
   final String description;
-  final List<Semester> semesters;
+  final List<Unit> units;
 
   Subject({
     required this.id,
     required this.name,
     required this.icon,
     required this.description,
-    required this.semesters,
+    required this.units,
   });
 
   factory Subject.fromJson(Map<String, dynamic> json) {
@@ -52,8 +79,8 @@ class Subject {
       name: json['name'],
       icon: json['icon'] ?? '📚',
       description: json['description'] ?? '',
-      semesters: (json['semesters'] as List)
-          .map((s) => Semester.fromJson(s))
+      units: (json['units'] as List)
+          .map((u) => Unit.fromJson(u))
           .toList(),
     );
   }
@@ -64,38 +91,11 @@ class Subject {
       'name': name,
       'icon': icon,
       'description': description,
-      'semesters': semesters.map((s) => s.toJson()).toList(),
-    };
-  }
-}
-
-class Semester {
-  final String id;
-  final String name; // e.g., "الفصل الدراسي الأول"
-  final List<Unit> units;
-
-  Semester({
-    required this.id,
-    required this.name,
-    required this.units,
-  });
-
-  factory Semester.fromJson(Map<String, dynamic> json) {
-    return Semester(
-      id: json['id'],
-      name: json['name'],
-      units: (json['units'] as List).map((u) => Unit.fromJson(u)).toList(),
-    );
-  }
-
-  Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'name': name,
       'units': units.map((u) => u.toJson()).toList(),
     };
   }
 }
+
 
 class Unit {
   final String id;
@@ -380,6 +380,7 @@ class QuizResult {
   final DateTime completedAt;
   final int totalQuestions;
   final int correctAnswers;
+  final String explanation;
   final Duration timeTaken;
   final List<QuestionResult> results;
 
@@ -389,6 +390,7 @@ class QuizResult {
     required this.completedAt,
     required this.totalQuestions,
     required this.correctAnswers,
+    required this.explanation,
     required this.timeTaken,
     required this.results,
   });
@@ -402,6 +404,7 @@ class QuizResult {
       completedAt: DateTime.parse(json['completedAt']),
       totalQuestions: json['totalQuestions'],
       correctAnswers: json['correctAnswers'],
+      explanation: json['explanation'] ?? '',
       timeTaken: Duration(milliseconds: json['timeTaken']),
       results: (json['results'] as List).map((r) => QuestionResult.fromJson(r)).toList(),
     );
@@ -423,12 +426,16 @@ class QuizResult {
 class QuestionResult {
   final String questionId;
   final String userAnswer;
+  final String correctAnswer;
+  final String explanation;
   final bool isCorrect;
   final Duration timeSpent;
 
   QuestionResult({
     required this.questionId,
     required this.userAnswer,
+    required this.correctAnswer,
+    required this.explanation,
     required this.isCorrect,
     required this.timeSpent,
   });
@@ -437,6 +444,8 @@ class QuestionResult {
     return QuestionResult(
       questionId: json['questionId'],
       userAnswer: json['userAnswer'],
+      correctAnswer: json['correctAnswer'] ?? '',
+      explanation: json['explanation'] ?? '',
       isCorrect: json['isCorrect'],
       timeSpent: Duration(milliseconds: json['timeSpent']),
     );
@@ -446,6 +455,8 @@ class QuestionResult {
     return {
       'questionId': questionId,
       'userAnswer': userAnswer,
+      'correctAnswer': correctAnswer,
+      'explanation': explanation,
       'isCorrect': isCorrect,
       'timeSpent': timeSpent.inMilliseconds,
     };

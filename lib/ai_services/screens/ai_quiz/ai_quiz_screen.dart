@@ -19,8 +19,8 @@ class AiQuizScreen extends StatefulWidget {
   const AiQuizScreen({
     Key? key,
     required this.stageId,
-    required this.subjectId,
     required this.semesterId,
+    required this.subjectId,
     required this.unitId,
     required this.curriculumManager,
     required this.questionGenerator,
@@ -43,8 +43,8 @@ class _AiQuizScreenState extends State<AiQuizScreen> {
     _controller = Get.put(
       AiQuizController(
         stageId: widget.stageId,
-        subjectId: widget.subjectId,
         semesterId: widget.semesterId,
+        subjectId: widget.subjectId,
         unitId: widget.unitId,
         curriculumManager: widget.curriculumManager,
         questionGenerator: widget.questionGenerator,
@@ -76,6 +76,8 @@ class _AiQuizScreenState extends State<AiQuizScreen> {
           return const Center(child: CircularProgressIndicator());
         }
         if (controller.errorMessage.value != null) {
+          
+          print(controller.errorMessage.value);
           return _buildErrorState();
         }
         return _buildQuizBody();

@@ -31,54 +31,41 @@ class CurriculumManager {
     }
   }
 
-  Stage _parseEducationLevel(Map<String, dynamic> json) {
-    final subjects = (json['subjects'] as List? ?? [])
-        .map(
-          (subjectJson) => _parseSubject(subjectJson as Map<String, dynamic>),
-        )
-        .toList();
+Stage _parseEducationLevel(Map<String, dynamic> json) {
+  final semesters = (json['semesters'] as List? ?? [])
+      .map((semJson) {
+        final sem = semJson as Map<String, dynamic>;
 
-    return Stage(
-      id:
-          json['level_id']?.toString() ??
-          json['id']?.toString() ??
-          'unknown_level',
-      name:
-          json['level_name']?.toString() ??
-          json['name']?.toString() ??
-          'غير معروف',
-      subjects: subjects,
-    );
-  }
-
-  Subject _parseSubject(Map<String, dynamic> json) {
-    final part = json['part']?.toString() ?? '1';
-    final semesterId = '${json['subject_id'] ?? json['id']}_part_$part';
-    final semesterName = 'الجزء $part';
-
-    return Subject(
-      id:
-          json['subject_id']?.toString() ??
-          json['id']?.toString() ??
-          'unknown_subject',
-      name:
-          json['subject_name']?.toString() ??
-          json['name']?.toString() ??
-          'غير معروف',
-      icon: _subjectIcon(json['category']?.toString()),
-      description: json['category']?.toString() ?? '',
-      semesters: [
-        Semester(
-          id: semesterId,
-          name: semesterName,
-          units: (json['units'] as List? ?? [])
-              .map((unitJson) => _parseUnit(unitJson as Map<String, dynamic>))
+        return Semester(
+          id: sem['semester_id']?.toString() ?? 'unknown_semester',
+          name: sem['semester_name']?.toString() ?? 'فصل دراسي',
+          subjects: (sem['subjects'] as List? ?? [])
+              .map((subJson) => _parseSubject(subJson))
               .toList(),
-        ),
-      ],
-    );
-  }
+        );
+      })
+      .toList();
 
+  return Stage(
+    id: json['level_id']?.toString() ?? 'unknown_level',
+    name: json['level_name']?.toString() ?? 'غير معروف',
+    semesters: semesters,
+  );
+}
+  
+  
+ Subject _parseSubject(Map<String, dynamic> json) {
+  return Subject(
+    id: json['subject_id']?.toString() ?? 'unknown_subject',
+    name: json['subject_name']?.toString() ?? 'غير معروف',
+    icon: _subjectIcon(json['category']?.toString()),
+    description: json['category']?.toString() ?? '',
+    units: (json['units'] as List? ?? [])
+        .map((u) => _parseUnit(u))
+        .toList(),
+  );
+}
+  
   Unit _parseUnit(Map<String, dynamic> json) {
     return Unit(
       id:
@@ -135,62 +122,61 @@ class CurriculumManager {
   Stage? getStage(String stageId) => _stages[stageId];
 
   /// Get subjects for a stage
-  List<Subject>? getSubjectsForStage(String stageId) {
-    return _stages[stageId]?.subjects;
-  }
+List<Subject> getSubjectsForStage(String stageId) {
+  final stage = _stages[stageId];
+  if (stage == null) return [];
 
+  return stage.semesters
+      .expand((sem) => sem.subjects)
+      .toList();
+}List<Semester> getSemestersForStage(String stageId) {
+  return _stages[stageId]?.semesters ?? [];
+}
+
+List<Subject> getSubjectsForSemester(String stageId, String semesterId) {
+  final stage = _stages[stageId];
+  if (stage == null) return [];
+
+  final semester = stage.semesters.firstWhere(
+    (s) => s.id == semesterId,
+    orElse: () => stage.semesters.first,
+  );
+
+  return semester.subjects;
+}
   /// Get semesters for a subject
-  List<Semester>? getSemestersForSubject(String stageId, String subjectId) {
-    final stage = _stages[stageId];
-    if (stage == null) return null;
-
-    final subject = stage.subjects.firstWhere(
-      (s) => s.id == subjectId,
-      orElse: () => stage.subjects.first,
-    );
-    return subject.semesters;
-  }
-
   /// Get units for a semester
-  List<Unit>? getUnitsForSemester(
-    String stageId,
-    String subjectId,
-    String semesterId,
-  ) {
-    final stage = _stages[stageId];
-    if (stage == null) return null;
+  List<Unit> getUnits(
+  String stageId,
+  String semesterId,
+  String subjectId,
+) {
+  final subjects = getSubjectsForSemester(stageId, semesterId);
 
-    final subject = stage.subjects.firstWhere(
-      (s) => s.id == subjectId,
-      orElse: () => stage.subjects.first,
-    );
+  final subject = subjects.firstWhere(
+    (s) => s.id == subjectId,
+    orElse: () => subjects.first,
+  );
 
-    final semester = subject.semesters.firstWhere(
-      (sem) => sem.id == semesterId,
-      orElse: () => subject.semesters.first,
-    );
-
-    return semester.units;
-  }
+  return subject.units;
+}
 
   /// Get lessons for a unit
-  List<Lesson>? getLessonsForUnit(
-    String stageId,
-    String subjectId,
-    String semesterId,
-    String unitId,
-  ) {
-    final units = getUnitsForSemester(stageId, subjectId, semesterId);
-    if (units == null) return null;
+ List<Lesson> getLessons(
+  String stageId,
+  String semesterId,
+  String subjectId,
+  String unitId,
+) {
+  final units = getUnits(stageId, semesterId, subjectId);
 
-    final unit = units.firstWhere(
-      (u) => u.id == unitId,
-      orElse: () => units.first,
-    );
+  final unit = units.firstWhere(
+    (u) => u.id == unitId,
+    orElse: () => units.first,
+  );
 
-    return unit.lessons;
-  }
-
+  return unit.lessons;
+}
   /// Get all lessons for a unit (for quiz generation)
   List<Lesson> getAllLessonsForUnit(
     String stageId,
@@ -198,99 +184,106 @@ class CurriculumManager {
     String semesterId,
     String unitId,
   ) {
-    return getLessonsForUnit(stageId, subjectId, semesterId, unitId) ?? [];
+    return getLessons(stageId, semesterId, subjectId, unitId) ?? [];
   }
 
   /// Generate quiz context from curriculum path
   String generateQuizContext(
-    String stageId,
-    String subjectId,
-    String semesterId,
-    String unitId,
-  ) {
-    final stage = _stages[stageId];
-    if (stage == null) return '';
+  String stageId,
+  String semesterId,
+  String subjectId,
+  String unitId,
+) {
+  final stage = _stages[stageId];
+  if (stage == null) return '';
 
-    final subject = stage.subjects.firstWhere(
-      (s) => s.id == subjectId,
-      orElse: () => stage.subjects.first,
-    );
-    final semester = subject.semesters.firstWhere(
-      (sem) => sem.id == semesterId,
-      orElse: () => subject.semesters.first,
-    );
-    final units = semester.units;
-    final unit = units.firstWhere(
-      (u) => u.id == unitId,
-      orElse: () => units.first,
-    );
+  // ✅ نجيب الفصل مباشرة من المرحلة
+  final semester = stage.semesters.firstWhere(
+    (s) => s.id == semesterId,
+    orElse: () => stage.semesters.first,
+  );
 
-    return '''
+  // ✅ نجيب المادة من داخل الفصل
+  final subject = semester.subjects.firstWhere(
+    (s) => s.id == subjectId,
+    orElse: () => semester.subjects.first,
+  );
+
+  // ✅ نجيب الوحدة من داخل المادة
+  final unit = subject.units.firstWhere(
+    (u) => u.id == unitId,
+    orElse: () => subject.units.first,
+  );
+
+  return '''
 Stage: ${stage.name}
-Subject: ${subject.name}
 Semester: ${semester.name}
+Subject: ${subject.name}
 Unit: ${unit.name}
 Description: ${unit.description ?? 'No description'}
 Key Topics: ${unit.lessons.map((l) => l.name).join(', ')}
 ''';
-  }
-
-  /// Get curriculum statistics
-  Map<String, dynamic> getCurriculumStats() {
-    int totalStages = _stages.length;
-    int totalSubjects = _stages.values.fold(
-      0,
-      (sum, stage) => sum + stage.subjects.length,
-    );
-    int totalSemesters = _stages.values.fold(
-      0,
-      (sum, stage) =>
-          sum +
-          stage.subjects.fold(
-            0,
-            (subSum, subject) => subSum + subject.semesters.length,
-          ),
-    );
-    int totalUnits = _stages.values.fold(
-      0,
-      (sum, stage) =>
-          sum +
-          stage.subjects.fold(
-            0,
-            (subSum, subject) =>
-                subSum +
-                subject.semesters.fold(
-                  0,
-                  (semSum, semester) => semSum + semester.units.length,
-                ),
-          ),
-    );
-    int totalLessons = _stages.values.fold(
-      0,
-      (sum, stage) =>
-          sum +
-          stage.subjects.fold(
-            0,
-            (subSum, subject) =>
-                subSum +
-                subject.semesters.fold(
-                  0,
-                  (semSum, semester) =>
-                      semSum +
-                      semester.units.fold(
-                        0,
-                        (uSum, unit) => uSum + unit.lessons.length,
-                      ),
-                ),
-          ),
-    );
-
-    return {
-      'totalStages': totalStages,
-      'totalSubjects': totalSubjects,
-      'totalSemesters': totalSemesters,
-      'totalUnits': totalUnits,
-      'totalLessons': totalLessons,
-    };
-  }
 }
+  /// Get curriculum statistics
+ Map<String, dynamic> getCurriculumStats() {
+  int totalStages = _stages.length;
+
+  int totalSemesters = _stages.values.fold(
+    0,
+    (sum, stage) => sum + stage.semesters.length,
+  );
+
+  int totalSubjects = _stages.values.fold(
+    0,
+    (sum, stage) =>
+        sum +
+        stage.semesters.fold(
+          0,
+          (semSum, semester) => semSum + semester.subjects.length,
+        ),
+  );
+
+  int totalUnits = _stages.values.fold(
+    0,
+    (sum, stage) =>
+        sum +
+        stage.semesters.fold(
+          0,
+          (semSum, semester) =>
+              semSum +
+              semester.subjects.fold(
+                0,
+                (subSum, subject) => subSum + subject.units.length,
+              ),
+        ),
+  );
+
+  int totalLessons = _stages.values.fold(
+    0,
+    (sum, stage) =>
+        sum +
+        stage.semesters.fold(
+          0,
+          (semSum, semester) =>
+              semSum +
+              semester.subjects.fold(
+                0,
+                (subSum, subject) =>
+                    subSum +
+                    subject.units.fold(
+                      0,
+                      (unitSum, unit) =>
+                          unitSum + unit.lessons.length,
+                    ),
+              ),
+        ),
+  );
+
+  return {
+    'totalStages': totalStages,
+    'totalSemesters': totalSemesters,
+    'totalSubjects': totalSubjects,
+    'totalUnits': totalUnits,
+    'totalLessons': totalLessons,
+  };
+}}

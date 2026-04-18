@@ -10,8 +10,8 @@ class AiQuizBinding extends Bindings {
       final args = Get.arguments as Map<String, dynamic>?;
       return AiQuizController(
         stageId: args?['stageId'] as String? ?? '',
-        subjectId: args?['subjectId'] as String? ?? '',
         semesterId: args?['semesterId'] as String? ?? '',
+        subjectId: args?['subjectId'] as String? ?? '',
         unitId: args?['unitId'] as String? ?? '',
         curriculumManager: args?['curriculumManager'] as CurriculumManager?,
         questionGenerator: args?['questionGenerator'] as EnhancedQuestionGenerator?,

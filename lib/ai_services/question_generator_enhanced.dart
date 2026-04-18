@@ -1,220 +1,4 @@
-// import 'dart:convert';
-// import 'package:dio/dio.dart';
-// import 'config.dart';
-// import 'models.dart';
 
-// /// Enhanced question generator with variety of question types
-// class EnhancedQuestionGenerator {
-//   final Dio _dio = Dio();
-
-//   EnhancedQuestionGenerator() {
-//     _dio.options.headers = {
-//       'Authorization': 'Bearer ${AIConfig.openAIKey}',
-//       'Content-Type': 'application/json',
-//     };
-//   }
-
-//   /// Generate varied questions with different types for better user experience
-//   Future<Map<String, dynamic>> generateVariedQuestions(
-//     String topic,
-//     String context,
-//     int totalCount,
-//   ) async {
-//     final prompt = '''
-// Generate $totalCount diverse educational questions about "$topic" for students.
-// Context: $context
-
-// Create a mix of different question types:
-// 1. Multiple Choice Questions (40%): 4 options with one correct answer
-// 2. True/False Questions (20%): Simple true/false questions
-// 3. Fill in the Blanks (20%): Complete the sentence questions
-// 4. Short Answer (20%): Brief answer questions
-
-// Return as JSON with this structure:
-// {
-//   "multipleChoice": [
-//     {
-//       "text": "question text",
-//       "options": ["option1", "option2", "option3", "option4"],
-//       "correctAnswer": "option text",
-//       "explanation": "why this is correct"
-//     }
-//   ],
-//   "trueFalse": [
-//     {
-//       "text": "statement",
-//       "correctAnswer": true/false,
-//       "explanation": "explanation"
-//     }
-//   ],
-//   "fillInBlanks": [
-//     {
-//       "text": "sentence with ___",
-//       "correctAnswers": ["answer1", "answer2"],
-//       "explanation": "explanation"
-//     }
-//   ],
-//   "shortAnswer": [
-//     {
-//       "text": "question",
-//       "acceptableAnswers": ["answer1", "answer2"],
-//       "explanation": "explanation"
-//     }
-//   ]
-// }
-// ''';
-
-//     final response = await _dio.post(
-//       AIConfig.openAIUrl,
-//       data: {
-//         'model': AIConfig.model,
-//         'messages': [
-//           {'role': 'user', 'content': prompt}
-//         ],
-//         'max_tokens': 3000,
-//       },
-//     );
-
-//     final content = response.data['choices'][0]['message']['content'];
-//     final questionsJson = jsonDecode(content);
-    
-//     return {
-//       'multipleChoice': (questionsJson['multipleChoice'] as List)
-//           .map((q) => Question.fromJson(q))
-//           .toList(),
-//       'trueFalse': (questionsJson['trueFalse'] as List)
-//           .map((q) => TrueFalseQuestion.fromJson(q))
-//           .toList(),
-//       'fillInBlanks': (questionsJson['fillInBlanks'] as List)
-//           .map((q) => FillInTheBlanksQuestion.fromJson(q))
-//           .toList(),
-//       'shortAnswer': (questionsJson['shortAnswer'] as List)
-//           .map((q) => ShortAnswerQuestion.fromJson(q))
-//           .toList(),
-//     };
-//   }
-
-//   /// Generate multiple choice questions only
-//   Future<List<Question>> generateMultipleChoice(String topic, int count) async {
-//     final prompt = '''
-// Generate $count multiple-choice questions about "$topic".
-// Each question should have exactly 4 options, one correct answer, and a brief explanation.
-// Format as JSON array of objects with keys: text, options (array), correctAnswer, explanation.
-// ''';
-
-//     final response = await _dio.post(
-//       AIConfig.openAIUrl,
-//       data: {
-//         'model': AIConfig.model,
-//         'messages': [
-//           {'role': 'user', 'content': prompt}
-//         ],
-//         'max_tokens': 2000,
-//       },
-//     );
-
-//     final content = response.data['choices'][0]['message']['content'];
-//     final questionsJson = jsonDecode(content) as List;
-//     return questionsJson.map((q) => Question.fromJson(q)).toList();
-//   }
-
-//   /// Generate true/false questions
-//   Future<List<TrueFalseQuestion>> generateTrueFalse(String topic, int count) async {
-//     final prompt = '''
-// Generate $count true/false questions about "$topic".
-// Format as JSON array of objects with keys: text, correctAnswer (boolean), explanation.
-// ''';
-
-//     final response = await _dio.post(
-//       AIConfig.openAIUrl,
-//       data: {
-//         'model': AIConfig.model,
-//         'messages': [
-//           {'role': 'user', 'content': prompt}
-//         ],
-//         'max_tokens': 1500,
-//       },
-//     );
-
-//     final content = response.data['choices'][0]['message']['content'];
-//     final questionsJson = jsonDecode(content) as List;
-//     return questionsJson.map((q) => TrueFalseQuestion.fromJson(q)).toList();
-//   }
-
-//   /// Generate fill in the blanks questions
-//   Future<List<FillInTheBlanksQuestion>> generateFillInBlanks(String topic, int count) async {
-//     final prompt = '''
-// Generate $count fill-in-the-blanks questions about "$topic".
-// Use ___ to indicate blank spaces.
-// Format as JSON array with keys: text, correctAnswers (array), explanation.
-// Include multiple acceptable answers where applicable.
-// ''';
-
-//     final response = await _dio.post(
-//       AIConfig.openAIUrl,
-//       data: {
-//         'model': AIConfig.model,
-//         'messages': [
-//           {'role': 'user', 'content': prompt}
-//         ],
-//         'max_tokens': 1500,
-//       },
-//     );
-
-//     final content = response.data['choices'][0]['message']['content'];
-//     final questionsJson = jsonDecode(content) as List;
-//     return questionsJson.map((q) => FillInTheBlanksQuestion.fromJson(q)).toList();
-//   }
-
-//   /// Generate multi-select questions
-//   Future<List<MultiSelectQuestion>> generateMultiSelect(String topic, int count) async {
-//     final prompt = '''
-// Generate $count multi-select questions about "$topic".
-// Each question should have 4-5 options with 2-3 correct answers.
-// Format as JSON array with keys: text, options (array), correctAnswers (array), explanation.
-// ''';
-
-//     final response = await _dio.post(
-//       AIConfig.openAIUrl,
-//       data: {
-//         'model': AIConfig.model,
-//         'messages': [
-//           {'role': 'user', 'content': prompt}
-//         ],
-//         'max_tokens': 1500,
-//       },
-//     );
-
-//     final content = response.data['choices'][0]['message']['content'];
-//     final questionsJson = jsonDecode(content) as List;
-//     return questionsJson.map((q) => MultiSelectQuestion.fromJson(q)).toList();
-//   }
-
-//   /// Generate short answer questions
-//   Future<List<ShortAnswerQuestion>> generateShortAnswer(String topic, int count) async {
-//     final prompt = '''
-// Generate $count short answer questions about "$topic".
-// Each question should be answered in 1-3 sentences.
-// Format as JSON array with keys: text, acceptableAnswers (array), explanation.
-// Include multiple acceptable answer variations.
-// ''';
-
-//     final response = await _dio.post(
-//       AIConfig.openAIUrl,
-//       data: {
-//         'model': AIConfig.model,
-//         'messages': [
-//           {'role': 'user', 'content': prompt}
-//         ],
-//         'max_tokens': 1500,
-//       },
-//     );
-
-//     final content = response.data['choices'][0]['message']['content'];
-//     final questionsJson = jsonDecode(content) as List;
-//     return questionsJson.map((q) => ShortAnswerQuestion.fromJson(q)).toList();
-//   }
-// }
 import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'config.dart';
@@ -222,7 +6,9 @@ import 'models.dart';
 
 /// مولد أسئلة متقدم مع أنواع أسئلة متنوعة لتعزيز تجربة المستخدم
 class EnhancedQuestionGenerator {
-  final Dio _dio = Dio();
+
+   final Dio _dio = Dio();
+   int aimodel = 0; // 0 for Gemini, 1 for OpenAI, 2 for Ollama
 
   EnhancedQuestionGenerator() {
     _dio.options.headers = {
@@ -242,9 +28,9 @@ class EnhancedQuestionGenerator {
 
 قم بإنشاء مزيج من أنواع الأسئلة التالية:
 1. اختيار من متعدد (40%): 4 خيارات مع إجابة صحيحة واحدة.
-2. صح أم خطأ (20%): أسئلة بسيطة للإجابة بصح أو خطأ.
-3. أكمل الفراغات (20%): أسئلة لإكمال الجملة.
-4. إجابة قصيرة (20%): أسئلة تتطلب إجابة موجزة.
+2. صح أم خطأ (40%): أسئلة بسيطة للإجابة بصح أو خطأ.
+3. أكمل الفراغات (10%): أسئلة لإكمال الجملة.
+4. إجابة قصيرة (10%): أسئلة تتطلب إجابة موجزة.
 
 يجب أن يكون الرد بصيغة JSON فقط بالهيكل التالي:
 {
@@ -281,34 +67,27 @@ class EnhancedQuestionGenerator {
 ملاحظة: تأكد أن تكون جميع النصوص باللغة العربية، مع الحفاظ على أسماء المفاتيح (Keys) بالإنجليزية.
 ''';
 
-    final response = await _dio.post(
-      AIConfig.ollamaUrl,
-      data: {
-        'model': AIConfig.ollamaModel,
-        'messages': [
-          {'role': 'user', 'content': prompt}
-        ],
-        'stream': false,
-      },
-    );
+   // final content = _extractJson(response.data['message']['content']);y
+   final response = await AIChat().getAIResponse(prompt, aimodel);
+   final questionsJson = _decodeAIResponse(response);
 
-    final content = _extractJson(response.data['message']['content']);
-    final questionsJson = jsonDecode(content);
-    
-    return {
-      'multipleChoice': (questionsJson['multipleChoice'] as List)
-          .map((q) => Question.fromJson(q))
-          .toList(),
-      'trueFalse': (questionsJson['trueFalse'] as List)
-          .map((q) => TrueFalseQuestion.fromJson(q))
-          .toList(),
-      'fillInBlanks': (questionsJson['fillInBlanks'] as List)
-          .map((q) => FillInTheBlanksQuestion.fromJson(q))
-          .toList(),
-      'shortAnswer': (questionsJson['shortAnswer'] as List)
-          .map((q) => ShortAnswerQuestion.fromJson(q))
-          .toList(),
-    };
+   if (questionsJson is! Map<String, dynamic>) {
+     throw Exception('Expected JSON object with question groups, got ${questionsJson.runtimeType}');
+   }
+
+   return {
+     'multipleChoice': (questionsJson['multipleChoice'] as List? ?? [])
+         .map((q) => Question.fromJson(q)).toList(),
+  'trueFalse': (questionsJson['trueFalse'] as List? ?? [])
+      .map((q) => TrueFalseQuestion.fromJson(q)).toList(),
+  'fillInBlanks': (questionsJson['fillInBlanks'] as List? ?? [])
+      .map((q) => FillInTheBlanksQuestion.fromJson(q)).toList(),
+  'shortAnswer': (questionsJson['shortAnswer'] as List? ?? [])
+      .map((q) => ShortAnswerQuestion.fromJson(q)).toList(),
+      
+  // ... وبقية الأنواع بنفس الطريقة
+};
+  
   }
 
   /// توليد أسئلة اختيار من متعدد فقط
@@ -320,19 +99,13 @@ class EnhancedQuestionGenerator {
 اللغة: العربية.
 ''';
 
-    final response = await _dio.post(
-      AIConfig.ollamaUrl,
-      data: {
-        'model': AIConfig.ollamaModel,
-        'messages': [
-          {'role': 'user', 'content': prompt}
-        ],
-        'stream': false,
-      },
-    );
+    String response = await AIChat().getAIResponse(prompt, aimodel);
+    final questionsJson = _decodeAIResponse(response);
 
-    final content = _extractJson(response.data['message']['content']);
-    final questionsJson = jsonDecode(content) as List;
+    if (questionsJson is! List) {
+      throw Exception('Expected JSON list for multiple choice questions, got ${questionsJson.runtimeType}');
+    }
+
     return questionsJson.map((q) => Question.fromJson(q)).toList();
   }
 
@@ -344,19 +117,13 @@ class EnhancedQuestionGenerator {
 اللغة: العربية.
 ''';
 
-    final response = await _dio.post(
-      AIConfig.ollamaUrl,
-      data: {
-        'model': AIConfig.ollamaModel,
-        'messages': [
-          {'role': 'user', 'content': prompt}
-        ],
-        'stream': false,
-      },
-    );
+    String response = await AIChat().getAIResponse(prompt, aimodel);
+    final questionsJson = _decodeAIResponse(response);
 
-    final content = _extractJson(response.data['message']['content']);
-    final questionsJson = jsonDecode(content) as List;
+    if (questionsJson is! List) {
+      throw Exception('Expected JSON list for true/false questions, got ${questionsJson.runtimeType}');
+    }
+
     return questionsJson.map((q) => TrueFalseQuestion.fromJson(q)).toList();
   }
 
@@ -369,29 +136,66 @@ class EnhancedQuestionGenerator {
 اللغة: العربية.
 ''';
 
-    final response = await _dio.post(
-      AIConfig.ollamaUrl,
-      data: {
-        'model': AIConfig.ollamaModel,
-        'messages': [
-          {'role': 'user', 'content': prompt}
-        ],
-        'stream': false,
-      },
-    );
+    String response = await AIChat().getAIResponse(prompt, aimodel);
+    final questionsJson = _decodeAIResponse(response);
 
-    final content = _extractJson(response.data['message']['content']);
-    final questionsJson = jsonDecode(content) as List;
+    if (questionsJson is! List) {
+      throw Exception('Expected JSON list for fill-in-the-blanks questions, got ${questionsJson.runtimeType}');
+    }
+
     return questionsJson.map((q) => FillInTheBlanksQuestion.fromJson(q)).toList();
+  }
+
+  dynamic _decodeAIResponse(String response) {
+    if (response.startsWith('Error from Server:') || response.startsWith('Exception:')) {
+      final errorBodyStart = response.indexOf('{');
+      if (errorBodyStart != -1) {
+        final errorJson = response.substring(errorBodyStart);
+        try {
+          final decoded = jsonDecode(errorJson);
+          if (decoded is Map<String, dynamic> && decoded.containsKey('error')) {
+            final error = decoded['error'];
+            final message = error is Map<String, dynamic>
+                ? error['message'] ?? error.toString()
+                : error.toString();
+            throw Exception('AI API error: $message');
+          }
+        } catch (_) {
+          throw Exception(response);
+        }
+      }
+      throw Exception(response);
+    }
+
+    final cleanJson = _extractJson(response);
+    try {
+      final decoded = jsonDecode(cleanJson);
+      if (decoded is Map<String, dynamic> && decoded.containsKey('error')) {
+        final error = decoded['error'];
+        final message = error is Map<String, dynamic>
+            ? error['message'] ?? error.toString()
+            : error.toString();
+        throw Exception('AI API error: $message');
+      }
+      return decoded;
+    } on FormatException catch (e) {
+      throw Exception('Unable to decode AI response as JSON: ${e.message}\nResponse: $response');
+    }
   }
 
   /// دالة مساعدة لاستخراج الـ JSON من ردود Ollama
   String _extractJson(String text) {
-    if (text.contains('```json')) {
-      return text.split('```json')[1].split('```')[0].trim();
-    } else if (text.contains('```')) {
-      return text.split('```')[1].split('```')[0].trim();
+  try {
+    // البحث عن بداية ونهاية الـ JSON الحقيقية
+    int startIndex = text.indexOf('{');
+    int endIndex = text.lastIndexOf('}');
+    
+    if (startIndex != -1 && endIndex != -1 && endIndex > startIndex) {
+      return text.substring(startIndex, endIndex + 1);
     }
-    return text.trim();
+  } catch (e) {
+    print("Extraction Error: $e");
   }
+  return text.trim();
+}
 }

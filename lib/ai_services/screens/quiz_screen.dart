@@ -46,10 +46,10 @@ class _QuizScreenState extends State<QuizScreen> {
 
   Future<void> _loadQuestions() async {
     try {
-      final unit = widget.curriculumManager.getUnitsForSemester(
+      final unit = widget.curriculumManager.getUnits(
         widget.stageId,
-        widget.subjectId,
         widget.semesterId,
+        widget.subjectId,
       )?.firstWhere((u) => u.id == widget.unitId);
 
       if (unit == null) {
@@ -63,8 +63,8 @@ class _QuizScreenState extends State<QuizScreen> {
       final topic = unit.name;
       final context = widget.curriculumManager.generateQuizContext(
         widget.stageId,
-        widget.subjectId,
         widget.semesterId,
+        widget.subjectId,
         widget.unitId,
       );
 
@@ -132,6 +132,7 @@ class _QuizScreenState extends State<QuizScreen> {
       completedAt: DateTime.now(),
       totalQuestions: questions.length,
       correctAnswers: correctAnswers,
+      explanation: 'لقد أجبت بشكل صحيح على $correctAnswers من أصل ${questions.length} أسئلة.',
       timeTaken: Duration(minutes: 5), // Track actual time
       results: List.generate(
         questions.length,
@@ -139,6 +140,8 @@ class _QuizScreenState extends State<QuizScreen> {
           questionId: '${index}_${questions[index].toString().hashCode}',
           userAnswer: userAnswers[index],
           isCorrect: _isAnswerCorrect(questions[index], userAnswers[index]),
+          correctAnswer: questions[index]['correctAnswer'] ?? '',
+          explanation: questions[index]['explanation'] ?? '',
           timeSpent: const Duration(seconds: 30), // Track actual time per question
         ),
       ),

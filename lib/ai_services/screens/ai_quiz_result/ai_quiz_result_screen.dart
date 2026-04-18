@@ -283,8 +283,23 @@ class _AiQuizResultScreenState extends State<AiQuizResultScreen> {
                   ),
                   const SizedBox(width: 12),
                   Expanded(
-                    child: Text(
-                      'السؤال ${index + 1} - إجابتك: ${result.userAnswer.isEmpty ? 'لم تُجب' : result.userAnswer}',
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'السؤال ${index + 1} - إجابتك: ${result.userAnswer.isEmpty ? 'لم تُجب' : result.userAnswer}',
+                        ),
+                        if (!result.isCorrect && result.correctAnswer.isNotEmpty) ...[
+                          const SizedBox(height: 4),
+                          Text(
+                            'الإجابة الصحيحة: ${result.correctAnswer}\n شرح: ${result.explanation}',
+                            style: const TextStyle(
+                              color: Colors.red,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ],
                     ),
                   ),
                   Text('${result.timeSpent.inSeconds} ث'),

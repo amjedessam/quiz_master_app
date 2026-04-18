@@ -8,8 +8,8 @@ import '../ai_quiz_result/ai_quiz_result_screen.dart';
 
 class AiQuizController extends GetxController {
   final String stageId;
-  final String subjectId;
   final String semesterId;
+  final String subjectId;
   final String unitId;
   final CurriculumManager curriculumManager;
   final EnhancedQuestionGenerator questionGenerator;
@@ -22,14 +22,16 @@ class AiQuizController extends GetxController {
   final errorMessage = RxnString();
   final currentPage = 0.obs;
   final timeRemaining = 0.obs;
+  final questionStartTimes = <DateTime>[].obs;
+  final questionTimes = <Duration>[].obs;
   late DateTime _startTime;
   final pageController = PageController();
   Timer? _timer;
 
   AiQuizController({
     required this.stageId,
-    required this.subjectId,
     required this.semesterId,
+    required this.subjectId,
     required this.unitId,
     CurriculumManager? curriculumManager,
     EnhancedQuestionGenerator? questionGenerator,
@@ -57,7 +59,7 @@ class AiQuizController extends GetxController {
   Future<void> _loadQuestions() async {
     try {
       final unit = curriculumManager
-          .getUnitsForSemester(stageId, subjectId, semesterId)
+          .getUnits(stageId, semesterId, subjectId)
           ?.firstWhere((u) => u.id == unitId);
 
       if (unit == null) {
@@ -68,8 +70,8 @@ class AiQuizController extends GetxController {
 
       final context = curriculumManager.generateQuizContext(
         stageId,
-        subjectId,
         semesterId,
+        subjectId,
         unitId,
       );
 
@@ -93,6 +95,8 @@ class AiQuizController extends GetxController {
 
       questions.value = allQuestions;
       answers.assignAll(List.filled(allQuestions.length, ''));
+      questionStartTimes.assignAll(List.filled(allQuestions.length, DateTime.now()));
+      questionTimes.assignAll(List.filled(allQuestions.length, Duration.zero));
       isLoading.value = false;
     } catch (e) {
       errorMessage.value = 'خطأ في تحميل الأسئلة: $e';
@@ -112,6 +116,18 @@ class AiQuizController extends GetxController {
   }
 
   void setCurrentPage(int page) {
+    if (page == currentPage.value) return;
+
+    // Calculate time spent on previous question
+    if (currentPage.value >= 0 && currentPage.value < questionTimes.length) {
+      questionTimes[currentPage.value] = DateTime.now().difference(questionStartTimes[currentPage.value]);
+    }
+
+    // Set start time for new question
+    if (page >= 0 && page < questionStartTimes.length) {
+      questionStartTimes[page] = DateTime.now();
+    }
+
     currentPage.value = page;
   }
 
@@ -148,9 +164,50 @@ class AiQuizController extends GetxController {
     return false;
   }
 
+  String _getCorrectAnswer(dynamic question) {
+    if (question is Question) {
+      return question.correctAnswer;
+    }
+    if (question is TrueFalseQuestion) {
+      return question.correctAnswer.toString();
+    }
+    if (question is FillInTheBlanksQuestion) {
+      return question.correctAnswers.join(', ');
+    }
+    if (question is MultiSelectQuestion) {
+      return question.correctAnswers.join(', ');
+    }
+    if (question is ShortAnswerQuestion) {
+      return question.acceptableAnswers.join(' أو ');
+    }
+    return '';
+  }
+String getExplanation(dynamic question) {
+    if (question is Question) {
+      return question.explanation;
+    }
+    if (question is TrueFalseQuestion) {
+      return question.explanation;
+    }
+    if (question is FillInTheBlanksQuestion) {
+      return question.explanation;
+    }
+    if (question is MultiSelectQuestion) {
+      return question.explanation;
+    }
+    if (question is ShortAnswerQuestion) {
+      return question.explanation;
+    }
+    return '';
+  }
   void submitQuiz() {
     if (questions.isEmpty) return;
     _timer?.cancel();
+
+    // Calculate time for the last question
+    if (currentPage.value >= 0 && currentPage.value < questionTimes.length) {
+      questionTimes[currentPage.value] = DateTime.now().difference(questionStartTimes[currentPage.value]);
+    }
 
     final results = <QuestionResult>[];
     int correctCount = 0;
@@ -163,8 +220,10 @@ class AiQuizController extends GetxController {
       results.add(QuestionResult(
         questionId: 'q_${index}_${question.hashCode}',
         userAnswer: answer,
+        correctAnswer: _getCorrectAnswer(question),
+        explanation: getExplanation(question),
         isCorrect: isCorrect,
-        timeSpent: const Duration(seconds: 0),
+        timeSpent: questionTimes[index],
       ));
     }
 
@@ -174,6 +233,7 @@ class AiQuizController extends GetxController {
       completedAt: DateTime.now(),
       totalQuestions: questions.length,
       correctAnswers: correctCount,
+      explanation:getExplanation(questions[currentPage.value]) ,
       timeTaken: DateTime.now().difference(_startTime),
       results: results,
     );
