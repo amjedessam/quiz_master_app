@@ -26,10 +26,12 @@ void main() async {
   ); // Load environment variables
   await dotenv.load(fileName: '.env');
 
+
   // Initialize Supabase
   await Supabase.initialize(
     url: SupabaseConfig.url,
     anonKey: SupabaseConfig.anonKey,
+    debug: SupabaseConfig.enableLogging,
   );
 
   // Initialize sqflite ffi on desktop platforms so `sqflite` works on Windows/macOS/Linux

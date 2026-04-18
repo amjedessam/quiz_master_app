@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/utils/helpers.dart';
-import '../../routes/app_routes.dart'; // ✅ إضافة
-import '../notifications/notifications_controller.dart'; // ✅ إضافة
+import '../../routes/app_routes.dart';
+import '../notifications/notifications_controller.dart';
 import 'home_controller.dart';
 import 'widgets/stat_card.dart';
 import 'widgets/subject_card.dart';
@@ -69,6 +69,25 @@ class HomeView extends GetView<HomeController> {
           ),
         );
       }),
+      // ✅ زر عائم لفتح واجهات الأداة
+      floatingActionButton: FloatingActionButton(
+        onPressed: controller.toggleAIMenu,
+        tooltip: 'أدوات الاختبار الذكية',
+        backgroundColor: AppColors.primary,
+        child: Obx(
+          () => Icon(
+            controller.showAIMenu.value ? Icons.close : Icons.auto_awesome,
+            color: Colors.white,
+          ),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      // ✅ قائمة سفلية بخيارات الأداة
+      bottomSheet: Obx(
+        () => controller.showAIMenu.value
+            ? _buildAIToolsMenu(context)
+            : const SizedBox.shrink(),
+      ),
     );
   }
 
@@ -277,6 +296,160 @@ class HomeView extends GetView<HomeController> {
           );
         }),
       ],
+    );
+  }
+
+  // ✅ بناء قائمة أدوات الذكاء الاصطناعي
+  Widget _buildAIToolsMenu(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 10,
+            offset: const Offset(0, -2),
+          ),
+        ],
+      ),
+      child: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                // Handle bar
+                Container(
+                  width: 40,
+                  height: 4,
+                  margin: const EdgeInsets.only(bottom: 16),
+                  decoration: BoxDecoration(
+                    color: Colors.grey[300],
+                    borderRadius: BorderRadius.circular(2),
+                  ),
+                ),
+
+                // Title
+                const Text(
+                  'أدوات الاختبار الذكية ✨',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 16),
+
+                // اختبار المنهج
+                _buildAIMenuOption(
+                  icon: Icons.school,
+                  title: 'اختبار المنهج الدراسي',
+                  subtitle: 'اختر من المنهج الدراسي',
+                  onTap: controller.startCurriculumQuiz,
+                ),
+                const SizedBox(height: 12),
+
+                // اختبار الموضوع
+                _buildAIMenuOption(
+                  icon: Icons.lightbulb,
+                  title: 'اختبار مبني على الموضوع',
+                  subtitle: 'أدخل موضوع وتوليد أسئلة',
+                  onTap: controller.showTopicQuizDialog,
+                ),
+                const SizedBox(height: 12),
+
+                // اختبار مخصص
+                _buildAIMenuOption(
+                  icon: Icons.add_circle,
+                  title: 'إنشاء اختبار مخصص',
+                  subtitle: 'اختر نوع الأسئلة والعدد',
+                  onTap: controller.showCustomQuizDialog,
+                ),
+                const SizedBox(height: 12),
+
+                // معلومات المنهج
+                _buildAIMenuOption(
+                  icon: Icons.info_outline,
+                  title: 'معلومات المنهج',
+                  subtitle: 'احصائيات وتفاصيل',
+                  onTap: controller.showCurriculumInfo,
+                ),
+                const SizedBox(height: 16),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  // ✅ بناء خيار من قائمة الأدوات
+  Widget _buildAIMenuOption({
+    required IconData icon,
+    required String title,
+    required String subtitle,
+    required VoidCallback onTap,
+  }) {
+    return Material(
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(12),
+        child: Container(
+          padding: const EdgeInsets.all(12),
+          decoration: BoxDecoration(
+            color: AppColors.primary.withOpacity(0.05),
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: AppColors.primary.withOpacity(0.2)),
+          ),
+          child: Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: AppColors.primary,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Icon(
+                  icon,
+                  color: Colors.white,
+                  size: 24,
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                      ),
+                    ),
+                    Text(
+                      subtitle,
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.grey[600],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Icon(
+                Icons.arrow_forward_ios,
+                color: Colors.grey[400],
+                size: 16,
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

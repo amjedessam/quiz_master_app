@@ -72,6 +72,8 @@ class LoginController extends GetxController {
       Helpers.showSuccessSnackbar('تم تسجيل الدخول بنجاح');
       Get.offAllNamed(AppRoutes.MAIN_NAVIGATION);
     } catch (e) {
+
+      print('Login error: $e');
       final message = e.toString();
       if (message.contains('Invalid login credentials')) {
         Helpers.showErrorSnackbar('الرمز أو البريد الإلكتروني غير صحيح');

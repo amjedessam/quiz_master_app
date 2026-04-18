@@ -1,0 +1,2867 @@
+{
+  "education_levels": [
+    {
+      "level_id": "grade_9",
+      "level_name": "الصف التاسع - مرحلة التعليم الأساسي",
+      "country": "الجمهورية اليمنية",
+      "semesters": [
+        {
+          "semester_id": "semester_1",
+          "semester_name": "الفصل الدراسي الأول",
+          "subjects": [
+            {
+              "subject_id": "quran_9_p1",
+              "subject_name": "القرآن الكريم وعلومه",
+              "part": 1,
+              "category": "التجويد",
+              "units": [
+                {
+                  "unit_id": "tajweed_unit",
+                  "unit_title": "علم التجويد",
+                  "lessons": [
+                    {
+                      "lesson_id": "quran_L1",
+                      "lesson_title": "مد الصلة",
+                      "summary": "دراسة أحكام مد هاء الضمير للمفرد الغائب المذكر، وينقسم إلى صلة صغرى (مد حركتين) وصلة كبرى (يعامل معاملة المد المنفصل) بشرط وقوع الهاء بين متحركين.",
+                      "key_terms": [
+                        "هاء الضمير",
+                        "صلة صغرى",
+                        "صلة كبرى"
+                      ],
+                      "learning_objectives": [
+                        "فهم أحكام مد الصلة",
+                        "تمييز بين الصلة الصغرى والكبرى"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "تجويد",
+                        "مد",
+                        "هاء الضمير"
+                      ]
+                    },
+                    {
+                      "lesson_id": "quran_L2",
+                      "lesson_title": "مد التمكين ومد اللين",
+                      "summary": "التعرف على مد التمكين الذي يقع عند اجتماع واوين أو ياءين، ومد اللين الذي يخص الواو والياء الساكنتين المفتوح ما قبلهما عند الوقف.",
+                      "key_terms": [
+                        "مد التمكين",
+                        "مد اللين",
+                        "حروف اللين"
+                      ],
+                      "learning_objectives": [
+                        "فهم أحكام مد التمكين",
+                        "تمييز بين مد اللين والتمكين"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "تجويد",
+                        "مد",
+                        "حروف اللين"
+                      ]
+                    },
+                    {
+                      "lesson_id": "quran_L3",
+                      "lesson_title": "المد اللازم",
+                      "summary": "شرح المد الذي يلحق بالحرف إذا جاء بعده سكون أصلي، وينقسم إلى كلمي (مخفف ومثقل) وحرفي (مخفف ومثقل) ويمد بمقدار 6 حركات.",
+                      "key_terms": [
+                        "سكون أصلي",
+                        "مد لازم كلمي",
+                        "مد لازم حرفي"
+                      ],
+                      "learning_objectives": [
+                        "فهم أنواع المد اللازم",
+                        "تطبيق قواعد المد اللازم"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "تجويد",
+                        "مد",
+                        "سكون أصلي"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "subject_id": "islamic_9_p1",
+              "subject_name": "التربية الإسلامية",
+              "part": 1,
+              "units": [
+                {
+                  "unit_id": "unit_1_aqidah",
+                  "unit_title": "وحدة العقيدة",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_1_1",
+                      "lesson_title": "أدلة وحدانية الله تعالى",
+                      "summary": "دراسة الأدلة العقلية والكونية التي تثبت تفرد الله تعالى بالخلق والتدبير، والرد على ادعاءات الشرك من خلال التأمل في نظام الكون الدقيق.",
+                      "key_terms": [
+                        "الوحدانية",
+                        "أدلة الخلق",
+                        "التدبير الإلهي"
+                      ],
+                      "learning_objectives": [
+                        "إثبات وحدانية الله",
+                        "فهم الأدلة الكونية"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "عقيدة",
+                        "وحدانية",
+                        "كون"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_1_2",
+                      "lesson_title": "الإيمان باليوم الآخر",
+                      "summary": "بيان أهمية الإيمان باليوم الآخر كركين أساسي من أركان الإيمان، وتوضيح أثره في تقويم سلوك الفرد وتحقيق العدالة الإلهية.",
+                      "page_reference": 15,
+                      "learning_objectives": [
+                        "فهم أهمية الإيمان باليوم الآخر",
+                        "تطبيق تأثيره في السلوك"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "عقيدة",
+                        "يوم الآخر",
+                        "عدالة"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_2_fiqh",
+                  "unit_title": "وحدة الفقه",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_2_1",
+                      "lesson_title": "من البيوع المحرمة (الربا)",
+                      "summary": "تعريف الربا وأنواعه (ربا الفضل وربا النسيئة)، وتوضيح علة التحريم والآثار الاقتصادية والاجتماعية المترتبة على التعامل به.",
+                      "key_terms": [
+                        "ربا الفضل",
+                        "ربا النسيئة",
+                        "المعاملات المالية"
+                      ],
+                      "learning_objectives": [
+                        "فهم تعريف الربا وأنواعه",
+                        "معرفة علة التحريم"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "فقه",
+                        "ربا",
+                        "معاملات مالية"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_2_2",
+                      "lesson_title": "بيوع محرمة أخرى",
+                      "summary": "التعرف على صور البيوع المنهي عنها مثل بيع الغرر، والاحتکار، والبيع على بيع المسلم، لضمان سلامة التعاملات المالية من الغش.",
+                      "page_reference": 42,
+                      "learning_objectives": [
+                        "تمييز البيوع المحرمة",
+                        "فهم أسباب التحريم"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "فقه",
+                        "بيوع محرمة",
+                        "غش"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_3_seerah",
+                  "unit_title": "وحدة السيرة",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_3_1",
+                      "lesson_title": "فتح مكة",
+                      "summary": "استعراض أحداث فتح مكة في السنة الثامنة للهجرة، ودراسة أسبابه، ومنهج النبي ﷺ في العفو والرحمة عند النصر.",
+                      "key_terms": [
+                        "صلح الحديبية",
+                        "العفو عند المقدرة",
+                        "تطهير الكعبة"
+                      ],
+                      "learning_objectives": [
+                        "فهم أحداث فتح مكة",
+                        "استخلاص الدروس من منهج النبي"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "سيرة",
+                        "فتح مكة",
+                        "عفو"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_3_2",
+                      "lesson_title": "غزوة حنين",
+                      "summary": "دروس وعبر من لقاء المسلمين مع قبيلتي هوازن وثقيف، وأهمية التوكل على الله وعدم الاغترار بالكثرة العددية.",
+                      "page_reference": 68,
+                      "learning_objectives": [
+                        "استخلاص الدروس من غزوة حنين",
+                        "فهم أهمية التوكل"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "سيرة",
+                        "غزوة حنين",
+                        "توكل"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_4_akhlaq",
+                  "unit_title": "وحدة الأخلاق والسلوك",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_4_1",
+                      "lesson_title": "عفة الجوارح",
+                      "summary": "شرح مفهوم العفة الشامل وكيفية صيانة السمع والبصر واللسان عن المحرمات، وأثر ذلك في طهارة المجتمع.",
+                      "key_terms": [
+                        "العفة",
+                        "غض البصر",
+                        "حفظ اللسان"
+                      ],
+                      "learning_objectives": [
+                        "فهم مفهوم العفة",
+                        "تطبيق صيانة الجوارح"
+                      ],
+                      "difficulty": "easy",
+                      "keywords": [
+                        "أخلاق",
+                        "عفة",
+                        "جوارح"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_4_2",
+                      "lesson_title": "القناعة والرضا",
+                      "summary": "ترسيخ قيمة القناعة بما رزق الله والرضا بالقدر، ودور ذلك في تحقيق الطمأنينة النفسية والبعد عن الحسد والجشع.",
+                      "page_reference": 85,
+                      "learning_objectives": [
+                        "فهم قيمة القناعة",
+                        "تطبيق الرضا بالقدر"
+                      ],
+                      "difficulty": "easy",
+                      "keywords": [
+                        "أخلاق",
+                        "قناعة",
+                        "رضا"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "subject_id": "arabic_9_p1",
+              "subject_name": "اللغة العربية",
+              "part": 1,
+              "units": [
+                {
+                  "unit_id": "unit_1",
+                  "unit_title": "قيم إسلامية واجتماعية",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_1_1",
+                      "lesson_title": "من سورة الحجرات (نص قرآني)",
+                      "summary": "تحليل الآيات الكريمة التي تدعو إلى التثبت من الأخبار، والإصلاح بين المؤمنين، والتحذير من السخرية والغيبة والنميمة لبناء مجتمع مترابط.",
+                      "key_terms": [
+                        "التثبت",
+                        "الإصلاح",
+                        "الأخوة الإيمانية"
+                      ],
+                      "learning_objectives": [
+                        "فهم الآيات من سورة الحجرات",
+                        "تطبيق قواعد الأدب الإسلامي"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "نص قرآني",
+                        "سورة الحجرات",
+                        "أدب"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_1_2",
+                      "lesson_title": "أسماء القوة (نحو)",
+                      "summary": "دراسة أقسام الكلمة وعلامات الاسم، والتركيز على الأسماء التي تدل على الذات والصفة والمعنى.",
+                      "page_reference": 15,
+                      "learning_objectives": [
+                        "تمييز أقسام الكلمة",
+                        "فهم علامات الاسم"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "نحو",
+                        "أسماء",
+                        "قوة"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_1_3",
+                      "lesson_title": "الهمزة في أول الكلمة (إملاء)",
+                      "summary": "التمييز بين همزة الوصل وهمزة القطع من حيث النطق والكتابة ومواضع ورود كل منهما في الأسماء والأفعال والحروف.",
+                      "key_terms": [
+                        "همزة الوصل",
+                        "همزة القطع",
+                        "قواعد الإملاء"
+                      ],
+                      "learning_objectives": [
+                        "تمييز بين أنواع الهمزة",
+                        "تطبيق قواعد كتابتها"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "إملاء",
+                        "همزة",
+                        "وصل"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_2",
+                  "unit_title": "قضايا وطنية وإنسانية",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_2_1",
+                      "lesson_title": "إرادة الشعوب (نص أدبي)",
+                      "summary": "قراءة وتحليل قصائد وأدبيات تتحدث عن حب الوطن، والتضحية في سبيل الحرية، وإرادة الشعوب في تقرير مصيرها.",
+                      "page_reference": 35,
+                      "learning_objectives": [
+                        "فهم القيم الوطنية",
+                        "تحليل النصوص الأدبية"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "نص أدبي",
+                        "وطن",
+                        "حرية"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_2_2",
+                      "lesson_title": "الفعل المضارع المعتل الآخر (نحو)",
+                      "summary": "شرح أحكام إعراب الفعل المضارع إذا كان ينتهي بحرف علة (ألف، واو، ياء) في حالات الرفع والنصب والجزم.",
+                      "key_terms": [
+                        "حروف العلة",
+                        "حذف حرف العلة",
+                        "الإعراب التقديري"
+                      ],
+                      "learning_objectives": [
+                        "فهم إعراب الفعل المعتل",
+                        "تطبيق قواعد الإعراب"
+                      ],
+                      "difficulty": "hard",
+                      "keywords": [
+                        "نحو",
+                        "فعل مضارع",
+                        "علة"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_3",
+                  "unit_title": "العلم والعمل",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_3_1",
+                      "lesson_title": "أهمية العلم (نص معلوماتي)",
+                      "summary": "نص يتناول دور العلم في نهضة الأمم، والارتباط الوثيق بين المعلم والمتعلم، وضرورة اقتران العلم بالعمل والعمل الصالح.",
+                      "key_terms": [
+                        "النهضة",
+                        "الاختراع",
+                        "المسؤولية"
+                      ],
+                      "learning_objectives": [
+                        "فهم أهمية العلم",
+                        "تطبيق العلم في الحياة"
+                      ],
+                      "difficulty": "easy",
+                      "keywords": [
+                        "نص معلوماتي",
+                        "علم",
+                        "عمل"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_3_2",
+                      "lesson_title": "المجرد والمزيد من الأفعال (نحو)",
+                      "summary": "التفريق بين الفعل المجرد (الثلاثي والرباعي) والفعل المزيد بحرف أو أكثر، ودراسة أوزان الزيادة ومعانيها.",
+                      "page_reference": 72,
+                      "learning_objectives": [
+                        "تمييز بين المجرد والمزيد",
+                        "فهم أوزان الزيادة"
+                      ],
+                      "difficulty": "hard",
+                      "keywords": [
+                        "نحو",
+                        "فعل",
+                        "زيادة"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_3_3",
+                      "lesson_title": "الهمزة المتوسطة (إملاء)",
+                      "summary": "قواعد كتابة الهمزة في وسط الكلمة بناءً على قوة حركتها وحركة الحرف الذي قبلها (كسرة، ضمة، فتحة، سكون).",
+                      "key_terms": [
+                        "قوة الحركات",
+                        "نبرة",
+                        "واو الهمزة"
+                      ],
+                      "learning_objectives": [
+                        "فهم قواعد كتابة الهمزة المتوسطة",
+                        "تطبيقها في الكتابة"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "إملاء",
+                        "همزة متوسطة",
+                        "حركات"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_4",
+                  "unit_title": "البيئة والمجتمع",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_4_1",
+                      "lesson_title": "حماية البيئة (مطالعة)",
+                      "summary": "درس يتطرق إلى المشكلات البيئية المعاصرة وكيفية الحفاظ على الموارد الطبيعية والتوازن البيئي من منظور إسلامي وعلمي.",
+                      "key_terms": [
+                        "التلوث",
+                        "التوازن البيئي",
+                        "الاستدامة"
+                      ],
+                      "learning_objectives": [
+                        "فهم المشكلات البيئية",
+                        "تطبيق الحفاظ على البيئة"
+                      ],
+                      "difficulty": "easy",
+                      "keywords": [
+                        "مطالعة",
+                        "بيئة",
+                        "حفاظ"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_4_2",
+                      "lesson_title": "اسم الفاعل (نحو)",
+                      "summary": "اشتقاق اسم الفاعل من الفعل الثلاثي على وزن (فاعل) ومن غير الثلاثي بميم مضمومة وكسر ما قبل الآخر.",
+                      "key_terms": [
+                        "المشتقات",
+                        "صياغة",
+                        "الفاعل"
+                      ],
+                      "learning_objectives": [
+                        "فهم اشتقاق اسم الفاعل",
+                        "تطبيق قواعد الصياغة"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "نحو",
+                        "اسم فاعل",
+                        "اشتقاق"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "subject_id": "english_9_p1",
+              "subject_name": "English Course",
+              "part": 1,
+              "units": [
+                {
+                  "unit_id": "unit_1",
+                  "unit_title": "Revision",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_1_1",
+                      "lesson_title": "Presents from London",
+                      "summary": "Revision of basic structures through a story about bringing gifts from abroad.",
+                      "key_terms": [
+                        "Presents",
+                        "London",
+                        "Souvenirs"
+                      ],
+                      "learning_objectives": [
+                        "Reviewing past tenses",
+                        "Vocabulary related to travel"
+                      ],
+                      "difficulty": "easy",
+                      "keywords": [
+                        "Revision",
+                        "Travel",
+                        "Gifts"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_1_2",
+                      "lesson_title": "What's my job?",
+                      "summary": "Identifying different professions and describing daily routines and responsibilities.",
+                      "page_reference": 2,
+                      "learning_objectives": [
+                        "Naming occupations",
+                        "Using present simple for habits"
+                      ],
+                      "difficulty": "easy",
+                      "keywords": [
+                        "Jobs",
+                        "Professions",
+                        "Routines"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_2",
+                  "unit_title": "Describing; Making plans",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_2_1",
+                      "lesson_title": "What do they look like?",
+                      "summary": "Learning how to describe people's physical appearance (height, hair, eyes).",
+                      "key_terms": [
+                        "Appearance",
+                        "Height",
+                        "Build"
+                      ],
+                      "learning_objectives": [
+                        "Using descriptive adjectives",
+                        "Mastering the word order of adjectives"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "Description",
+                        "People",
+                        "Adjectives"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_2_2",
+                      "lesson_title": "Arranging to meet someone",
+                      "summary": "Making appointments and plans using 'going to' and present continuous for future arrangements.",
+                      "page_reference": 10,
+                      "learning_objectives": [
+                        "Expressing future plans",
+                        "Telling the time"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "Plans",
+                        "Time",
+                        "Meeting"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_3",
+                  "unit_title": "The past and the present",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_3_1",
+                      "lesson_title": "Past experiences",
+                      "summary": "Using the present perfect to talk about experiences without specifying a time.",
+                      "key_terms": [
+                        "Ever",
+                        "Never",
+                        "Experience"
+                      ],
+                      "learning_objectives": [
+                        "Understanding present perfect",
+                        "Distinguishing between past simple and present perfect"
+                      ],
+                      "difficulty": "hard",
+                      "keywords": [
+                        "Grammar",
+                        "Present Perfect",
+                        "Past"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_4",
+                  "unit_title": "The world around us",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_4_1",
+                      "lesson_title": "Comparative and Superlative",
+                      "summary": "Comparing cities, countries, and things using comparative and superlative forms.",
+                      "page_reference": 28,
+                      "learning_objectives": [
+                        "Making comparisons",
+                        "Understanding irregular adjectives"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "Comparison",
+                        "Superlative",
+                        "Adjectives"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "subject_id": "english_wb_9_p1",
+              "subject_name": "English Workbook",
+              "part": 1,
+              "units": [
+                {
+                  "unit_id": "unit_1",
+                  "unit_title": "Revision",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_1_1",
+                      "lesson_title": "Presents and Family",
+                      "summary": "Exercises on choosing presents for family members and practicing word order in sentences.",
+                      "key_terms": [
+                        "Presents",
+                        "Subject",
+                        "Object"
+                      ],
+                      "learning_objectives": [
+                        "Identify sentence components",
+                        "Apply correct word order"
+                      ],
+                      "difficulty": "easy",
+                      "keywords": [
+                        "Revision",
+                        "Grammar",
+                        "Family"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_1_2",
+                      "lesson_title": "Nouns and Quantity",
+                      "summary": "Distinguishing between count and non-count nouns using 'a/an', 'some', and numbers.",
+                      "page_reference": 4,
+                      "learning_objectives": [
+                        "Distinguish count/non-count nouns",
+                        "Use quantifiers correctly"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "Nouns",
+                        "Quantifiers",
+                        "Grammar"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_2",
+                  "unit_title": "Describing; Making plans",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_2_1",
+                      "lesson_title": "Appearance and Opposites",
+                      "summary": "Practice describing people's appearance and identifying opposite adjectives.",
+                      "key_terms": [
+                        "Appearance",
+                        "Opposites",
+                        "Adjectives"
+                      ],
+                      "learning_objectives": [
+                        "Use descriptive adjectives",
+                        "Expand vocabulary with opposites"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "Description",
+                        "Adjectives",
+                        "People"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_3",
+                  "unit_title": "The Past and the Present",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_3_1",
+                      "lesson_title": "Present Perfect Practice",
+                      "summary": "Written exercises using 'ever' and 'never' to describe life experiences.",
+                      "key_terms": [
+                        "Present Perfect",
+                        "Ever",
+                        "Never"
+                      ],
+                      "learning_objectives": [
+                        "Construct present perfect sentences",
+                        "Use time markers correctly"
+                      ],
+                      "difficulty": "hard",
+                      "keywords": [
+                        "Tenses",
+                        "Experience",
+                        "Grammar"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "subject_id": "math_9_p1",
+              "subject_name": "الرياضيات",
+              "part": 1,
+              "units": [
+                {
+                  "unit_id": "unit_1",
+                  "unit_title": "المجموعات والعلاقات",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_1_1",
+                      "lesson_title": "كتابة المجموعة بالصفة المميزة",
+                      "summary": "التعرف على كيفية التعبير عن المجموعات باستخدام الصفة التي تميز عناصرها بدلاً من سردها، وذلك بأسلوب لفظي أو رمزي باستخدام الرمز (:) الذي يعني 'حيث'[cite: 272, 281].",
+                      "key_terms": [
+                        "الصفة المميزة",
+                        "طريقة السرد",
+                        "الرمز الرمزي"
+                      ],
+                      "learning_objectives": [
+                        "كتابة المجموعات بالصفة",
+                        "فهم الرمز الرياضي"
+                      ],
+                      "difficulty": "easy",
+                      "keywords": [
+                        "مجموعات",
+                        "صفة مميزة",
+                        "رياضيات"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_1_2",
+                      "lesson_title": "مجموعة الفرق والمجموعة المتممة",
+                      "summary": "دراسة العمليات على المجموعات، حيث تعبر مجموعة الفرق (س / ص) عن العناصر التي تنتمي إلى س ولا تنتمي إلى ص[cite: 260, 41].",
+                      "page_reference": 10,
+                      "learning_objectives": [
+                        "فهم عمليات المجموعات",
+                        "حساب مجموعة الفرق"
+                      ],
+                      "difficulty": "easy",
+                      "keywords": [
+                        "مجموعات",
+                        "فرق",
+                        "متممة"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_1_5",
+                      "lesson_title": "التطبيق",
+                      "summary": "فهم مفهوم التطبيق كعلاقة تربط كل عنصر من المجال بعنصر واحد فقط من المجال المقابل وفق قاعدة محددة تسمى قاعدة التطبيق[cite: 260, 45].",
+                      "key_terms": [
+                        "المجال",
+                        "المجال المقابل",
+                        "قاعدة التطبيق"
+                      ],
+                      "learning_objectives": [
+                        "فهم مفهوم التطبيق",
+                        "تطبيق قاعدة التطبيق"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "مجموعات",
+                        "تطبيق",
+                        "علاقات"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_2",
+                  "unit_title": "تحليل المقادير الجبرية",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_2_2",
+                      "lesson_title": "المقدار الثلاثي",
+                      "summary": "تعلم طرق تحليل المقادير الجبرية المكونة من ثلاثة حدود (س² + ب س + جـ) إلى عواملها الأولية[cite: 260, 52].",
+                      "page_reference": 61,
+                      "learning_objectives": [
+                        "تحليل المقادير الثلاثية",
+                        "إيجاد العوامل الأولية"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "جبر",
+                        "تحليل",
+                        "عوامل"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_2_3",
+                      "lesson_title": "التحليل بإكمال المربع",
+                      "summary": "طريقة لتحويل المقدار الجبري إلى مربع كامل عن طريق إضافة وطرح نصف مربع معامل س، مما يسهل عملية التحليل[cite: 260, 58].",
+                      "key_terms": [
+                        "المربع الكامل",
+                        "إكمال المربع"
+                      ],
+                      "learning_objectives": [
+                        "تطبيق إكمال المربع",
+                        "تحويل المقادير"
+                      ],
+                      "difficulty": "hard",
+                      "keywords": [
+                        "جبر",
+                        "مربع كامل",
+                        "إكمال"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_2_4",
+                      "lesson_title": "مجموع مكعبين والفرق بينهما",
+                      "summary": "قواعد تحليل المقادير التي تأتي على صورة مجموع أو فرق بين مكعبين (أ³ ± ب³)[cite: 260, 74].",
+                      "formula": "(أ ± ب)(أ² ∓ أب + ب²)",
+                      "learning_objectives": [
+                        "تحليل مكعبين",
+                        "تطبيق الصيغ الجبرية"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "جبر",
+                        "مكعبين",
+                        "صيغ"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_3",
+                  "unit_title": "المعادلات",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_3_1",
+                      "lesson_title": "معادلة الدرجة الأولى ذات متغيرين",
+                      "summary": "دراسة المعادلات التي تحتوي على متغيرين (س، ص) وتكون من الدرجة الأولى، وتمثيل حلولها التي تكون عادة عدداً لا نهائياً من الأزواج المرتبة[cite: 265, 85].",
+                      "key_terms": [
+                        "متغيرين",
+                        "درجة أولى",
+                        "أزواج مرتبة"
+                      ],
+                      "learning_objectives": [
+                        "حل معادلات متغيرين",
+                        "تمثيل الحلول"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "معادلات",
+                        "متغيرين",
+                        "درجة أولى"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_3_3",
+                      "lesson_title": "معادلات الدرجة الثانية في متغير واحد",
+                      "summary": "حل المعادلات التي تأتي على صورة (أ س² + ب س + جـ = 0) باستخدام طرق التحليل أو القانون العام[cite: 265, 99].",
+                      "page_reference": 141,
+                      "learning_objectives": [
+                        "حل معادلات الدرجة الثانية",
+                        "تطبيق القانون العام"
+                      ],
+                      "difficulty": "hard",
+                      "keywords": [
+                        "معادلات",
+                        "درجة ثانية",
+                        "قانون عام"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_4",
+                  "unit_title": "حساب المثلثات",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_4_1",
+                      "lesson_title": "العلاقات العددية في مثلث قائم الزاوية",
+                      "summary": "دراسة خصائص المثلث قائم الزاوية، وتطبيق مبرهنة فيثاغورس وعكسها لتحديد أطوال الأضلاع[cite: 265, 118, 127].",
+                      "key_terms": [
+                        "مثلث قائم الزاوية",
+                        "مبرهنة فيثاغورس",
+                        "الوتر"
+                      ],
+                      "learning_objectives": [
+                        "تطبيق مبرهنة فيثاغورس",
+                        "حساب أطوال الأضلاع"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "مثلثات",
+                        "فيثاغورس",
+                        "قائم الزاوية"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_4_2",
+                      "lesson_title": "النسب المثلثية للزاوية الحادة",
+                      "summary": "تعريف نسب الجيب (جا) وجيب التمام (جتا) والظل (ظا) للزوايا الحادة بناءً على أطوال أضلاع المثلث القائم[cite: 265, 142, 144].",
+                      "key_terms": [
+                        "جيب الزاوية",
+                        "جيب تمام الزاوية",
+                        "ظل الزاوية"
+                      ],
+                      "learning_objectives": [
+                        "فهم النسب المثلثية",
+                        "حساب الجيب والظل"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "مثلثات",
+                        "جيب",
+                        "ظل"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "subject_id": "science_9_p1",
+              "subject_name": "العلوم",
+              "part": 1,
+              "units": [
+                {
+                  "unit_id": "unit_1",
+                  "unit_title": "الأجهزة الجسدية (الجهاز العصبي والهرموني)",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_1_1",
+                      "lesson_title": "الخلية العصبية والسيال العصبي",
+                      "summary": "دراسة تركيب الخلية العصبية كأداة لنقل الإشارات، وفهم آلية انتقال السيال العصبي عبر الألياف العصبية والتشابكات.",
+                      "key_terms": [
+                        "المحور العصبي",
+                        "الزوائد الشجيرية",
+                        "السيال"
+                      ],
+                      "learning_objectives": [
+                        "رسم تركيب الخلية العصبية",
+                        "شرح آلية انتقال السيال"
+                      ],
+                      "difficulty": "hard",
+                      "keywords": [
+                        "أحياء",
+                        "عصبونات",
+                        "تنسيق عصبي"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_1_2",
+                      "lesson_title": "الغدد الصماء والهرمونات",
+                      "summary": "التعرف على الغدد اللاقنوية وإفرازاتها الهرمونية التي تنظم أنشطة الجسم الحيوية مثل النمو والتمثيل الغذائي.",
+                      "page_reference": 25,
+                      "learning_objectives": [
+                        "تحديد مواقع الغدد الصماء",
+                        "فهم وظيفة هرمون الأنسولين"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "هرمونات",
+                        "غدة نخامية",
+                        "توازن كيميائي"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_2",
+                  "unit_title": "التكاثر في الكائنات الحية",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_2_1",
+                      "lesson_title": "الانقسام الخلوي (الميتوزي والميوزي)",
+                      "summary": "شرح الفرق بين الانقسام المتساوي لنمو الأنسجة والانقسام المنصف لتكوين الأمشاج والحفاظ على عدد الكروموسومات.",
+                      "key_terms": [
+                        "الكروموسومات",
+                        "المغزل",
+                        "الاختزال"
+                      ],
+                      "learning_objectives": [
+                        "تمييز مراحل الانقسام",
+                        "فهم دورة الخلية"
+                      ],
+                      "difficulty": "hard",
+                      "keywords": [
+                        "وراثة",
+                        "خلية",
+                        "انقسام"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_2_2",
+                      "lesson_title": "الجهاز التناسلي في الإنسان",
+                      "summary": "دراسة المكونات التشريحية للجهاز التناسلي الذكري والأنثوي، والتعرف على مراحل تكوين الجنين والحمل.",
+                      "page_reference": 58,
+                      "learning_objectives": [
+                        "توضيح وظائف الأعضاء التناسلية",
+                        "فهم مراحل الإخصاب"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "توالد",
+                        "إخصاب",
+                        "أجنة"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_3",
+                  "unit_title": "الكيمياء العضوية والكهربائية",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_3_1",
+                      "lesson_title": "المواد الهيدروكربونية",
+                      "summary": "مقدمة في الكيمياء العضوية تركز على مركبات الكربون والهيدروجين وتصنيفها إلى ألكانات وألكينات وألكاينات.",
+                      "key_terms": [
+                        "الروابط التساهمية",
+                        "الميثان",
+                        "التقطير التجزيئي"
+                      ],
+                      "learning_objectives": [
+                        "تسمية المركبات البسيطة",
+                        "فهم مشتقات النفط"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "كيمياء",
+                        "كربون",
+                        "هيدروكربونات"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_3_2",
+                      "lesson_title": "الخلايا الكهركيميائية",
+                      "summary": "شرح تحويل الطاقة الكيميائية إلى كهربائية في البطاريات، ودراسة عمليات الأكسدة والاختزال عند الأقطاب.",
+                      "page_reference": 92,
+                      "learning_objectives": [
+                        "شرح عمل الخلية الجلفانية",
+                        "فهم الطلاء الكهربائي"
+                      ],
+                      "difficulty": "hard",
+                      "keywords": [
+                        "كهرباء",
+                        "تفاعل",
+                        "أكسدة"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_4",
+                  "unit_title": "الكهرباء والمغناطيسية",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_4_1",
+                      "lesson_title": "الدوائر الكهربائية وقانون أوم",
+                      "summary": "العلاقة بين الجهد والتيار والمقاومة، وتطبيقات عملية على توصيل المقاومات على التوالي والتوازي.",
+                      "key_terms": [
+                        "الأمبير",
+                        "الفولت",
+                        "المقاومة النوعية"
+                      ],
+                      "learning_objectives": [
+                        "حساب شدة التيار",
+                        "تصميم دائرة بسيطة"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "فيزياء",
+                        "أوم",
+                        "توصيل"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_4_2",
+                      "lesson_title": "الحث الكهرومغناطيسي",
+                      "summary": "استنتاج تولد تيار كهربائي من خلال حركة الموصل داخل مجال مغناطيسي، وفهم مبدأ عمل المولدات والمحولات.",
+                      "key_terms": [
+                        "المجال المغناطيسي",
+                        "الدينامو",
+                        "الحث"
+                      ],
+                      "learning_objectives": [
+                        "شرح قانون فاراداي",
+                        "توضيح عمل المحول الكهربائي"
+                      ],
+                      "difficulty": "hard",
+                      "keywords": [
+                        "مغناطيس",
+                        "توليد الطاقة",
+                        "فيزياء"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "subject_id": "geography_9_p1",
+              "subject_name": "الجغرافيا",
+              "part": 1,
+              "units": [
+                {
+                  "unit_id": "unit_1",
+                  "unit_title": "الجغرافية الطبيعية للجمهورية اليمنية",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_1_1",
+                      "lesson_title": "موقع الجمهورية اليمنية وأهميته",
+                      "summary": "دراسة الموقع الفلكي والجغرافي لليمن، وتحديد الحدود البرية والبحرية والأهمية الاستراتيجية لموقعها المشرف على باب المندب.",
+                      "key_terms": [
+                        "الموقع الفلكي",
+                        "الموقع الجغرافي",
+                        "باب المندب"
+                      ],
+                      "learning_objectives": [
+                        "تحديد الموقع على الخريطة",
+                        "بيان الأهمية الاستراتيجية للموقع"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "موقع",
+                        "يمن",
+                        "حدود"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_1_2",
+                      "lesson_title": "تضاريس الجمهورية اليمنية",
+                      "summary": "استعراض الأقاليم التضاريسية في اليمن وتشمل السهول الساحلية، المرتفعات الجبلية، الهضاب الشرقية، والجزر اليمنية.",
+                      "page_reference": 8,
+                      "learning_objectives": [
+                        "تصنيف أشكال التضاريس",
+                        "رسم خريطة تضاريس اليمن"
+                      ],
+                      "difficulty": "hard",
+                      "keywords": [
+                        "تضاريس",
+                        "جبال",
+                        "سهول"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_1_3",
+                      "lesson_title": "المناخ والنبات الطبيعي",
+                      "summary": "تحليل العوامل المؤثرة في مناخ اليمن، وتوزيع الأقاليم المناخية وأنواع النباتات الطبيعية المرتبطة بكل إقليم.",
+                      "learning_objectives": [
+                        "تعداد العوامل المؤثرة في المناخ",
+                        "ربط النبات الطبيعي بالمناخ"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "مناخ",
+                        "نبات طبيعي",
+                        "أقاليم"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_2",
+                  "unit_title": "السكان والأنشطة الاقتصادية في الجمهورية اليمنية",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_2_1",
+                      "lesson_title": "نمو السكان وتوزيعهم",
+                      "summary": "دراسة التطور العددي لسكان اليمن، ومعدلات النمو، وكيفية توزيع الكثافة السكانية في المحافظات المختلفة.",
+                      "key_terms": [
+                        "النمو السكاني",
+                        "الكثافة السكانية",
+                        "التعداد"
+                      ],
+                      "learning_objectives": [
+                        "تحليل أسباب النمو السكاني",
+                        "شرح عوامل توزيع السكان"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "سكان",
+                        "نمو",
+                        "توزيع"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_2_2",
+                      "lesson_title": "الأنشطة الاقتصادية",
+                      "summary": "استعراض القطاعات الإنتاجية في اليمن مثل الزراعة، الثروة الحيوانية، والأسماك، والمعادن، ودورها في الدخل القومي.",
+                      "page_reference": 43,
+                      "learning_objectives": [
+                        "معرفة أهم المحاصيل الزراعية",
+                        "تحديد مناطق الثروات المعدنية"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "اقتصاد",
+                        "زراعة",
+                        "معادن"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "subject_id": "history_9_p1",
+              "subject_name": "التاريخ",
+              "part": 1,
+              "units": [
+                {
+                  "unit_id": "unit_1",
+                  "unit_title": "العالم العربي تحت الحكم العثماني",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_1_1",
+                      "lesson_title": "أوضاع العالم العربي قبل الحكم العثماني",
+                      "summary": "استعراض الحالة السياسية والاقتصادية والاجتماعية في أواخر عهد المماليك، وبداية التفكك الذي مهد الطريق للتوسع العثماني.",
+                      "key_terms": [
+                        "المماليك",
+                        "التوسع العثماني",
+                        "التفكك السياسي"
+                      ],
+                      "learning_objectives": [
+                        "تحليل أسباب ضعف الدولة المملوكية",
+                        "وصف الخريطة السياسية للعالم العربي آنذاك"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "تاريخ قديم",
+                        "العثمانيون",
+                        "سياسة"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_1_2",
+                      "lesson_title": "الإدارة العثمانية في البلاد العربية",
+                      "summary": "دراسة النظم الإدارية والمالية التي طبقها العثمانيون في الولايات العربية، بما في ذلك نظام الالتزام والتقسيمات الإدارية.",
+                      "page_reference": 18,
+                      "learning_objectives": [
+                        "فهم هيكل السلطة العثمانية",
+                        "تقييم أثر نظام الالتزام على الزراعة"
+                      ],
+                      "difficulty": "hard",
+                      "keywords": [
+                        "إدارة",
+                        "ولاية",
+                        "نظام مالي"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_2",
+                  "unit_title": "اليمن في العصر الحديث (العهد العثماني)",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_2_1",
+                      "lesson_title": "دخول العثمانيين إلى اليمن",
+                      "summary": "تتبع مراحل الحملات العثمانية على اليمن، والأهداف الاستراتيجية لحماية البحر الأحمر من الأطماع البرتغالية.",
+                      "key_terms": [
+                        "البحر الأحمر",
+                        "البرتغاليون",
+                        "الحملات العثمانية"
+                      ],
+                      "learning_objectives": [
+                        "معرفة أسباب الاهتمام العثماني باليمن",
+                        "تحديد أهم المدن اليمنية التي دخلها العثمانيون"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "اليمن",
+                        "تاريخ وطني",
+                        "استعمار"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_2_2",
+                      "lesson_title": "المقاومة اليمنية للوجود العثماني",
+                      "summary": "توثيق حركات المقاومة الشعبية والقبلية ضد الإدارة العثمانية، ودور الأئمة في قيادة الثورات المطالبة بالاستقلال.",
+                      "page_reference": 45,
+                      "learning_objectives": [
+                        "تحليل أسباب الثورات اليمنية",
+                        "فهم نتائج معاهدة دعان"
+                      ],
+                      "difficulty": "hard",
+                      "keywords": [
+                        "ثورة",
+                        "استقلال",
+                        "مقاومة"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_3",
+                  "unit_title": "النهضة العربية الحديثة",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_3_1",
+                      "lesson_title": "عوامل قيام النهضة العربية",
+                      "summary": "دراسة المؤثرات الثقافية والسياسية التي أدت إلى يقظة الوعي العربي، مثل الطباعة، والبعثات العلمية، والجمعيات الأدبية.",
+                      "key_terms": [
+                        "اليقظة",
+                        "الجمعيات",
+                        "الفكر القومي"
+                      ],
+                      "learning_objectives": [
+                        "تعداد مظاهر النهضة الثقافية",
+                        "تحديد دور الرواد في نشر الفكر النهضوي"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "ثقافة",
+                        "فكر",
+                        "نهضة"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_3_2",
+                      "lesson_title": "الجمعيات السياسية والأدبية",
+                      "summary": "إلقاء الضوء على دور الجمعيات السرية والعلنية في المطالبة بالحقوق العربية في أواخر الدولة العثمانية.",
+                      "page_reference": 72,
+                      "learning_objectives": [
+                        "التمييز بين أهداف الجمعيات المختلفة",
+                        "شرح دور الجمعيات في التمهيد للثورة العربية"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "جمعيات",
+                        "سياسة",
+                        "وعي"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_4",
+                  "unit_title": "الاستعمار الأوروبي في الوطن العربي",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_4_1",
+                      "lesson_title": "أشكال الاستعمار وأهدافه",
+                      "summary": "تحليل مفهوم الاستعمار (الاحتلال، الحماية، الانتداب) والدوافع الاقتصادية والعسكرية للدول الأوروبية في المنطقة العربية.",
+                      "key_terms": [
+                        "الانتداب",
+                        "الحماية",
+                        "الإمبريالية"
+                      ],
+                      "learning_objectives": [
+                        "المقارنة بين أنواع الاستعمار",
+                        "استنتاج الأهداف الاستراتيجية للاحتلال"
+                      ],
+                      "difficulty": "easy",
+                      "keywords": [
+                        "استعمار",
+                        "أوروبا",
+                        "توسع"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_4_2",
+                      "lesson_title": "المخططات الاستعمارية (سايكس بيكو)",
+                      "summary": "دراسة الاتفاقيات السرية التي هدفت إلى تقسيم الوطن العربي، وكيفية إعادة رسم حدود المنطقة بعد الحرب العالمية الأولى.",
+                      "key_terms": [
+                        "تقسيم",
+                        "اتفاقيات سرية",
+                        "خريطة العرب"
+                      ],
+                      "learning_objectives": [
+                        "فهم بنود اتفاقية سايكس بيكو",
+                        "توضيح تداعيات التقسيم على الوحدة العربية"
+                      ],
+                      "difficulty": "hard",
+                      "keywords": [
+                        "اتفاقيات",
+                        "تقسيم",
+                        "سياسة دولية"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "subject_id": "national_edu_9_p1",
+              "subject_name": "التربية الوطنية",
+              "part": 1,
+              "units": [
+                {
+                  "unit_id": "unit_1",
+                  "unit_title": "قيم واتجاهات اجتماعية",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_1_1",
+                      "lesson_title": "التعاون والعمل الجماعي",
+                      "summary": "دراسة أهمية التعاون في الإسلام وفي حياة المجتمع، وكيف يسهم العمل الجماعي في إنجاز الأهداف وتنمية روح الأخوة.",
+                      "key_terms": [
+                        "التعاون",
+                        "العمل الجماعي",
+                        "التكافل الاجتماعي"
+                      ],
+                      "learning_objectives": [
+                        "إدراك أهمية التعاون",
+                        "تطبيق العمل الجماعي في الأنشطة المدرسية"
+                      ],
+                      "difficulty": "easy",
+                      "keywords": [
+                        "مجتمع",
+                        "تعاون",
+                        "قيم"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_1_2",
+                      "lesson_title": "الحفاظ على الممتلكات العامة",
+                      "summary": "تعريف الممتلكات العامة والفرق بينها وبين الخاصة، وواجب الفرد تجاه المرافق العامة كالمشاريع الصحية والتعليمية.",
+                      "page_reference": 14,
+                      "learning_objectives": [
+                        "التمييز بين الملكية العامة والخاصة",
+                        "تعزيز السلوك الإيجابي تجاه المرافق"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "ممتلكات عامة",
+                        "مرافق",
+                        "مسؤولية"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_2",
+                  "unit_title": "الأسرة والمجتمع",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_2_1",
+                      "lesson_title": "حقوق الوالدين والأسرة",
+                      "summary": "بيان مكانة الوالدين في الإسلام وواجب الأبناء نحوهما، ودور الأسرة في بناء المجتمع الصالح.",
+                      "key_terms": [
+                        "بر الوالدين",
+                        "الترابط الأسري",
+                        "صلة الرحم"
+                      ],
+                      "learning_objectives": [
+                        "فهم حقوق الوالدين",
+                        "إدراك أهمية الأسرة كأصغر وحدة اجتماعية"
+                      ],
+                      "difficulty": "easy",
+                      "keywords": [
+                        "أسرة",
+                        "بر",
+                        "حقوق"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "semester_id": "semester_2",
+          "semester_name": "الفصل الدراسي الثاني",
+          "subjects": [
+            {
+              "subject_id": "quran_9_p2",
+              "subject_name": "القرآن الكريم وعلومه",
+              "part": 2,
+              "category": "التفسير",
+              "units": [
+                {
+                  "unit_id": "tafsir_unit_1",
+                  "unit_title": "تفسير سورة الحجرات",
+                  "lessons": [
+                    {
+                      "lesson_id": "tafsir_L1",
+                      "lesson_title": "الأدب مع الله ورسوله",
+                      "summary": "تفسير الآيات الأولى من سورة الحجرات التي ترسي قواعد التعامل مع النبي ﷺ وعدم التقدم بين يديه وخفض الصوت في حضرته.",
+                      "page_reference": 45,
+                      "learning_objectives": [
+                        "فهم آداب التعامل مع النبي",
+                        "تطبيق قواعد الأدب الإسلامي"
+                      ],
+                      "difficulty": "easy",
+                      "keywords": [
+                        "سورة الحجرات",
+                        "أدب",
+                        "رسول"
+                      ]
+                    },
+                    {
+                      "lesson_id": "tafsir_L2",
+                      "lesson_title": "أدب التعامل مع الأخبار",
+                      "summary": "شرح قوله تعالى 'يا أيها الذين آمنوا إن جاءكم فاسق بنبأ فتبينوا'، وأهمية التثبت من الشائعات لتجنب الفتن.",
+                      "key_terms": [
+                        "التثبت",
+                        "النبأ",
+                        "الفاسق"
+                      ],
+                      "learning_objectives": [
+                        "فهم أهمية التثبت من الأخبار",
+                        "تطبيق قواعد التعامل مع الشائعات"
+                      ],
+                      "difficulty": "easy",
+                      "keywords": [
+                        "سورة الحجرات",
+                        "تثبت",
+                        "فتن"
+                      ]
+                    },
+                    {
+                      "lesson_id": "tafsir_L3",
+                      "lesson_title": "الإصلاح بين المؤمنين",
+                      "summary": "دراسة أحكام الإصلاح بين الفئات المتنازعة من المسلمين ووجوب رد الباغي إلى أمر الله وتحقيق الأخوة الإيمانية.",
+                      "key_terms": [
+                        "الفئة الباغية",
+                        "الإصلاح",
+                        "القسط"
+                      ],
+                      "learning_objectives": [
+                        "فهم أحكام الإصلاح بين المؤمنين",
+                        "تطبيق قواعد الإصلاح"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "سورة الحجرات",
+                        "إصلاح",
+                        "أخوة إيمانية"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "tafsir_unit_2",
+                  "unit_title": "تفسير سورة يس",
+                  "lessons": [
+                    {
+                      "lesson_id": "tafsir_L4",
+                      "lesson_title": "قصة أصحاب القرية",
+                      "summary": "استخلاص العبر من قصة المرسلين الذين كذبهم أهل القرية، وموقف الرجل المؤمن الذي جاء من أقصى المدينة يسعى.",
+                      "page_reference": 78,
+                      "learning_objectives": [
+                        "استخلاص العبر من القصة",
+                        "فهم موقف المؤمن"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "سورة يس",
+                        "قصة",
+                        "إيمان"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "subject_id": "islamic_9_p2",
+              "subject_name": "التربية الإسلامية",
+              "part": 2,
+              "units": [
+                {
+                  "unit_id": "unit_5_aqidah",
+                  "unit_title": "وحدة العقيدة",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_5_1",
+                      "lesson_title": "الإيمان بالملائكة",
+                      "summary": "التعرف على عالم الملائكة ككائنات نورانية جبلت على طاعة الله، ودراسة وظائفهم وأثر الإيمان بهم في سلوك المسلم وانضباطه.",
+                      "key_terms": [
+                        "عالم الغيب",
+                        "الوحي",
+                        "العبادة"
+                      ],
+                      "learning_objectives": [
+                        "فهم صفات الملائكة",
+                        "معرفة وظائفهم"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "عقيدة",
+                        "ملائكة",
+                        "طاعة"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_5_2",
+                      "lesson_title": "الإيمان بالكتب السماوية",
+                      "summary": "الإقرار بأن الله أنزل كتباً على رسله لهداية البشر، والتصديق بأن القرآن الكريم هو خاتم هذه الكتب ومهيمن عليها.",
+                      "page_reference": 12,
+                      "learning_objectives": [
+                        "فهم الإيمان بالكتب السماوية",
+                        "معرفة مكانة القرآن"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "عقيدة",
+                        "كتب سماوية",
+                        "قرآن"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_6_fiqh",
+                  "unit_title": "وحدة الفقه",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_6_1",
+                      "lesson_title": "صلاة الجماعة وأحكامها",
+                      "summary": "بيان فضل صلاة الجماعة وحكمها، وكيفية تسوية الصفوف وأحكام الإمامة والمأموم وحالات الاستخلاف في الصلاة.",
+                      "key_terms": [
+                        "الإمامة",
+                        "المأموم",
+                        "تسوية الصفوف"
+                      ],
+                      "learning_objectives": [
+                        "فهم أحكام صلاة الجماعة",
+                        "تطبيق قواعد الإمامة"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "فقه",
+                        "صلاة جماعة",
+                        "إمامة"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_6_3",
+                      "lesson_title": "صلاة المسافر",
+                      "summary": "دراسة الرخص الشرعية للمسافر من حيث قصر الصلاة الرباعية والجمع بين الصلوات، وشروط مسافة القصر والمدة الزمنية.",
+                      "page_reference": 48,
+                      "learning_objectives": [
+                        "فهم أحكام صلاة المسافر",
+                        "معرفة شروط القصر"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "فقه",
+                        "صلاة مسافر",
+                        "قصر"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_7_seerah",
+                  "unit_title": "وحدة السيرة",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_7_1",
+                      "lesson_title": "غزوة تبوك",
+                      "summary": "عرض لأحداث غزوة تبوك (غزوة العسرة)، وبيان موقف المنافقين وتضحيات الصحابة بالمال والنفس لتجهيز جيش العسرة.",
+                      "key_terms": [
+                        "جيش العسرة",
+                        "المنافقون",
+                        "الروم"
+                      ],
+                      "learning_objectives": [
+                        "فهم أحداث غزوة تبوك",
+                        "استخلاص الدروس منها"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "سيرة",
+                        "غزوة تبوك",
+                        "عسرة"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_7_2",
+                      "lesson_title": "حجة الوداع ووفاة الرسول ﷺ",
+                      "summary": "تغطية أحداث الحجة الوحيدة للنبي ﷺ، وتحليل خطبة الوداع وما تضمنته من مبادئ حقوقية، ثم استعراض لحظات وفاة الرسول ﷺ.",
+                      "page_reference": 105,
+                      "learning_objectives": [
+                        "فهم أحداث حجة الوداع",
+                        "معرفة مبادئ خطبة الوداع"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "سيرة",
+                        "حجة وداع",
+                        "خطبة"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_8_akhlaq",
+                  "unit_title": "وحدة الأخلاق والسلوك",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_8_1",
+                      "lesson_title": "بر الوالدين",
+                      "summary": "تأكيد مكانة الوالدين في الإسلام ووجوب طاعتهما بالمعروف والإحسان إليهما في حياتهما وبعد مماتهما.",
+                      "key_terms": [
+                        "الإحسان",
+                        "حقوق الآباء",
+                        "صلة الرحم"
+                      ],
+                      "learning_objectives": [
+                        "فهم حقوق الوالدين",
+                        "تطبيق الإحسان إليهما"
+                      ],
+                      "difficulty": "easy",
+                      "keywords": [
+                        "أخلاق",
+                        "والدين",
+                        "إحسان"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_8_3",
+                      "lesson_title": "الأمانة والمسؤولية",
+                      "summary": "مفهوم الأمانة الشامل الذي يشمل العبادات وحقوق الناس وحفظ الأسرار، وأهمية تحمل المسؤولية في بناء مجتمع صالح.",
+                      "key_terms": [
+                        "حفظ العهد",
+                        "المسؤولية الاجتماعية",
+                        "الأمانة"
+                      ],
+                      "learning_objectives": [
+                        "فهم مفهوم الأمانة",
+                        "تطبيق حفظ العهد"
+                      ],
+                      "difficulty": "easy",
+                      "keywords": [
+                        "أخلاق",
+                        "أمانة",
+                        "مسؤولية"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "subject_id": "arabic_9_p2",
+              "subject_name": "اللغة العربية",
+              "part": 2,
+              "units": [
+                {
+                  "unit_id": "unit_5",
+                  "unit_title": "قيم إنسانية وخالدة",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_5_1",
+                      "lesson_title": "رسالة إلى ابني (نص أدبي)",
+                      "summary": "نص نثري يتضمن مجموعة من النصائح والتجارب الحياتية التي ينقلها أب لفلذة كبده، مؤكداً على قيم العمل، والاجتهاد، واختيار الصديق الصالح.",
+                      "key_terms": [
+                        "النصيحة",
+                        "التجربة الحياتية",
+                        "القيم"
+                      ],
+                      "learning_objectives": [
+                        "فهم القيم من النص",
+                        "تطبيق النصائح في الحياة"
+                      ],
+                      "difficulty": "easy",
+                      "keywords": [
+                        "نص أدبي",
+                        "نصيحة",
+                        "قيم"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_5_2",
+                      "lesson_title": "اسم المفعول (نحو)",
+                      "summary": "دراسة كيفية صياغة اسم المفعول من الفعل الثلاثي على وزن (مفعول) ومن غير الثلاثي بميم مضمومة وفتح ما قبل الآخر، مع بيان دلالته على من وقع عليه الفعل.",
+                      "page_reference": 18,
+                      "learning_objectives": [
+                        "فهم اشتقاق اسم المفعول",
+                        "تطبيق قواعد الصياغة"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "نحو",
+                        "اسم مفعول",
+                        "اشتقاق"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_6",
+                  "unit_title": "من سيرة البطولات",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_6_1",
+                      "lesson_title": "استشهاد الحسين (نص نثري)",
+                      "summary": "قراءة أدبية تتناول سيرة ومواقف شجاعة، مستعرضةً التضحية في سبيل المبدأ والحق، وتحليل الخصائص الفنية للنص التاريخي الأدبي.",
+                      "key_terms": [
+                        "البطولة",
+                        "التضحية",
+                        "النص التاريخي"
+                      ],
+                      "learning_objectives": [
+                        "فهم القيم من السيرة",
+                        "تحليل النص الأدبي"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "نص نثري",
+                        "بطولة",
+                        "تضحية"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_6_2",
+                      "lesson_title": "صيغ المبالغة (نحو)",
+                      "summary": "التعرف على أوزان صيغ المبالغة المشهورة (فعّال، مفعال، فعول، فعيل، فَعِل) ودلالتها على كثرة حدوث الفعل.",
+                      "page_reference": 45,
+                      "learning_objectives": [
+                        "فهم صيغ المبالغة",
+                        "تطبيقها في اللغة"
+                      ],
+                      "difficulty": "hard",
+                      "keywords": [
+                        "نحو",
+                        "مبالغة",
+                        "أوزان"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_7",
+                  "unit_title": "العلم والتكنولوجيا",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_7_1",
+                      "lesson_title": "لغة الاتصال المعاصر (مطالعة)",
+                      "summary": "موضوع يتناول ثورة المعلومات ووسائل الاتصال الحديثة، ودورها في تقريب المسافات ونشر المعرفة، مع التنبيه على الاستخدام الواعي لها.",
+                      "key_terms": [
+                        "ثورة المعلومات",
+                        "الاتصال",
+                        "الإنترنت"
+                      ],
+                      "learning_objectives": [
+                        "فهم دور التكنولوجيا",
+                        "تطبيق الاستخدام الواعي"
+                      ],
+                      "difficulty": "easy",
+                      "keywords": [
+                        "مطالعة",
+                        "تكنولوجيا",
+                        "معلومات"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_7_2",
+                      "lesson_title": "اسم الزمان واسم المكان (نحو)",
+                      "summary": "شرح قواعد اشتقاق اسمي الزمان والمكان من الأفعال الثلاثية وغير الثلاثية، والتمييز بينهما من خلال السياق اللغوي.",
+                      "page_reference": 72,
+                      "learning_objectives": [
+                        "فهم قواعد اشتقاق الأسماء",
+                        "تمييز بين اسم الزمان واسم المكان"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "نحو",
+                        "أسماء",
+                        "زمان",
+                        "مكان"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_8",
+                  "unit_title": "من أدبنا المعاصر",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_8_1",
+                      "lesson_title": "الفنون الأدبية (شعر/نثر)",
+                      "summary": "استعراض نماذج من الأدب اليمني والعربي المعاصر، وتحليل الأبعاد الوطنية والإنسانية في القصائد المختارة.",
+                      "key_terms": [
+                        "الأدب المعاصر",
+                        "الصورة الشعرية",
+                        "الهوية"
+                      ],
+                      "learning_objectives": [
+                        "تحليل النصوص الأدبية",
+                        "فهم الأبعاد الوطنية"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "أدب",
+                        "شعر",
+                        "نثر",
+                        "يمني"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_8_2",
+                      "lesson_title": "اسم الآلة (صرف)",
+                      "summary": "دراسة الأسماء التي تدل على الأداة التي يؤدى بها الفعل، والتمييز بين أسماء الآلة القياسية (المشتقة) والجامدة.",
+                      "key_terms": [
+                        "المشتقات",
+                        "الأداة",
+                        "أوزان الآلة"
+                      ],
+                      "learning_objectives": [
+                        "فهم أسماء الآلة",
+                        "تمييز بين المشتق والجامد"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "صرف",
+                        "أسماء",
+                        "آلة",
+                        "مشتقات"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_8_3",
+                      "lesson_title": "الألف المتطرفة (إملاء)",
+                      "summary": "قواعد كتابة الألف في نهاية الأسماء والأفعال (ممدودة أو مقصورة) بناءً على أصلها وعدد حروف الكلمة.",
+                      "key_terms": [
+                        "الألف اللينة",
+                        "الرسم الإملائي",
+                        "أصل الألف"
+                      ],
+                      "learning_objectives": [
+                        "فهم قواعد كتابة الألف",
+                        "تطبيق الإملاء الصحيح"
+                      ],
+                      "difficulty": "easy",
+                      "keywords": [
+                        "إملاء",
+                        "ألف",
+                        "ممدودة",
+                        "مقصورة"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "subject_id": "english_9_p2",
+              "subject_name": "English Course",
+              "part": 2,
+              "units": [
+                {
+                  "unit_id": "unit_5",
+                  "unit_title": "Safety",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_5_1",
+                      "lesson_title": "Warnings to children",
+                      "summary": "Discussing safety rules at home and outside, and giving warnings to avoid accidents.",
+                      "key_terms": [
+                        "Safety",
+                        "Warning",
+                        "Danger"
+                      ],
+                      "learning_objectives": [
+                        "Using imperative for instructions",
+                        "Vocabulary of safety symbols"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "Safety",
+                        "Accidents",
+                        "Rules"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_5_2",
+                      "lesson_title": "Road safety",
+                      "summary": "Focusing on traffic rules and how to cross the road safely.",
+                      "page_reference": 39,
+                      "learning_objectives": [
+                        "Expressing obligation (must/should)",
+                        "Understanding traffic signs"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "Traffic",
+                        "Road",
+                        "Must"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_6",
+                  "unit_title": "Helping others",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_6_1",
+                      "lesson_title": "People who help others",
+                      "summary": "Learning about community service and different ways people help in society.",
+                      "key_terms": [
+                        "Volunteer",
+                        "Helpful",
+                        "Community"
+                      ],
+                      "learning_objectives": [
+                        "Using relative clauses (who/which)",
+                        "Expanding social vocabulary"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "Helping",
+                        "Volunteer",
+                        "Society"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_7",
+                  "unit_title": "Inventions",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_7_1",
+                      "lesson_title": "Famous inventions",
+                      "summary": "Reading about historical inventions that changed the world.",
+                      "key_terms": [
+                        "Invention",
+                        "Discover",
+                        "Scientist"
+                      ],
+                      "learning_objectives": [
+                        "Using the passive voice (past simple)",
+                        "Sequencing events in history"
+                      ],
+                      "difficulty": "hard",
+                      "keywords": [
+                        "History",
+                        "Inventions",
+                        "Passive"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_8",
+                  "unit_title": "General Revision",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_8_1",
+                      "lesson_title": "Final Review",
+                      "summary": "A comprehensive review of the grammar and vocabulary covered in both parts.",
+                      "learning_objectives": [
+                        "Self-assessment",
+                        "Consolidation of language skills"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "Review",
+                        "Practice",
+                        "Exam"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "subject_id": "english_wb_9_p2",
+              "subject_name": "English Workbook",
+              "part": 2,
+              "units": [
+                {
+                  "unit_id": "unit_5",
+                  "unit_title": "Safety",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_5_1",
+                      "lesson_title": "Warnings and Advice",
+                      "summary": "Practical exercises on giving warnings and using 'must/mustn't' for safety rules.",
+                      "key_terms": [
+                        "Warning",
+                        "Must",
+                        "Obligation"
+                      ],
+                      "learning_objectives": [
+                        "Express obligation",
+                        "Write safety instructions"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "Safety",
+                        "Rules",
+                        "Modal Verbs"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_5_2",
+                      "lesson_title": "Road Safety Tasks",
+                      "summary": "Identifying traffic signs and completing sentences about road safety protocols.",
+                      "page_reference": 52,
+                      "learning_objectives": [
+                        "Understand traffic symbols",
+                        "Apply road safety vocabulary"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "Traffic",
+                        "Road",
+                        "Safety"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_6",
+                  "unit_title": "Helping Others",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_6_1",
+                      "lesson_title": "Relative Clauses in Context",
+                      "summary": "Combining sentences using 'who' and 'which' to describe people who help the community.",
+                      "key_terms": [
+                        "Relative Clauses",
+                        "Community",
+                        "Volunteering"
+                      ],
+                      "learning_objectives": [
+                        "Use relative pronouns correctly",
+                        "Describe social roles"
+                      ],
+                      "difficulty": "hard",
+                      "keywords": [
+                        "Grammar",
+                        "Community",
+                        "Writing"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_7",
+                  "unit_title": "Inventions",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_7_1",
+                      "lesson_title": "The Passive Voice",
+                      "summary": "Exercises converting active sentences to passive to describe historical inventions.",
+                      "key_terms": [
+                        "Passive Voice",
+                        "Inventions",
+                        "History"
+                      ],
+                      "learning_objectives": [
+                        "Form passive voice sentences",
+                        "Identify scientific breakthroughs"
+                      ],
+                      "difficulty": "hard",
+                      "keywords": [
+                        "Passive",
+                        "Science",
+                        "History"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "subject_id": "math_9_p2",
+              "subject_name": "الرياضيات",
+              "part": 2,
+              "units": [
+                {
+                  "unit_id": "unit_5",
+                  "unit_title": "الهندسة: الدائرة",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_5_1",
+                      "lesson_title": "الدائرة",
+                      "summary": "التعرف على الدائرة كنموعة نقاط تبعد بعداً ثابتاً عن المركز. تشمل المفاهيم: نصف القطر (نق)، الوتر، والقطر (أطول وتر). كما توضح تقسيم الدائرة للمستوى إلى داخل، على، وخارج الدائرة[cite: 30, 31].",
+                      "key_terms": [
+                        "المركز",
+                        "نصف القطر",
+                        "الوتر",
+                        "القطر"
+                      ],
+                      "learning_objectives": [
+                        "فهم خصائص الدائرة",
+                        "تمييز أجزاء الدائرة"
+                      ],
+                      "difficulty": "easy",
+                      "keywords": [
+                        "هندسة",
+                        "دائرة",
+                        "مركز",
+                        "وتر"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_5_2",
+                      "lesson_title": "العمود النازل من مركز الدائرة على الوتر",
+                      "summary": "دراسة العلاقة الهندسية بين المركز والأوتار، حيث أن العمود النازل من المركز على أي وتر ينصف ذلك الوتر[cite: 249].",
+                      "page_reference": 10,
+                      "learning_objectives": [
+                        "فهم علاقة المركز بالوتر",
+                        "تطبيق خصائص الدائرة"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "هندسة",
+                        "دائرة",
+                        "وتر",
+                        "عمود"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_5_8",
+                      "lesson_title": "المماس",
+                      "summary": "المستقيم الذي يشترك مع الدائرة في نقطة واحدة فقط تسمى نقطة التماس. يكون المماس عمودياً على نصف قطر الدائرة المار بنقطة التماس[cite: 32].",
+                      "key_terms": [
+                        "المماس",
+                        "نقطة التماس"
+                      ],
+                      "learning_objectives": [
+                        "فهم مفهوم المماس",
+                        "تطبيق خصائص المماس"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "هندسة",
+                        "دائرة",
+                        "مماس",
+                        "تماس"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_6",
+                  "unit_title": "الهندسة الإحداثية والتحويلات",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_6_1",
+                      "lesson_title": "البعد بين نقطتين",
+                      "summary": "استخدام قانون البعد لحساب المسافة بين نقطتين في المستوى الإحداثي س و ص[cite: 249].",
+                      "page_reference": 65,
+                      "learning_objectives": [
+                        "حساب المسافة بين نقطتين",
+                        "تطبيق قانون البعد"
+                      ],
+                      "difficulty": "easy",
+                      "keywords": [
+                        "إحداثيات",
+                        "مسافة",
+                        "نقطتين"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_6_3",
+                      "lesson_title": "الانعكاس",
+                      "summary": "تحويل هندسي يقلب الشكل حول محور (السينات أو الصادات). الانعكاس يحافظ على أطوال القطع المستقيمة وقياسات الزوايا[cite: 101].",
+                      "key_terms": [
+                        "محور الانعكاس",
+                        "الصورة"
+                      ],
+                      "learning_objectives": [
+                        "فهم تحويل الانعكاس",
+                        "تطبيق الانعكاس على الأشكال"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "هندسة",
+                        "انعكاس",
+                        "محور"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_6_6",
+                      "lesson_title": "التكبير",
+                      "summary": "تحويل هندسي يغير قياسات الشكل بنسبة ثابتة (معامل التكبير) مع الحفاظ على التناسب والزوايا[cite: 116].",
+                      "key_terms": [
+                        "مركز التكبير",
+                        "معامل التكبير"
+                      ],
+                      "learning_objectives": [
+                        "فهم تحويل التكبير",
+                        "تطبيق معامل التكبير"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "هندسة",
+                        "تكبير",
+                        "معامل"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_7",
+                  "unit_title": "الإحصاء",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_7_1",
+                      "lesson_title": "المتوسط الحسابي",
+                      "summary": "طريقة حساب القيمة المركزية لمجموعة بيانات عن طريق جمع القيم وقسمتها على عددها[cite: 133].",
+                      "formula": "مجموع القيم / عددها",
+                      "learning_objectives": [
+                        "حساب المتوسط الحسابي",
+                        "فهم القيمة المركزية"
+                      ],
+                      "difficulty": "easy",
+                      "keywords": [
+                        "إحصاء",
+                        "متوسط",
+                        "بيانات"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_7_2",
+                      "lesson_title": "المنوال",
+                      "summary": "تحديد القيمة الأكثر تكراراً أو شيوعاً في مجموعة البيانات الإحصائية[cite: 138].",
+                      "key_terms": [
+                        "التكرار",
+                        "القيمة الشائعة"
+                      ],
+                      "learning_objectives": [
+                        "تحديد المنوال",
+                        "فهم التكرار في البيانات"
+                      ],
+                      "difficulty": "easy",
+                      "keywords": [
+                        "إحصاء",
+                        "منوال",
+                        "تكرار"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_7_4",
+                      "lesson_title": "الوسيط",
+                      "summary": "القيمة التي تتوسط البيانات بعد ترتيبها تصاعدياً أو تنازلياً. يوضح الكتاب كيفية إيجاده للبيانات الفردية والزوجية والبيانات المبوبة[cite: 147, 149].",
+                      "key_terms": [
+                        "الترتيب التصاعدي",
+                        "الترتيب التنازلي"
+                      ],
+                      "learning_objectives": [
+                        "حساب الوسيط",
+                        "ترتيب البيانات"
+                      ],
+                      "difficulty": "easy",
+                      "keywords": [
+                        "إحصاء",
+                        "وسيط",
+                        "ترتيب"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "subject_id": "science_9_p2",
+              "subject_name": "العلوم",
+              "part": 2,
+              "units": [
+                {
+                  "unit_id": "unit_5",
+                  "unit_title": "الكون والفضاء",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_5_1",
+                      "lesson_title": "المجموعات النجمية والمجرات",
+                      "summary": "دراسة التجمعات النجمية في السماء وأشكال المجرات، مع التركيز على مجرة درب التبانة وموقع مجموعتنا الشمسية فيها.",
+                      "key_terms": [
+                        "السدم",
+                        "درب التبانة",
+                        "السنة الضوئية"
+                      ],
+                      "learning_objectives": [
+                        "تمييز أنواع المجرات",
+                        "فهم قياس المسافات الكونية"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "فلك",
+                        "مجرات",
+                        "نجوم"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_5_2",
+                      "lesson_title": "الأقمار الاصطناعية وتكنولوجيا الفضاء",
+                      "summary": "التعرف على كيفية إطلاق الأقمار الاصطناعية ومداراتها، واستخداماتها في الاتصالات، والأرصاد الجوية، والبحث العلمي.",
+                      "page_reference": 15,
+                      "learning_objectives": [
+                        "شرح مبدأ عمل الأقمار الاصطناعية",
+                        "تعداد فوائد استكشاف الفضاء"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "تكنولوجيا",
+                        "أقمار اصطناعية",
+                        "مدارات"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_6",
+                  "unit_title": "الضوء والمرايا والعدسات",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_6_1",
+                      "lesson_title": "انعكاس الضوء والمرايا",
+                      "summary": "دراسة قوانين انعكاس الضوء، وخصائص الصور المتكونة في المرايا المستوية والمرايا الكروية (المحدبة والمقعرة).",
+                      "key_terms": [
+                        "زاوية السقوط",
+                        "البؤرة",
+                        "المركز البصري"
+                      ],
+                      "learning_objectives": [
+                        "تطبيق قوانين الانعكاس",
+                        "رسم مسارات الأشعة في المرايا"
+                      ],
+                      "difficulty": "hard",
+                      "keywords": [
+                        "فيزياء",
+                        "بصريات",
+                        "مرايا"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_6_2",
+                      "lesson_title": "انكسار الضوء والعدسات",
+                      "summary": "شرح ظاهرة انكسار الضوء عند انتقاله بين وسطين مختلفين، وتطبيقات العدسات في النظارات الطبية والأجهزة البصرية.",
+                      "page_reference": 48,
+                      "learning_objectives": [
+                        "فهم معامل الانكسار",
+                        "تحديد عيوب الإبصار وكيفية تصحيحها"
+                      ],
+                      "difficulty": "hard",
+                      "keywords": [
+                        "انكسار",
+                        "عدسات",
+                        "رؤية"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_7",
+                  "unit_title": "الصوت وآلية السمع",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_7_1",
+                      "lesson_title": "خصائص الموجات الصوتية",
+                      "summary": "دراسة طبيعة الصوت كموجات طولية، والعوامل المؤثرة في سرعته، وخصائصه مثل الدرجة والشدة والنوع.",
+                      "key_terms": [
+                        "التردد",
+                        "الطول الموجي",
+                        "الصدى"
+                      ],
+                      "learning_objectives": [
+                        "حساب سرعة الصوت",
+                        "تمييز الموجات فوق الصوتية"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "صوت",
+                        "أمواج",
+                        "اهتزاز"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_7_2",
+                      "lesson_title": "تركيب الأذن ووظيفة السمع",
+                      "summary": "تحليل التركيب التشريحي للأذن (الخارجية والوسطى والداخلية) وكيفية تحويل الاهتزازات إلى إشارات عصبية يترجمها الدماغ.",
+                      "page_reference": 85,
+                      "learning_objectives": [
+                        "رسم أجزاء الأذن",
+                        "فهم آلية الحفاظ على التوازن"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "تشريح",
+                        "سمع",
+                        "أعصاب"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_8",
+                  "unit_title": "البيئة والتوازن البيئي",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_8_1",
+                      "lesson_title": "تلوث البيئة ومصادره",
+                      "summary": "استعراض أنواع التلوث (هوائي، مائي، تربة) والآثار الناتجة عن الأنشطة الصناعية والبشرية على النظام البيئي.",
+                      "key_terms": [
+                        "الاحتباس الحراري",
+                        "الأمطار الحمضية",
+                        "التنوع الحيوي"
+                      ],
+                      "learning_objectives": [
+                        "تحديد ملوثات البيئة",
+                        "اقتراح حلول للحد من التلوث"
+                      ],
+                      "difficulty": "easy",
+                      "keywords": [
+                        "بيئة",
+                        "تلوث",
+                        "استدامة"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "subject_id": "geography_9_p2",
+              "subject_name": "الجغرافيا",
+              "part": 2,
+              "units": [
+                {
+                  "unit_id": "unit_3",
+                  "unit_title": "الجغرافيا الطبيعية للوطن العربي",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_3_1",
+                      "lesson_title": "موقع الوطن العربي وأهميته",
+                      "summary": "دراسة موقع الوطن العربي كجسر يربط بين قارات العالم القديم، وأهمية المسطحات والممرات المائية التي يسيطر عليها.",
+                      "key_terms": [
+                        "الوطن العربي",
+                        "المضايق",
+                        "الأهمية الاقتصادية"
+                      ],
+                      "learning_objectives": [
+                        "تحديد الموقع الجغرافي للوطن العربي",
+                        "استنتاج أهمية الموقع دولياً"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "موقع",
+                        "وطن عربي",
+                        "ممرات"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_3_2",
+                      "lesson_title": "تضاريس الوطن العربي",
+                      "summary": "تحليل الوحدات التضاريسية الكبرى في الجناحين الآسيوي والأفريقي، مثل جبال أطلس، جبال الشام، والمنخفضات والهضاب.",
+                      "page_reference": 66,
+                      "learning_objectives": [
+                        "التمييز بين الجبال الالتوائية والانكسارية",
+                        "توزيع التضاريس على الخريطة"
+                      ],
+                      "difficulty": "hard",
+                      "keywords": [
+                        "تضاريس",
+                        "جبال",
+                        "هضاب"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_4",
+                  "unit_title": "السكان والأنشطة الاقتصادية في الوطن العربي",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_4_1",
+                      "lesson_title": "سكان الوطن العربي",
+                      "summary": "دراسة الخصائص الديموغرافية لسكان الدول العربية، ومعدلات الزيادة الطبيعية والهجرة بين الدول العربية.",
+                      "key_terms": [
+                        "الزيادة الطبيعية",
+                        "الهجرة الوافدة",
+                        "التركيب السكاني"
+                      ],
+                      "learning_objectives": [
+                        "شرح أسباب تركز السكان في بعض المناطق",
+                        "تحليل الهرم السكاني العربي"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "سكان",
+                        "عرب",
+                        "ديموغرافيا"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_4_2",
+                      "lesson_title": "الزراعة والثروة الحيوانية",
+                      "summary": "تحديد أهم الأقاليم الزراعية في الوطن العربي، والمشكلات التي تواجه الأمن الغذائي العربي وكيفية مواجهتها.",
+                      "page_reference": 92,
+                      "learning_objectives": [
+                        "تصنيف الموارد المائية للزراعة",
+                        "اقتراح حلول للفجوة الغذائية"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "زراعة",
+                        "ثروة حيوانية",
+                        "أمن غذائي"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "subject_id": "history_9_p2",
+              "subject_name": "التاريخ",
+              "part": 2,
+              "units": [
+                {
+                  "unit_id": "unit_5",
+                  "unit_title": "الاستقلال والتحرر في الوطن العربي",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_5_1",
+                      "lesson_title": "ثورات التحرر في المغرب العربي",
+                      "summary": "دراسة حركات الكفاح المسلح والنضال السياسي في تونس والجزائر والمغرب ضد الاستعمار الفرنسي حتى نيل الاستقلال.",
+                      "key_terms": [
+                        "جبهة التحرير",
+                        "مليون شهيد",
+                        "النضال المسلح"
+                      ],
+                      "learning_objectives": [
+                        "تتبع مراحل الثورة الجزائرية",
+                        "معرفة دور القادة المغاربة في نيل الاستقلال"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "المغرب العربي",
+                        "استعمار فرنسي",
+                        "ثورة"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_5_2",
+                      "lesson_title": "استقلال دول المشرق العربي",
+                      "summary": "تحليل الظروف الدولية والإقليمية التي ساهمت في استقلال سوريا ولبنان والأردن والعراق من الانتدابين البريطاني والفرنسي.",
+                      "page_reference": 22,
+                      "learning_objectives": [
+                        "شرح أثر الحرب العالمية الثانية على حركات الاستقلال",
+                        "تحديد معالم السيادة الوطنية في دول المشرق"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "المشرق العربي",
+                        "انتداب",
+                        "سيادة"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_6",
+                  "unit_title": "اليمن المعاصر (الثورة والوحدة)",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_6_1",
+                      "lesson_title": "ثورة 26 سبتمبر وقيام النظام الجمهوري",
+                      "summary": "توثيق أحداث ثورة 1962 في شمال الوطن، وأهدافها في القضاء على الحكم الإمامي وإرساء قواعد العدالة والجمهورية.",
+                      "key_terms": [
+                        "النظام الجمهوري",
+                        "أهداف الثورة",
+                        "الإمامة"
+                      ],
+                      "learning_objectives": [
+                        "فهم الأسباب الدافعة لثورة سبتمبر",
+                        "تبيين منجزات العهد الجمهوري في اليمن"
+                      ],
+                      "difficulty": "hard",
+                      "keywords": [
+                        "اليمن",
+                        "سبتمبر",
+                        "جمهورية"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_6_2",
+                      "lesson_title": "ثورة 14 أكتوبر والاستقلال في الجنوب",
+                      "summary": "تسليط الضوء على الكفاح المسلح ضد الاستعمار البريطاني في جنوب اليمن انطلاقاً من جبال ردفان وحتى رحيل آخر جندي بريطاني.",
+                      "page_reference": 54,
+                      "learning_objectives": [
+                        "معرفة أهمية ثورة أكتوبر في تاريخ اليمن",
+                        "تحديد تاريخ رحيل الاستعمار البريطاني"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "أكتوبر",
+                        "جنوب اليمن",
+                        "استقلال"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_6_3",
+                      "lesson_title": "تحقيق الوحدة اليمنية 1990م",
+                      "summary": "استعراض مسار المفاوضات والاتفاقيات التي أدت إلى إعادة تحقيق الوحدة اليمنية وقيام الجمهورية اليمنية.",
+                      "key_terms": [
+                        "22 مايو",
+                        "إعادة التحقيق",
+                        "الديمقراطية"
+                      ],
+                      "learning_objectives": [
+                        "شرح أهمية الوحدة لليمن والمنطقة",
+                        "تعداد الثوابت الوطنية للجمهورية اليمنية"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "الوحدة اليمنية",
+                        "تاريخ حديث",
+                        "مايو"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_7",
+                  "unit_title": "القضية الفلسطينية والصراع العربي الصهيوني",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_7_1",
+                      "lesson_title": "جذور القضية الفلسطينية ووعد بلفور",
+                      "summary": "تأصيل تاريخي للمؤامرات الدولية التي استهدفت فلسطين، ودور بريطانيا في تسهيل الهجرات الصهيونية.",
+                      "key_terms": [
+                        "وعد بلفور",
+                        "الانتداب البريطاني",
+                        "الصهيونية"
+                      ],
+                      "learning_objectives": [
+                        "فهم أبعاد التواطؤ الدولي ضد فلسطين",
+                        "تحليل مخاطر المشروع الصهيوني"
+                      ],
+                      "difficulty": "hard",
+                      "keywords": [
+                        "فلسطين",
+                        "القدس",
+                        "تاريخ القضية"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_7_2",
+                      "lesson_title": "الحروب العربية الإسرائيلية والمقاومة",
+                      "summary": "عرض للمواجهات العسكرية الكبرى (1948، 1967، 1973) ودور المقاومة الفلسطينية في الحفاظ على الهوية الوطنية.",
+                      "page_reference": 105,
+                      "learning_objectives": [
+                        "المقارنة بين نتائج الحروب العربية",
+                        "تقدير دور الانتفاضات الشعبية الفلسطينية"
+                      ],
+                      "difficulty": "hard",
+                      "keywords": [
+                        "حروب",
+                        "مقاومة",
+                        "صمود"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "subject_id": "national_edu_9_p2",
+              "subject_name": "التربية الوطنية",
+              "part": 2,
+              "units": [
+                {
+                  "unit_id": "unit_3",
+                  "unit_title": "المواطنة وحقوق الإنسان",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_3_1",
+                      "lesson_title": "مفهوم المواطنة الصالحة",
+                      "summary": "شرح معنى المواطنة الصالحة والارتباط الوثيق بين الفرد ووطنه، وأهمية الالتزام بالقوانين والأنظمة.",
+                      "key_terms": [
+                        "المواطنة",
+                        "الانتماء",
+                        "الهوية الوطنية"
+                      ],
+                      "learning_objectives": [
+                        "استنتاج صفات المواطن الصالح",
+                        "تعزيز قيم الولاء للوطن"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "مواطنة",
+                        "وطن",
+                        "هوية"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_3_2",
+                      "lesson_title": "الحقوق والحريات العامة",
+                      "summary": "استعراض الحقوق التي كفلها الدستور للمواطن اليمني، مثل حق التعليم والصحة والمشاركة في الحياة العامة.",
+                      "page_reference": 48,
+                      "learning_objectives": [
+                        "معرفة الحقوق الدستورية",
+                        "تقدير قيمة الحريات المسؤولة"
+                      ],
+                      "difficulty": "hard",
+                      "keywords": [
+                        "حقوق",
+                        "حريات",
+                        "دستور"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit_id": "unit_4",
+                  "unit_title": "القضايا المعاصرة والمشاركة المجتمعية",
+                  "lessons": [
+                    {
+                      "lesson_id": "lesson_4_1",
+                      "lesson_title": "المشاركة المجتمعية",
+                      "summary": "دور الشباب في التنمية المحلية والمبادرات التطوعية، وكيفية المساهمة في حل مشكلات المجتمع المحلي.",
+                      "key_terms": [
+                        "العمل التطوعي",
+                        "المبادرة",
+                        "التنمية"
+                      ],
+                      "learning_objectives": [
+                        "تشجيع المبادرات الشبابية",
+                        "فهم دور العمل التطوعي"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "تطوع",
+                        "مشاركة",
+                        "شباب"
+                      ]
+                    },
+                    {
+                      "lesson_id": "lesson_4_2",
+                      "lesson_title": "الآفات الاجتماعية (الغش والاحتكار)",
+                      "summary": "تحليل مخاطر الغش والاحتكار على الاقتصاد والمجتمع، والموقف القانوني والأخلاقي تجاه هذه الظواهر.",
+                      "page_reference": 62,
+                      "learning_objectives": [
+                        "تبيين مخاطر الغش",
+                        "اقتراح حلول لمكافحة الاحتكار"
+                      ],
+                      "difficulty": "medium",
+                      "keywords": [
+                        "الغش",
+                        "الاحتكار",
+                        "آفات اجتماعية"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

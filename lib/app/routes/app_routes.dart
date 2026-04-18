@@ -23,4 +23,8 @@ abstract class AppRoutes {
   static const SUBJECT_PDF = '/subject-pdf';
   static const NOTIFICATIONS = '/notifications';
   static const ASSIGNED_EXAMS = '/assigned-exams';
+  static const CURRICULUM_SELECTION = '/curriculum-selection'; // ✅ أضفنا هذا
+  static const QUIZ_SCREEN = '/quiz-screen'; // ✅ أضفنا هذا
+  static const QUIZ_RESULT_SCREEN = '/quiz-result-screen'; // ✅ أضفنا هذا
+  static const QUESTION_WIDGET = '/question-widget'; // ✅ أضفنا هذا
 }
